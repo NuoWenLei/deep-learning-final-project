@@ -1,5 +1,7 @@
 # Unguided Diffusion
 
+See [this Google Colab noteboook](https://colab.research.google.com/drive/1gWPoUnxKtZOkXORMHY5T0bJ3QIcpZk68?usp=sharing) for a demo.
+
 ## `diffusion.py`
 
 **`class UnguidedDiffusion(tf.keras.models.Model)`**
