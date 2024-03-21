@@ -1,6 +1,6 @@
 from imports import tf, np, tqdm
 from unguided_diffusion.unet import create_unet
-from model_blocks import TimeEmbedding2D
+from unguided_diffusion.model_blocks import TimeEmbedding2D
 
 class UnguidedDiffusion(tf.keras.models.Model):
 

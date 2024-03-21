@@ -32,6 +32,6 @@ Function that constructs a UNet Keras model conditioned on some context embeddin
 
 ## `helpers.py`
 
-**`def create_flow_unguided(x, batch_size = 128)`**
+**`def create_flow_unguided(x, batch_size = 128, preprocess_func = None, repeat = True)`**
 
-Function that instantiates a data generator that yields certain batch size.
+Function that instantiates a data generator that yields batches of a certain batch size preprocessed per batch.
