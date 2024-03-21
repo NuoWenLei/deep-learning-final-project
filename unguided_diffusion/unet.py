@@ -1,7 +1,7 @@
 from imports import tf
 from model_blocks import UNetBlocks
 
-def create_unet(input_shape, start_filters = 256, num_blocks = 2, dropout_prob = 0.3, filter_size = 3, num_channels = 1, leaky = 0.05):
+def create_unet(input_shape, start_filters = 256, num_blocks = 2, dropout_prob = 0.3, filter_size = 3, num_channels = 1, leaky = 0.05, output_channels = None):
 
   input_block = tf.keras.layers.Input(shape = input_shape)
   
@@ -31,6 +31,9 @@ def create_unet(input_shape, start_filters = 256, num_blocks = 2, dropout_prob =
     
   x, _ = UNetBlocks.EncoderMiniBlock(x, filter_size, start_filters, dropout_prob, max_pooling = False, leaky = leaky)
 
-  output_layer = tf.keras.layers.Conv2D(num_channels, filter_size, padding = "same")(x)
+  if output_channels is None:
+    output_layer = tf.keras.layers.Conv2D(num_channels, filter_size, padding = "same")(x)
+  else:
+    output_layer = tf.keras.layers.Conv2D(output_channels, filter_size, padding = "same")(x)
 
   return tf.keras.models.Model(inputs = [input_block, *embed_inputs], outputs = output_layer)

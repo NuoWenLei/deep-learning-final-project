@@ -15,14 +15,14 @@ def create_flow_unguided(x, batch_size = 128, preprocess_func = None, repeat = T
       x = tf.gather(x, shuffled_idxs)
     elif (i + batch_size) >= total_samples:
       if preprocess_func is None:
-        yield (tf.cast(x[i: i + batch_size], tf.float32) / 255.)
+        yield x[i: i + batch_size]
       else:
-        yield preprocess_func(tf.cast(x[i: i + batch_size], tf.float32))
+        yield preprocess_func(x[i: i + batch_size])
       break
     if preprocess_func is None:
-      yield (tf.cast(x[i: i + batch_size], tf.float32) / 255.)
+      yield x[i: i + batch_size]
     else:
-      yield preprocess_func(tf.cast(x[i: i + batch_size], tf.float32))
+      yield preprocess_func(x[i: i + batch_size])
 
 # Load Latent Data
 def load_latent_data(fp_to_npy, preprocess_func = None):
@@ -32,3 +32,25 @@ def load_latent_data(fp_to_npy, preprocess_func = None):
   if preprocess_func is not None:
     return preprocess_func(results)
   return results
+
+def calc_frame_indices(total_samples, num_frames_per_sample):
+  total_sample_indices = [i for i in range(total_samples)]
+  available_sample_indices = total_samples - num_frames_per_sample
+  stacked_indices = []
+  for i in range(available_sample_indices):
+    stacked_indices.append((
+      total_sample_indices[i:i+num_frames_per_sample-1], total_sample_indices[i+num_frames_per_sample-1]
+    ))
+  return stacked_indices
+
+def gather_samples_from_dataset(X_y_indices, dataset):
+  X_indices = []
+  y_indices = []
+
+  for X_ind, y_ind in X_y_indices:
+    X_indices.append(X_ind)
+    y_indices.append(y_ind)
+
+  X = tf.gather(dataset, X_indices, axis = 0)
+  y = tf.gather(dataset, y_indices, axis = 0)
+  return X, y

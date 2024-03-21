@@ -1,7 +1,7 @@
 from imports import tf, np, tqdm
 
-from unguided_diffusion.helpers import create_flow_unguided, load_latent_data
-from unguided_diffusion.diffusion import UnguidedDiffusion
+from unguided_diffusion.helpers import create_flow_unguided, gather_samples_from_dataset, load_latent_data, calc_frame_indices
+from unguided_diffusion.diffusion import UnguidedVideoDiffusion
 
 import gc
 import json
@@ -23,6 +23,7 @@ from constants import (
 	LATENT_SHAPE,
 	NUM_FILTERS,
 	NUM_BLOCKS,
+	NUM_PREV_FRAMES,
 	DROPOUT_PROB,
 	FILTER_SIZE,
 	NOISE_LEVELS,
@@ -45,12 +46,19 @@ def main():
 	if USE_SAMPLE_DATA:
 		sample_latents = load_latent_data(LATENT_SAMPLE_PATH)
 		NUM_SAMPLES = sample_latents.shape[0]
-		dataloader = create_flow_unguided(sample_latents, batch_size = BATCH_SIZE)
+		sample_indices = calc_frame_indices(NUM_SAMPLES, NUM_PREV_FRAMES + 1)
+
+		gather_func = partial(gather_samples_from_dataset, dataset = sample_latents)
+
+		# Create Data Generator
+		dataloader = create_flow_unguided(sample_indices, batch_size = BATCH_SIZE, preprocess_func=gather_func)
 		logger("USE_SAMPLE_DATA=True, using sample data")
 
-	diffusion_model = UnguidedDiffusion(
+	# Initialize Diffusion Model
+	diffusion_model = UnguidedVideoDiffusion(
 		input_shape=LATENT_SHAPE[:2],
 		num_channels=LATENT_SHAPE[-1],
+		num_prev_frames=NUM_PREV_FRAMES,
 		batch_size = BATCH_SIZE,
 		start_filters=NUM_FILTERS,
 		num_blocks=NUM_BLOCKS,
@@ -58,7 +66,7 @@ def main():
 		filter_size=FILTER_SIZE,
 		noise_level=NOISE_LEVELS,
 		leaky=LEAKY,
-		name="unguided_diffusion"
+		name="unguided_video_diffusion"
 	)
 
 	diffusion_model.compile(
@@ -77,10 +85,11 @@ def main():
 		logger(f"Epoch {epoch}: ")
 		pb = tf.keras.utils.Progbar(BATCH_SIZE * STEPS_PER_EPOCH)
 		for _ in range(STEPS_PER_EPOCH):
-			batch = next(dataloader)
-			metrics = diffusion_model.train_step(batch)
+			prev_frames_batch, new_frame_batch = next(dataloader)
+			metrics = diffusion_model.train_step(new_frame_batch, prev_frames_batch)
 			pb.add(BATCH_SIZE, values=[(k, v) for k,v in metrics.items()])
 
+		# Calculate Metric Averages of Epoch
 		epoch_averages = dict((k, v[0] / v[1]) for k, v in pb._values.items())
 		for k in epoch_averages.keys():
 			summed_metrics[k] += epoch_averages[k]
