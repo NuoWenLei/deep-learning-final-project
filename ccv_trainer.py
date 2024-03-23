@@ -4,6 +4,7 @@ from unguided_diffusion.helpers import create_flow_unguided, gather_samples_from
 from unguided_diffusion.diffusion import UnguidedVideoDiffusion
 
 import gc
+import os
 import json
 import datetime
 from functools import partial
@@ -14,7 +15,11 @@ from constants import (
 	# Training Settings
 	LOG_FILEPATH,
 	RESULT_DIRPATH,
+	RESULT_SAMPLE_RATE,
+	SAMPLE_BATCH_SIZE,
 	LATENT_SAMPLE_PATH,
+	CHECKPOINT_PATH,
+	CHECKPOINT_SAVE_RATE,
 	BATCH_SIZE,
 	NUM_EPOCHS,
 	USE_SAMPLE_DATA,
@@ -48,10 +53,13 @@ def main():
 		NUM_SAMPLES = sample_latents.shape[0]
 		sample_indices = calc_frame_indices(NUM_SAMPLES, NUM_PREV_FRAMES + 1)
 
+		assert len(sample_indices) <= NUM_SAMPLES
+
 		gather_func = partial(gather_samples_from_dataset, dataset = sample_latents)
 
 		# Create Data Generator
 		dataloader = create_flow_unguided(sample_indices, batch_size = BATCH_SIZE, preprocess_func=gather_func)
+		test_dataloader = create_flow_unguided(sample_indices, batch_size = SAMPLE_BATCH_SIZE, preprocess_func=gather_func)
 		logger("USE_SAMPLE_DATA=True, using sample data")
 
 	# Initialize Diffusion Model
@@ -85,7 +93,10 @@ def main():
 		logger(f"Epoch {epoch}: ")
 		pb = tf.keras.utils.Progbar(BATCH_SIZE * STEPS_PER_EPOCH)
 		for _ in range(STEPS_PER_EPOCH):
+			# Sample next batch of data
 			prev_frames_batch, new_frame_batch = next(dataloader)
+
+			# Train and update metrics
 			metrics = diffusion_model.train_step(new_frame_batch, prev_frames_batch)
 			pb.add(BATCH_SIZE, values=[(k, v) for k,v in metrics.items()])
 
@@ -94,92 +105,41 @@ def main():
 		for k in epoch_averages.keys():
 			summed_metrics[k] += epoch_averages[k]
 
-		# TODO:
-		# - checkpoints
-		# - email updates
-		# - callbacks
+		if (CHECKPOINT_SAVE_RATE is not None) and (epoch % CHECKPOINT_SAVE_RATE == 0):
+			save_path = os.path.join(CHECKPOINT_PATH, f"e{epoch}.h5")
+			diffusion_model.save_weights(save_path)
 
+			send_email(f"""
+							Reached checkpoint at Epoch {epoch}!
+							\n\n\n
+							Epoch Averages: {str(epoch_averages)}
+							""")
 
+		if (RESULT_SAMPLE_RATE is not None) and (epoch % RESULT_SAMPLE_RATE == 0):
+			prev_frames_sample_batch, _ = next(test_dataloader)
+			new_frames = diffusion_model.sample_from_frames(
+				prev_frames_sample_batch,
+				num_frames = SAMPLE_BATCH_SIZE,
+				batch_size = SAMPLE_BATCH_SIZE).numpy()
+			
+			# Min-max scale and transform to uint8 for storage efficiency
+			new_frames_min_shift = (new_frames - new_frames.min())
+			new_frames_uint = ((new_frames_min_shift / new_frames_min_shift.max()) * 255.).astype("uint8")
 
+			# Save sample to results directory
+			save_path = os.path.join(RESULT_DIRPATH, f"e{epoch}_sample.npy")
+			with open(save_path, "wb") as npy_file:
+				np.save(npy_file, new_frames_uint)
 
-
-
-
-	# epoch = 0
-	# step = 0
-	
-	# scaler = torch.cuda.amp.GradScaler()
-
-	# checkpoint_path = args["resDirPath"] + "checkpoint-audio-diffusion.pt"
-
-	# model.train()
-	# while epoch < 100:
-	# 	avg_loss = 0
-	# 	avg_loss_step = 0
-	# 	progress = tqdm(range(dataloader.numBatch))
-	# 	for i in progress:
-	# 		audio, caption = dataloader.nextBatch()
-	# 		with torch.autograd.set_detect_anomaly(True):
-	# 			optimizer.zero_grad()
-	# 			audio = torch.from_numpy(audio).to(device)
-	# 			with torch.cuda.amp.autocast():
-	# 				loss = model(audio, text=caption.tolist())
-	# 				avg_loss += loss.item()
-	# 				avg_loss_step += 1
-	# 			scaler.scale(loss).backward()
-	# 			scaler.step(optimizer)
-	# 			scaler.update()
-	# 			progress.set_postfix(
-	# 				loss=loss.item(),
-	# 				epoch=epoch + i / dataloader.numBatch,
-	# 			)
-
-	# 			if (step % 1000 == 0) and (step != 0):
-	# 				cap = caption.tolist()[-1]
-	# 				send_email(logger(f"Step {step} Sample caption: {cap}"))
-	# 				# Turn noise into new audio sample with diffusion
-	# 				noise = torch.randn(1, 1, NUM_SAMPLES, device=device)
-	# 				with torch.cuda.amp.autocast():
-	# 					sample = model.sample(noise, text=[cap], num_steps=100)
-
-	# 				save_path = args["resDirPath"] + f'test_generated_sound_{step}.wav'
-	# 				torchaudio.save(save_path, sample[0].cpu(), SAMPLE_RATE)
-	# 				del sample
-	# 				gc.collect()
-	# 				torch.cuda.empty_cache()
-	# 				send_attached_email(f'CCV Step {step} Sample', save_path)
+			# TODO: turn sample into video and send email
 				
-	# 			if step % 100 == 0:
-	# 				msg = logger(f"Step {step}, Epoch {epoch + i / dataloader.numBatch}, loss {avg_loss / avg_loss_step}")
-	# 				avg_loss = 0
-	# 				avg_loss_step = 0
-	# 				if step % 500 == 0:
-	# 					send_email(msg)
-				
-	# 			del audio
-	# 			del caption
-	# 			gc.collect()
-
-	# 			step += 1
-
-	# 	epoch += 1
-	# 	torch.save({
-	# 		'epoch': epoch,
-	# 		'model_state_dict': model.state_dict(),
-	# 		'optimizer_state_dict': optimizer.state_dict(),
-	# 	}, checkpoint_path)
-
-
-# def parse_args():
-# 	parser = argparse.ArgumentParser()
-# 	parser.add_argument("--checkpoint", type=str, default=None)
-# 	parser.add_argument("--resume", action="store_true")
-# 	parser.add_argument("--run_id", type=str, default=None)
-# 	return parser.parse_args()
+	if (CHECKPOINT_SAVE_RATE is None) or (epoch % CHECKPOINT_SAVE_RATE != 0):
+		save_path = os.path.join(CHECKPOINT_PATH, f"e{epoch}.h5")
+		diffusion_model.save_weights(save_path)
 
 
 if __name__ == "__main__":
 	try:
 		main()
 	except Exception as e:
-		send_email(f"Process Exited with an error: {str(e)}")
+		send_email(f"Process exited with an error: {str(e)}")
