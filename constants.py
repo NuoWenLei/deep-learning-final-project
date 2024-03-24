@@ -6,6 +6,8 @@ LATENT_SAMPLE_PATH = "./data/sample_latents.npy"
 CHECKPOINT_PATH = "./checkpoints"
 CHECKPOINT_SAVE_RATE = 10
 
+USE_EMAIL_NOTIFICATION = False
+
 USE_SAMPLE_DATA = True
 
 # Training Parameters

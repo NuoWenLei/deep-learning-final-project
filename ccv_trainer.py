@@ -22,6 +22,7 @@ from constants import (
 	CHECKPOINT_SAVE_RATE,
 	BATCH_SIZE,
 	NUM_EPOCHS,
+	USE_EMAIL_NOTIFICATION,
 	USE_SAMPLE_DATA,
 	
 	# Model Params
@@ -39,6 +40,10 @@ from constants import (
 
 
 def log(msg, filepath):
+	if not os.path.isfile(filepath):
+		with open(filepath, "w") as f:
+			f.write("")
+
 	with open(filepath, "a") as f:
 		datetimeStr = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 		f.write(f"\n{datetimeStr}: \n {msg}\n")
@@ -109,11 +114,19 @@ def main():
 			save_path = os.path.join(CHECKPOINT_PATH, f"e{epoch}.h5")
 			diffusion_model.save_weights(save_path)
 
-			send_email(f"""
-							Reached checkpoint at Epoch {epoch}!
-							\n\n\n
-							Epoch Averages: {str(epoch_averages)}
-							""")
+			if USE_EMAIL_NOTIFICATION:
+
+				send_email(f"""
+								Reached checkpoint at Epoch {epoch}!
+								\n\n\n
+								Epoch Averages: {str(epoch_averages)}
+								""")
+			else:
+				print(f"""
+								Reached checkpoint at Epoch {epoch}!
+								\n\n\n
+								Epoch Averages: {str(epoch_averages)}
+								""")
 
 		if (RESULT_SAMPLE_RATE is not None) and (epoch % RESULT_SAMPLE_RATE == 0):
 			prev_frames_sample_batch, _ = next(test_dataloader)
@@ -142,4 +155,7 @@ if __name__ == "__main__":
 	try:
 		main()
 	except Exception as e:
-		send_email(f"Process exited with an error: {str(e)}")
+		if USE_EMAIL_NOTIFICATION:
+			send_email(f"Process exited with an error: {str(e)}")
+		else:
+			print(f"Process exited with an error: {str(e)}")
