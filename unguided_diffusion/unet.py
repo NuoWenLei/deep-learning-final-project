@@ -1,5 +1,5 @@
 from imports import tf
-from model_blocks import UNetBlocks
+from unguided_diffusion.model_blocks import UNetBlocks
 
 def create_unet(input_shape, start_filters = 256, num_blocks = 2, dropout_prob = 0.3, filter_size = 3, num_channels = 1, leaky = 0.05, output_channels = None):
 
