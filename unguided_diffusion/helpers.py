@@ -39,18 +39,18 @@ def calc_frame_indices(total_samples, num_frames_per_sample):
   stacked_indices = []
   for i in range(available_sample_indices):
     stacked_indices.append((
-      total_sample_indices[i:i+num_frames_per_sample-1], total_sample_indices[i+num_frames_per_sample-1]
+      total_sample_indices[i:i+num_frames_per_sample]
     ))
   return np.array(stacked_indices)
 
 def gather_samples_from_dataset(X_y_indices, dataset):
-  X_indices = []
-  y_indices = []
+  # X_indices = []
+  # y_indices = []
 
-  for X_ind, y_ind in X_y_indices:
-    X_indices.append(X_ind)
-    y_indices.append(y_ind)
+  # for X_ind, y_ind in X_y_indices:
+  #   X_indices.append(X_ind)
+  #   y_indices.append(y_ind)
 
-  X = tf.gather(dataset, X_indices, axis = 0)
-  y = tf.gather(dataset, y_indices, axis = 0)
+  X = tf.gather(dataset, X_y_indices[:, :-1], axis = 0)
+  y = tf.gather(dataset, X_y_indices[:, -1], axis = 0)
   return X, y
