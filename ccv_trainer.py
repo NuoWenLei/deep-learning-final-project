@@ -66,6 +66,7 @@ def main():
 		dataloader = create_flow_unguided(sample_indices, batch_size = BATCH_SIZE, preprocess_func=gather_func)
 		test_dataloader = create_flow_unguided(sample_indices, batch_size = SAMPLE_BATCH_SIZE, preprocess_func=gather_func)
 		logger("USE_SAMPLE_DATA=True, using sample data")
+		logger(f"Sample indices shape: {sample_indices.shape}")
 
 	# Initialize Diffusion Model
 	diffusion_model = UnguidedVideoDiffusion(

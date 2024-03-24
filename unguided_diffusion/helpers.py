@@ -41,7 +41,7 @@ def calc_frame_indices(total_samples, num_frames_per_sample):
     stacked_indices.append((
       total_sample_indices[i:i+num_frames_per_sample-1], total_sample_indices[i+num_frames_per_sample-1]
     ))
-  return stacked_indices
+  return np.array(stacked_indices)
 
 def gather_samples_from_dataset(X_y_indices, dataset):
   X_indices = []
