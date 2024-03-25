@@ -47,6 +47,9 @@ def log(msg, filepath):
 	with open(filepath, "a") as f:
 		datetimeStr = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 		f.write(f"\n{datetimeStr}: \n {msg}\n")
+	
+	if not USE_EMAIL_NOTIFICATION:
+		print(msg)
 	return msg
 
 def main():
@@ -93,12 +96,19 @@ def main():
 
 	STEPS_PER_EPOCH = NUM_SAMPLES // BATCH_SIZE
 
+	step_checkmarks = 10
+
+	# halfway_steps = STEPS_PER_EPOCH // 2
+
 	summed_metrics = defaultdict(lambda: 0)
 
 	for epoch in range(NUM_EPOCHS):
-		logger(f"Epoch {epoch}: ")
+		logger(f"Epoch {epoch}, Num Steps {STEPS_PER_EPOCH}: ")
 		pb = tf.keras.utils.Progbar(BATCH_SIZE * STEPS_PER_EPOCH)
-		for _ in range(STEPS_PER_EPOCH):
+		for step in range(STEPS_PER_EPOCH):
+
+			if step % step_checkmarks == 0:
+				logger(f"Step {step}:\n\nCurrent epoch averages: {str(dict((k, v[0] / v[1]) for k, v in pb._values.items()))}")
 			# Sample next batch of data
 			prev_frames_batch, new_frame_batch = next(dataloader)
 
@@ -121,14 +131,14 @@ def main():
 			save_path = os.path.join(CHECKPOINT_PATH, f"e{epoch}.h5")
 			diffusion_model.save_weights(save_path)
 
-			if USE_EMAIL_NOTIFICATION:
-				send_email(f"""
+			logger(f"""
 								Reached checkpoint at Epoch {epoch}!
 								\n\n\n
 								Epoch Averages: {str(epoch_averages)}
 								""")
-			else:
-				print(f"""
+			
+			if USE_EMAIL_NOTIFICATION:
+				send_email(f"""
 								Reached checkpoint at Epoch {epoch}!
 								\n\n\n
 								Epoch Averages: {str(epoch_averages)}
