@@ -53,10 +53,11 @@ def log(msg, filepath):
 	return msg
 
 def main():
-
+	print("Starting CCV Trainer")
 	logger = partial(log, filepath=LOG_FILEPATH)
 
 	if USE_SAMPLE_DATA:
+		print("Using Sample Data")
 		sample_latents = load_latent_data(LATENT_SAMPLE_PATH)
 		NUM_SAMPLES = sample_latents.shape[0]
 		sample_indices = calc_frame_indices(NUM_SAMPLES, NUM_PREV_FRAMES + 1)
@@ -70,6 +71,7 @@ def main():
 		test_dataloader = create_flow_unguided(sample_indices, batch_size = SAMPLE_BATCH_SIZE, preprocess_func=gather_func)
 		logger("USE_SAMPLE_DATA=True, using sample data")
 		logger(f"Sample indices shape: {sample_indices.shape}")
+		print(f"Sample indices shape: {sample_indices.shape}")
 
 	# Initialize Diffusion Model
 	diffusion_model = UnguidedVideoDiffusion(
@@ -92,6 +94,7 @@ def main():
 			metrics = ["mse"]
 	)
 
+	print("Model compiled")
 	logger("Model compiled")
 
 	STEPS_PER_EPOCH = NUM_SAMPLES // BATCH_SIZE
@@ -103,12 +106,12 @@ def main():
 	summed_metrics = defaultdict(lambda: 0)
 
 	for epoch in range(NUM_EPOCHS):
-		logger(f"Epoch {epoch}, Num Steps {STEPS_PER_EPOCH}: ")
+		print(logger(f"Epoch {epoch}, Num Steps {STEPS_PER_EPOCH}: "))
 		pb = tf.keras.utils.Progbar(BATCH_SIZE * STEPS_PER_EPOCH)
 		for step in range(STEPS_PER_EPOCH):
 
 			if step % step_checkmarks == 0:
-				logger(f"Step {step}:\n\nCurrent epoch averages: {str(dict((k, v[0] / v[1]) for k, v in pb._values.items()))}")
+				print(logger(f"Step {step}:\n\nCurrent epoch averages: {str(dict((k, v[0] / v[1]) for k, v in pb._values.items()))}"))
 			# Sample next batch of data
 			prev_frames_batch, new_frame_batch = next(dataloader)
 
@@ -131,11 +134,11 @@ def main():
 			save_path = os.path.join(CHECKPOINT_PATH, f"e{epoch}.h5")
 			diffusion_model.save_weights(save_path)
 
-			logger(f"""
+			print(logger(f"""
 								Reached checkpoint at Epoch {epoch}!
 								\n\n\n
 								Epoch Averages: {str(epoch_averages)}
-								""")
+								"""))
 			
 			if USE_EMAIL_NOTIFICATION:
 				send_email(f"""
