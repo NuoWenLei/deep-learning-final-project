@@ -171,10 +171,11 @@ def main():
 
 
 if __name__ == "__main__":
-	try:
-		main()
-	except Exception as e:
-		if USE_EMAIL_NOTIFICATION:
-			send_email(f"Process exited with an error: {str(e)}")
-		else:
-			print(f"Process exited with an error: {str(e)}")
+	main()
+	# try:
+	# 	main()
+	# except Exception as e:
+	# 	if USE_EMAIL_NOTIFICATION:
+	# 		send_email(f"Process exited with an error: {str(e)}")
+	# 	else:
+	# 		print(f"Process exited with an error: {str(e)}")
