@@ -102,8 +102,14 @@ def main():
 			# Sample next batch of data
 			prev_frames_batch, new_frame_batch = next(dataloader)
 
+			prev_frames_reshaped = tf.reshape(
+				tf.transpose(
+					prev_frames_batch,
+					[0, 2, 3, 1, 4]),
+					(BATCH_SIZE, ) + LATENT_SHAPE[:-1] + (-1, ))
+
 			# Train and update metrics
-			metrics = diffusion_model.train_step(new_frame_batch, prev_frames_batch)
+			metrics = diffusion_model.train_step(new_frame_batch, prev_frames_reshaped)
 			pb.add(BATCH_SIZE, values=[(k, v) for k,v in metrics.items()])
 
 		# Calculate Metric Averages of Epoch
@@ -116,7 +122,6 @@ def main():
 			diffusion_model.save_weights(save_path)
 
 			if USE_EMAIL_NOTIFICATION:
-
 				send_email(f"""
 								Reached checkpoint at Epoch {epoch}!
 								\n\n\n
