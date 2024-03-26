@@ -128,7 +128,7 @@ def main():
 		for k in epoch_averages.keys():
 			summed_metrics[k] += epoch_averages[k]
 
-		if (CHECKPOINT_SAVE_RATE is not None) and (epoch % CHECKPOINT_SAVE_RATE == 0):
+		if (CHECKPOINT_SAVE_RATE is not None) and (epoch % CHECKPOINT_SAVE_RATE == 0) and (epoch != 0):
 			save_path = os.path.join(CHECKPOINT_PATH, f"e{epoch}.h5")
 			diffusion_model.save_weights(save_path)
 
@@ -145,7 +145,7 @@ def main():
 								Epoch Averages: {str(epoch_averages)}
 								""")
 
-		if (RESULT_SAMPLE_RATE is not None) and (epoch % RESULT_SAMPLE_RATE == 0):
+		if (RESULT_SAMPLE_RATE is not None) and (epoch % RESULT_SAMPLE_RATE == 0) and (epoch != 0):
 			prev_frames_sample_batch, _ = next(test_dataloader)
 			print(tf.shape(prev_frames_sample_batch))
 			prev_frames_sample_reshaped  =  tf.reshape(
@@ -156,7 +156,7 @@ def main():
 			print(tf.shape(prev_frames_sample_reshaped))
 			new_frames = diffusion_model.sample_from_frames(
 				prev_frames_sample_reshaped,
-				num_frames = SAMPLE_BATCH_SIZE,
+				num_frames = 4,
 				batch_size = SAMPLE_BATCH_SIZE).numpy()
 			
 			# Min-max scale and transform to uint8 for storage efficiency
