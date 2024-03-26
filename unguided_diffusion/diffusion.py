@@ -212,9 +212,11 @@ class UnguidedVideoDiffusion(tf.keras.models.Model):
   def sample_from_frames(self, frames, num_frames = 30, step_size=2e-5, num_steps = 100, batch_size = 32):
     new_frames = []
 
+    print(frames.shape)
+
     # Sample frame-by-frame
     for i in range(num_frames):
-      assert frames.shape[0] == self.num_prev_frames, f"Frame-by-frame sampling failed on frame {i}"
+      assert frames.shape[-1] == self.num_prev_frames * self.num_channels, f"Frame-by-frame sampling failed on frame {i}"
       new_frame = self.annealed_langevin_dynamics(
         tf.random.normal(
           (batch_size, ) + self.image_input_shape + (self.num_channels, )),

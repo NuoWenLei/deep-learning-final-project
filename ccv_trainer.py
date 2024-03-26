@@ -71,7 +71,6 @@ def main():
 		test_dataloader = create_flow_unguided(sample_indices, batch_size = SAMPLE_BATCH_SIZE, preprocess_func=gather_func)
 		logger("USE_SAMPLE_DATA=True, using sample data")
 		logger(f"Sample indices shape: {sample_indices.shape}")
-		print(f"Sample indices shape: {sample_indices.shape}")
 
 	# Initialize Diffusion Model
 	diffusion_model = UnguidedVideoDiffusion(
@@ -94,7 +93,6 @@ def main():
 			metrics = ["mse"]
 	)
 
-	print("Model compiled")
 	logger("Model compiled")
 
 	STEPS_PER_EPOCH = NUM_SAMPLES // BATCH_SIZE
@@ -106,7 +104,7 @@ def main():
 	summed_metrics = defaultdict(lambda: 0)
 
 	for epoch in range(NUM_EPOCHS):
-		print(logger(f"Epoch {epoch}, Num Steps {STEPS_PER_EPOCH}: "))
+		logger(f"Epoch {epoch}, Num Steps {STEPS_PER_EPOCH}: ")
 		pb = tf.keras.utils.Progbar(BATCH_SIZE * STEPS_PER_EPOCH)
 		for step in range(STEPS_PER_EPOCH):
 
@@ -134,11 +132,11 @@ def main():
 			save_path = os.path.join(CHECKPOINT_PATH, f"e{epoch}.h5")
 			diffusion_model.save_weights(save_path)
 
-			print(logger(f"""
+			logger(f"""
 								Reached checkpoint at Epoch {epoch}!
 								\n\n\n
 								Epoch Averages: {str(epoch_averages)}
-								"""))
+								""")
 			
 			if USE_EMAIL_NOTIFICATION:
 				send_email(f"""
@@ -149,8 +147,13 @@ def main():
 
 		if (RESULT_SAMPLE_RATE is not None) and (epoch % RESULT_SAMPLE_RATE == 0):
 			prev_frames_sample_batch, _ = next(test_dataloader)
+			prev_frames_sample_reshaped  =  tf.reshape(
+				tf.transpose(
+					prev_frames_sample_batch,
+					[0, 2, 3, 1, 4]),
+					(BATCH_SIZE, ) + LATENT_SHAPE[:-1] + (-1, ))
 			new_frames = diffusion_model.sample_from_frames(
-				prev_frames_sample_batch,
+				prev_frames_sample_reshaped,
 				num_frames = SAMPLE_BATCH_SIZE,
 				batch_size = SAMPLE_BATCH_SIZE).numpy()
 			
