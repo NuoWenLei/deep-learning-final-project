@@ -184,13 +184,13 @@ class UnguidedVideoDiffusion(tf.keras.models.Model):
     return {**{m.name: m.result() for m in self.metrics}, "loss": loss}
 
   def langevin_dynamics(self, x, alpha, time_index, num_steps, prev_frames = None):
-    if num_steps == 0:
-      return x
     z_t = tf.random.normal(tf.shape(x))
     if prev_frames is not None:
       frames = tf.concat([prev_frames, x], axis = -1)
     else:
       frames = x
+    if num_steps == 0:
+      return x + (alpha / 2.) * self(frames, time_index)
     new_x = x + (alpha / 2.) * self(frames, time_index) + (alpha ** 0.5) * z_t
     return self.langevin_dynamics(new_x, alpha, time_index, num_steps - 1, prev_frames = prev_frames)
 
