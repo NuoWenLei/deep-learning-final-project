@@ -52,7 +52,7 @@ def log(msg, filepath):
 		print(msg)
 	return msg
 
-def main():
+def main(path_to_checkpoint = None):
 	print("Starting CCV Trainer")
 	logger = partial(log, filepath=LOG_FILEPATH)
 
@@ -92,6 +92,12 @@ def main():
 			optimizer = tf.keras.optimizers.Adam(learning_rate = LEARNING_RATE),
 			metrics = ["mse"]
 	)
+	if path_to_checkpoint is not None:
+		diffusion_model.call(
+			tf.random.normal((diffusion_model.batch_size, ) + diffusion_model.full_input_shape[1:]),
+			tf.random.normal((diffusion_model.batch_size, )))
+		diffusion_model.load_weights(path_to_checkpoint)
+		logger(f"Checkpoint loaded from: {path_to_checkpoint}")
 
 	logger("Model compiled")
 
