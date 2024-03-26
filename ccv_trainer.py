@@ -129,7 +129,7 @@ def main():
 			summed_metrics[k] += epoch_averages[k]
 
 		if (CHECKPOINT_SAVE_RATE is not None) and (epoch % CHECKPOINT_SAVE_RATE == 0) and (epoch != 0):
-			save_path = os.path.join(CHECKPOINT_PATH, f"e{epoch}.h5")
+			save_path = os.path.join(CHECKPOINT_PATH, f"e{epoch}.ckpt")
 			diffusion_model.save_weights(save_path)
 
 			logger(f"""
@@ -171,7 +171,7 @@ def main():
 			# TODO: turn sample into video and send email
 				
 	if (CHECKPOINT_SAVE_RATE is None) or (epoch % CHECKPOINT_SAVE_RATE != 0):
-		save_path = os.path.join(CHECKPOINT_PATH, f"e{epoch}.h5")
+		save_path = os.path.join(CHECKPOINT_PATH, f"e{epoch}.ckpt")
 		diffusion_model.save_weights(save_path)
 
 
