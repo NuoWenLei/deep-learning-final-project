@@ -10,7 +10,7 @@ def send_attached_email(mail_subject, attach_file_path):
 	"""
 	#The mail addresses and password
 	sender_address = 'l39X35f828DPWf9j@gmail.com'
-	sender_pass = 'hizdnjdiyjabizja'
+	sender_pass = 'bybxcmedbwgqbijc'
 	receiver_address = "nuo_wen_lei@brown.edu"
 	#Setup the MIME
 	message = MIMEMultipart()
@@ -39,7 +39,7 @@ def send_attached_email(mail_subject, attach_file_path):
 def send_email(body):
 	# Set Global Variables
 	gmail_user = 'l39X35f828DPWf9j@gmail.com'
-	gmail_password = 'hizdnjdiyjabizja'
+	gmail_password = 'bybxcmedbwgqbijc'
 	to = "nuo_wen_lei@brown.edu"
 	# Create Email 
 	mail_from = f"stock_data_email <{gmail_user}>"

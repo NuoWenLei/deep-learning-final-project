@@ -229,3 +229,11 @@ class UnguidedVideoDiffusion(tf.keras.models.Model):
 
     return tf.stack(new_frames, axis = 1) # Shape: (batch, frames, h, w, channels)
       
+  def load_from_ckpt(self, path):
+    if path is None:
+      raise Exception("Trying to load from null path")
+    
+    self.call(
+			tf.random.normal((self.batch_size, ) + self.full_input_shape[1:]),
+			tf.random.normal((self.batch_size, )))
+    self.load_weights(path)
