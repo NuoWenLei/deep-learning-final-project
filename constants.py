@@ -1,10 +1,10 @@
 LOG_FILEPATH = "./log/fullLog.txt"
 RESULT_DIRPATH = "./results"
-RESULT_SAMPLE_RATE = 10
+RESULT_SAMPLE_RATE = 300
 SAMPLE_BATCH_SIZE = 32
 LATENT_SAMPLE_PATH = "./data/sample_latents.npy"
 CHECKPOINT_PATH = "./checkpoints"
-CHECKPOINT_SAVE_RATE = 10
+CHECKPOINT_SAVE_RATE = 25
 
 USE_EMAIL_NOTIFICATION = False
 
@@ -12,7 +12,7 @@ USE_SAMPLE_DATA = True
 
 # Training Parameters
 BATCH_SIZE = 128
-NUM_EPOCHS = 100
+NUM_EPOCHS = 200
 
 # Model Parameters
 LATENT_SHAPE = (32, 32, 4)
