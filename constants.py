@@ -1,4 +1,5 @@
-BASE_FILEPATH = "./"
+BASE_FILEPATH = "/content/gdrive/MyDrive/personal_stuff/personal_projects_college/CSCI2470_FINAL_PROJECT/Model_Playground/Sample_Train_Results"
+# BASE_FILEPATH = "."
 LOG_FILEPATH = "log/fullLog.txt"
 RESULT_DIRPATH = "results"
 RESULT_SAMPLE_RATE = 300
