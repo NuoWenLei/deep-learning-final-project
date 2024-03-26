@@ -109,7 +109,7 @@ def main():
 		for step in range(STEPS_PER_EPOCH):
 
 			if step % step_checkmarks == 0:
-				print(logger(f"Step {step}:\n\nCurrent epoch averages: {str(dict((k, v[0] / v[1]) for k, v in pb._values.items()))}"))
+				logger(f"Step {step}:\n\nCurrent epoch averages: {str(dict((k, v[0] / v[1]) for k, v in pb._values.items()))}")
 			# Sample next batch of data
 			prev_frames_batch, new_frame_batch = next(dataloader)
 
@@ -151,7 +151,7 @@ def main():
 				tf.transpose(
 					prev_frames_sample_batch,
 					[0, 2, 3, 1, 4]),
-					(BATCH_SIZE, ) + LATENT_SHAPE[:-1] + (-1, ))
+					(SAMPLE_BATCH_SIZE, ) + LATENT_SHAPE[:-1] + (-1, ))
 			new_frames = diffusion_model.sample_from_frames(
 				prev_frames_sample_reshaped,
 				num_frames = SAMPLE_BATCH_SIZE,
