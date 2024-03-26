@@ -212,7 +212,7 @@ class UnguidedVideoDiffusion(tf.keras.models.Model):
   def sample_from_frames(self, frames, num_frames = 30, step_size=2e-5, num_steps = 100, batch_size = 32):
     new_frames = []
 
-    print(frames.shape)
+    print(tf.shape(frames))
 
     # Sample frame-by-frame
     for i in range(num_frames):

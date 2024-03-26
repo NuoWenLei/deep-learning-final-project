@@ -108,8 +108,8 @@ def main():
 		pb = tf.keras.utils.Progbar(BATCH_SIZE * STEPS_PER_EPOCH)
 		for step in range(STEPS_PER_EPOCH):
 
-			if step % step_checkmarks == 0:
-				logger(f"Step {step}:\n\nCurrent epoch averages: {str(dict((k, v[0] / v[1]) for k, v in pb._values.items()))}")
+			# if step % step_checkmarks == 0:
+			# 	logger(f"Step {step}:\n\nCurrent epoch averages: {str(dict((k, v[0] / v[1]) for k, v in pb._values.items()))}")
 			# Sample next batch of data
 			prev_frames_batch, new_frame_batch = next(dataloader)
 
@@ -147,11 +147,13 @@ def main():
 
 		if (RESULT_SAMPLE_RATE is not None) and (epoch % RESULT_SAMPLE_RATE == 0):
 			prev_frames_sample_batch, _ = next(test_dataloader)
+			print(tf.shape(prev_frames_sample_batch))
 			prev_frames_sample_reshaped  =  tf.reshape(
 				tf.transpose(
 					prev_frames_sample_batch,
 					[0, 2, 3, 1, 4]),
 					(SAMPLE_BATCH_SIZE, ) + LATENT_SHAPE[:-1] + (-1, ))
+			print(tf.shape(prev_frames_sample_reshaped))
 			new_frames = diffusion_model.sample_from_frames(
 				prev_frames_sample_reshaped,
 				num_frames = SAMPLE_BATCH_SIZE,
