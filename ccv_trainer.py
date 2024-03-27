@@ -54,7 +54,7 @@ def log(msg, filepath):
 		print(msg)
 	return msg
 
-def main(path_to_checkpoint = None):
+def main(path_to_checkpoint = None, starting_epoch = 0):
 	print("Starting CCV Trainer")
 	logger = partial(log, filepath=os.path.join(BASE_FILEPATH, LOG_FILEPATH))
 
@@ -109,7 +109,8 @@ def main(path_to_checkpoint = None):
 	latest_save_path = None
 
 	for epoch in range(NUM_EPOCHS):
-		logger(f"Epoch {epoch}, Num Steps {STEPS_PER_EPOCH}: ")
+		curr_epoch = starting_epoch + epoch
+		logger(f"Epoch {curr_epoch}, Num Steps {STEPS_PER_EPOCH}: ")
 		pb = tf.keras.utils.Progbar(BATCH_SIZE * STEPS_PER_EPOCH)
 		for step in range(STEPS_PER_EPOCH):
 
@@ -183,24 +184,24 @@ def main(path_to_checkpoint = None):
 						send_email(msg)
 		prev_epoch_averages = epoch_averages
 
-		if (CHECKPOINT_SAVE_RATE is not None) and (epoch % CHECKPOINT_SAVE_RATE == 0) and (epoch != 0):
-			save_path = os.path.join(os.path.join(BASE_FILEPATH, CHECKPOINT_PATH), f"e{epoch}.ckpt")
+		if (CHECKPOINT_SAVE_RATE is not None) and (curr_epoch % CHECKPOINT_SAVE_RATE == 0) and (curr_epoch != 0):
+			save_path = os.path.join(os.path.join(BASE_FILEPATH, CHECKPOINT_PATH), f"e{curr_epoch}.ckpt")
 			diffusion_model.save_weights(save_path)
 			latest_save_path = save_path
 			logger(f"""
-								Reached checkpoint at Epoch {epoch}!
+								Reached checkpoint at Epoch {curr_epoch}!
 								\n\n\n
 								Epoch Averages: {str(epoch_averages)}
 								""")
 			
 			if USE_EMAIL_NOTIFICATION:
 				send_email(f"""
-								Reached checkpoint at Epoch {epoch}!
+								Reached checkpoint at Epoch {curr_epoch}!
 								\n\n\n
 								Epoch Averages: {str(epoch_averages)}
 								""")
 
-		if (RESULT_SAMPLE_RATE is not None) and (epoch % RESULT_SAMPLE_RATE == 0) and (epoch != 0):
+		if (RESULT_SAMPLE_RATE is not None) and (curr_epoch % RESULT_SAMPLE_RATE == 0) and (curr_epoch != 0):
 			prev_frames_sample_batch, _ = next(test_dataloader)
 			print(tf.shape(prev_frames_sample_batch))
 			prev_frames_sample_reshaped  =  tf.reshape(
@@ -219,14 +220,14 @@ def main(path_to_checkpoint = None):
 			new_frames_uint = ((new_frames_min_shift / new_frames_min_shift.max()) * 255.).astype("uint8")
 
 			# Save sample to results directory
-			save_path = os.path.join(os.path.join(BASE_FILEPATH, RESULT_DIRPATH), f"e{epoch}_sample.npy")
+			save_path = os.path.join(os.path.join(BASE_FILEPATH, RESULT_DIRPATH), f"e{curr_epoch}_sample.npy")
 			with open(save_path, "wb") as npy_file:
 				np.save(npy_file, new_frames_uint)
 
 			# TODO: turn sample into video and send email
 				
-	if (CHECKPOINT_SAVE_RATE is None) or (epoch % CHECKPOINT_SAVE_RATE != 0):
-		save_path = os.path.join(os.path.join(BASE_FILEPATH, CHECKPOINT_PATH), f"e{epoch}.ckpt")
+	if (CHECKPOINT_SAVE_RATE is None) or (curr_epoch % CHECKPOINT_SAVE_RATE != 0):
+		save_path = os.path.join(os.path.join(BASE_FILEPATH, CHECKPOINT_PATH), f"e{curr_epoch}.ckpt")
 		diffusion_model.save_weights(save_path)
 
 	logger("Training Completed!")
