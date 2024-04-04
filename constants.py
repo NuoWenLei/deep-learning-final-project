@@ -4,7 +4,11 @@ LOG_FILEPATH = "log/fullLog.txt"
 RESULT_DIRPATH = "results"
 RESULT_SAMPLE_RATE = 300
 SAMPLE_BATCH_SIZE = 32
-LATENT_SAMPLE_PATH = "./data/sample_latents.npy"
+LATENT_SAMPLE_PATH = [
+	f"{BASE_FILEPATH}/sample_latents"
+]
+
+
 CHECKPOINT_PATH = "checkpoints"
 CHECKPOINT_SAVE_RATE = 50
 

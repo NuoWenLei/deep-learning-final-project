@@ -33,11 +33,17 @@ def load_latent_data(fp_to_npy, preprocess_func = None):
     return preprocess_func(results)
   return results
 
-def calc_frame_indices(total_samples, num_frames_per_sample):
+def calc_frame_indices(total_samples, num_frames_per_sample, episode_changes = []):
   total_sample_indices = [i for i in range(total_samples)]
   available_sample_indices = total_samples - num_frames_per_sample
   stacked_indices = []
   for i in range(available_sample_indices):
+    continueFlag = False
+    for episode_change in episode_changes:
+      if (episode_change - num_frames_per_sample) <= i <= episode_change:
+        continueFlag = True
+    if continueFlag:
+      continue
     stacked_indices.append((
       total_sample_indices[i:i+num_frames_per_sample]
     ))
