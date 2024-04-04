@@ -5,7 +5,7 @@ RESULT_DIRPATH = "results"
 RESULT_SAMPLE_RATE = 300
 SAMPLE_BATCH_SIZE = 32
 LATENT_SAMPLE_PATH = [
-	f"./data/sample_latents_{i}.npy" for i in range(1, 5)
+	f"./data/sample_latents/sample_latents_{i}.npy" for i in range(1, 5)
 ]
 
 # "./data/sample_latents.npy"
