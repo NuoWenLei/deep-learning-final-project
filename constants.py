@@ -5,10 +5,10 @@ RESULT_DIRPATH = "results"
 RESULT_SAMPLE_RATE = 300
 SAMPLE_BATCH_SIZE = 32
 LATENT_SAMPLE_PATH = [
-	f"{BASE_FILEPATH}/sample_latents"
+	f"./data/sample_latents_{i}.npy" for i in range(1, 5)
 ]
 
-
+# "./data/sample_latents.npy"
 CHECKPOINT_PATH = "checkpoints"
 CHECKPOINT_SAVE_RATE = 50
 

@@ -26,12 +26,24 @@ def create_flow_unguided(x, batch_size = 128, preprocess_func = None, repeat = T
 
 # Load Latent Data
 def load_latent_data(fp_to_npy, preprocess_func = None):
-  with open(fp_to_npy, "rb") as npy_file:
-    results = np.load(npy_file)
+  if type(fp_to_npy) == str:
+    fp_to_npy = [fp_to_npy]
+  
+  results_list = []
+  runningFrameCount = 0
+  episode_changes = []
+  for fp in fp_to_npy:
+    with open(fp, "rb") as npy_file:
+      results = np.load(npy_file)
+    results_list.append(
+      preprocess_func(results) if preprocess_func is not None else results
+      )
+    runningFrameCount += results.shape[0]
+    episode_changes.append(runningFrameCount)
 
-  if preprocess_func is not None:
-    return preprocess_func(results)
-  return results
+  print(f"Total frame count: {runningFrameCount}")
+  print(f"Episode-changing frames: {episode_changes}")
+  return np.concatenate(results_list, axis = 0), episode_changes
 
 def calc_frame_indices(total_samples, num_frames_per_sample, episode_changes = []):
   total_sample_indices = [i for i in range(total_samples)]

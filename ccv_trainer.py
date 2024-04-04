@@ -60,9 +60,9 @@ def main(path_to_checkpoint = None, starting_epoch = 0):
 
 	if USE_SAMPLE_DATA:
 		print("Using Sample Data")
-		sample_latents = load_latent_data(LATENT_SAMPLE_PATH)
+		sample_latents, episode_changes = load_latent_data(LATENT_SAMPLE_PATH)
 		NUM_SAMPLES = sample_latents.shape[0]
-		sample_indices = calc_frame_indices(NUM_SAMPLES, NUM_PREV_FRAMES + 1)
+		sample_indices = calc_frame_indices(NUM_SAMPLES, NUM_PREV_FRAMES + 1, episode_changes)
 
 		assert len(sample_indices) <= NUM_SAMPLES
 
