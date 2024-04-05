@@ -94,7 +94,7 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False)
 	if use_lr_schedule:
 		schedule = tf.keras.optimizers.schedules.CosineDecay(
 				INITIAL_LEARNING_RATE,
-				0,
+				1,
 				alpha=LEARNING_RATE,
 				name='CosineDecay',
 				warmup_target=LEARNING_RATE,
@@ -188,7 +188,7 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False)
 					if use_lr_schedule:
 						schedule = tf.keras.optimizers.schedules.CosineDecay(
 								INITIAL_LEARNING_RATE,
-								0,
+								1,
 								alpha=LEARNING_RATE,
 								name='CosineDecay',
 								warmup_target=LEARNING_RATE,
