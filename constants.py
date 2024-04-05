@@ -36,6 +36,7 @@ LEAKY=0.05
 CLIPNORM = 1.0
 INITIAL_LEARNING_RATE = 0.0
 LEARNING_RATE = 1e-7
+LR_WARMUP = 50
 # Learning rate for 120 prev frames
 # 7e-5 converges around 11000 loss
 # Below 3e-5 explodes loss

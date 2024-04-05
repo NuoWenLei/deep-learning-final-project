@@ -40,7 +40,8 @@ from constants import (
 	# Optimizer
 	CLIPNORM,
 	INITIAL_LEARNING_RATE,
-	LEARNING_RATE)
+	LEARNING_RATE,
+	LR_WARMUP)
 
 
 def log(msg, filepath):
@@ -98,7 +99,7 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False)
 				alpha=LEARNING_RATE,
 				name='CosineDecay',
 				warmup_target=LEARNING_RATE,
-				warmup_steps=20
+				warmup_steps=LR_WARMUP
 		)
 		opt = tf.keras.optimizers.Adam(learning_rate=schedule, clipnorm=CLIPNORM)
 	else:
@@ -192,7 +193,7 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False)
 								alpha=LEARNING_RATE,
 								name='CosineDecay',
 								warmup_target=LEARNING_RATE,
-								warmup_steps=20
+								warmup_steps=LR_WARMUP
 						)
 						opt = tf.keras.optimizers.Adam(learning_rate=schedule, clipnorm=CLIPNORM)
 					else:
