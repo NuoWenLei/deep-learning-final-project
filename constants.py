@@ -35,7 +35,7 @@ LEAKY=0.05
 # Optimizer
 CLIPNORM = 1.0
 INITIAL_LEARNING_RATE = 1e-9
-LEARNING_RATE = 1e-5
+LEARNING_RATE = 1e-7
 # Learning rate for 120 prev frames
 # 7e-5 converges around 11000 loss
 # Below 3e-5 explodes loss
