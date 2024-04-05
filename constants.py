@@ -20,7 +20,7 @@ USE_SAMPLE_DATA = True
 
 # Training Parameters
 BATCH_SIZE = 128
-NUM_EPOCHS = 800
+NUM_EPOCHS = 50
 
 # Model Parameters
 LATENT_SHAPE = (32, 32, 4)
