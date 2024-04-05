@@ -10,7 +10,7 @@ LATENT_SAMPLE_PATH = [
 
 # "./data/sample_latents.npy"
 CHECKPOINT_PATH = "checkpoints"
-CHECKPOINT_SAVE_RATE = 30
+CHECKPOINT_SAVE_RATE = 50
 
 EXPLODING_LOSS_DETECTION = 5
 
@@ -20,7 +20,7 @@ USE_SAMPLE_DATA = True
 
 # Training Parameters
 BATCH_SIZE = 128
-NUM_EPOCHS = 800
+NUM_EPOCHS = 300
 
 # Model Parameters
 LATENT_SHAPE = (32, 32, 4)
@@ -33,4 +33,4 @@ NOISE_LEVELS=10
 LEAKY=0.05
 
 # Optimizer
-LEARNING_RATE = 7e-5
+LEARNING_RATE = 1e-5
