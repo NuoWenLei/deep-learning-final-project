@@ -38,6 +38,7 @@ from constants import (
 	LEAKY,
 	
 	# Optimizer
+	CLIPNORM,
 	INITIAL_LEARNING_RATE,
 	LEARNING_RATE)
 
@@ -99,9 +100,9 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False)
 				warmup_target=LEARNING_RATE,
 				warmup_steps=20
 		)
-		opt = tf.keras.optimizers.Adam(learning_rate=schedule)
+		opt = tf.keras.optimizers.Adam(learning_rate=schedule, clipnorm=CLIPNORM)
 	else:
-		opt = tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE)
+		opt = tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE, clipnorm=CLIPNORM)
 
 	diffusion_model.compile(
 			loss = "mse",
@@ -193,9 +194,9 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False)
 								warmup_target=LEARNING_RATE,
 								warmup_steps=20
 						)
-						opt = tf.keras.optimizers.Adam(learning_rate=schedule)
+						opt = tf.keras.optimizers.Adam(learning_rate=schedule, clipnorm=CLIPNORM)
 					else:
-						opt = tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE)
+						opt = tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE, clipnorm=CLIPNORM)
 
 					diffusion_model.compile(
 							loss = "mse",
