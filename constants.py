@@ -33,4 +33,6 @@ NOISE_LEVELS=10
 LEAKY=0.05
 
 # Optimizer
-LEARNING_RATE = 1e-5
+LEARNING_RATE = 3e-5
+# Learning rate for 120 prev frames
+# 7e-5 converges around 11000 loss
