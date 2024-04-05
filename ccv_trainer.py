@@ -38,6 +38,7 @@ from constants import (
 	LEAKY,
 	
 	# Optimizer
+	INITIAL_LEARNING_RATE,
 	LEARNING_RATE)
 
 
@@ -54,7 +55,7 @@ def log(msg, filepath):
 		print(msg)
 	return msg
 
-def main(path_to_checkpoint = None, starting_epoch = 0):
+def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False):
 	print("Starting CCV Trainer")
 	logger = partial(log, filepath=os.path.join(BASE_FILEPATH, LOG_FILEPATH))
 
@@ -89,9 +90,22 @@ def main(path_to_checkpoint = None, starting_epoch = 0):
 		name="unguided_video_diffusion"
 	)
 
+	if use_lr_schedule:
+		schedule = tf.keras.optimizers.schedules.CosineDecay(
+				INITIAL_LEARNING_RATE,
+				0,
+				alpha=LEARNING_RATE,
+				name='CosineDecay',
+				warmup_target=LEARNING_RATE,
+				warmup_steps=20
+		)
+		opt = tf.keras.optimizers.Adam(learning_rate=schedule)
+	else:
+		opt = tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE)
+
 	diffusion_model.compile(
 			loss = "mse",
-			optimizer = tf.keras.optimizers.Adam(learning_rate = LEARNING_RATE),
+			optimizer = opt,
 			metrics = ["mse"]
 	)
 	if path_to_checkpoint is not None:
@@ -170,11 +184,25 @@ def main(path_to_checkpoint = None, starting_epoch = 0):
 						name="unguided_video_diffusion"
 					)
 
+					if use_lr_schedule:
+						schedule = tf.keras.optimizers.schedules.CosineDecay(
+								INITIAL_LEARNING_RATE,
+								0,
+								alpha=LEARNING_RATE,
+								name='CosineDecay',
+								warmup_target=LEARNING_RATE,
+								warmup_steps=20
+						)
+						opt = tf.keras.optimizers.Adam(learning_rate=schedule)
+					else:
+						opt = tf.keras.optimizers.Adam(learning_rate=LEARNING_RATE)
+
 					diffusion_model.compile(
 							loss = "mse",
-							optimizer = tf.keras.optimizers.Adam(learning_rate = LEARNING_RATE),
+							optimizer = opt,
 							metrics = ["mse"]
 					)
+
 					restored_path = latest_save_path if latest_save_path is not None else path_to_checkpoint
 					diffusion_model.load_from_ckpt(restored_path)
 
