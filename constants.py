@@ -33,10 +33,11 @@ NOISE_LEVELS=10
 LEAKY=0.05
 
 # Optimizer
-CLIPNORM = 1.0
+CLIPNORM = None
 INITIAL_LEARNING_RATE = 0.0
-LEARNING_RATE = 1e-7
-LR_WARMUP = 50
-# Learning rate for 120 prev frames
-# 7e-5 converges around 11000 loss
-# Below 3e-5 explodes loss
+LEARNING_RATE = 1e-5
+LR_WARMUP = 1000
+# Warmup to stabliize learning rate, otherwise loss may explode
+# Inspiration:
+# - https://stats.stackexchange.com/questions/324896/training-loss-increases-with-time
+# - https://stackoverflow.com/questions/63213252/using-learning-rate-schedule-and-learning-rate-warmup-with-tensorflow2
