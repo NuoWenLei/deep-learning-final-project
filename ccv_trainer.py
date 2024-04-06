@@ -57,7 +57,7 @@ def log(msg, filepath):
 		print(msg)
 	return msg
 
-def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False):
+def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False, metric_list = []):
 	print("Starting CCV Trainer")
 	logger = partial(log, filepath=os.path.join(BASE_FILEPATH, LOG_FILEPATH))
 
@@ -143,6 +143,7 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False)
 
 			# Train and update metrics
 			metrics = diffusion_model.train_step(new_frame_batch, prev_frames_reshaped)
+			metric_list.append(metrics)
 			pb.add(BATCH_SIZE, values=[(k, v) for k,v in metrics.items()])
 
 		# Calculate Metric Averages of Epoch
