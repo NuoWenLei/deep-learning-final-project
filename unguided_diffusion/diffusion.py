@@ -155,6 +155,19 @@ class UnguidedVideoDiffusion(tf.keras.models.Model):
 
       return self.unet([x, *time_context])
 
+  def create_encoder_model(self, encoded_layer_name = "UNET_MIDDLE_BLOCK"):
+    self.encoder_model = tf.keras.models.Model(inputs = self.unet.inputs, outputs = self.unet.get_layer(encoded_layer_name).outputs)
+
+  def call_encoder_model(self, x, time_index):
+    if not hasattr(self, "encoder_model"):
+      print("No model detected: Creating Encoder Model... [calling self.create_encoder_model()]")
+      self.create_encoder_model()
+      print("Encoder Model created")
+
+    time_context = [time_embed(time_index)[:, tf.newaxis, tf.newaxis, ...] for time_embed in self.time_embeddings]
+
+    return self.encoder_model([x, *time_context])
+
   def train_step(self, x, prev_frames):
     # Sample noise
     epsilon = tf.random.normal((self.batch_size, ) + self.image_input_shape + (self.num_channels, )) # (batch_size, *image_shape)
