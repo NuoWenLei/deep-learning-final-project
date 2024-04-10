@@ -3,31 +3,23 @@ from imports import tf
 class UNetBlocks:
 
   def EncoderMiniBlock(inputs, filter_size = 3, n_filters=32, dropout_prob=0.3, max_pooling=True, leaky = 0.03, **kwargs):
-
-    layers = [
-       tf.keras.layers.Conv2D(n_filters,
+    conv = tf.keras.layers.Conv2D(n_filters,
                   filter_size,  # filter size
                   activation=tf.keras.layers.LeakyReLU(alpha=leaky),
-                  padding='same'),
-        tf.keras.layers.Conv2D(n_filters,
+                  padding='same')(inputs)
+    conv = tf.keras.layers.Conv2D(n_filters,
                   filter_size,  # filter size
                   activation=tf.keras.layers.LeakyReLU(alpha=leaky),
-                  padding='same'),
-        tf.keras.layers.BatchNormalization(),
-    ]
+                  padding='same')(conv)
 
+    conv = tf.keras.layers.BatchNormalization(**kwargs)(conv)
     if dropout_prob > 0:
-       layers.append(tf.keras.layers.Dropout(dropout_prob))
-    
-    seq = tf.keras.Sequential(layers, **kwargs)
-    conv_result = seq(inputs)
-
+        conv = tf.keras.layers.Dropout(dropout_prob)(conv)
     if max_pooling:
-       next_layer = tf.keras.layers.MaxPooling2D(pool_size = (2,2))(conv_result)
+        next_layer = tf.keras.layers.MaxPooling2D(pool_size = (2,2))(conv)
     else:
-       next_layer = conv_result
-
-    skip_connection_layer = conv_result
+        next_layer = conv
+    skip_connection_layer = conv
     return next_layer, skip_connection_layer
 
   def DecoderMiniBlock(prev_layer_input, skip_layer_input, n_filters=32, filter_size = 3, leaky = 0.03):

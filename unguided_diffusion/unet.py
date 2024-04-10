@@ -21,7 +21,7 @@ def create_unet(input_shape, start_filters = 256, num_blocks = 2, dropout_prob =
 
   # middle block
   x, _ = UNetBlocks.EncoderMiniBlock(
-      x, filter_size = filter_size, n_filters = start_filters, dropout_prob = dropout_prob, max_pooling = False, leaky = leaky)
+      x, filter_size = filter_size, n_filters = start_filters, dropout_prob = dropout_prob, max_pooling = False, leaky = leaky, name = "UNET_MIDDLE_BLOCK")
   
   for block in range(num_blocks):
     s = tf.shape(x)
