@@ -131,6 +131,7 @@ class UnguidedVideoDiffusion(tf.keras.models.Model):
     self.full_input_shape = (-1, ) + self.image_input_shape + (self.total_channels, )
     self.total_image_dims = self.image_input_shape[0] * self.image_input_shape[1] * self.total_channels
     self.batch_size = batch_size
+    self.loss_func = tf.keras.losses.MeanSquaredError()
 
     self.time_embeddings = []
 
@@ -173,7 +174,7 @@ class UnguidedVideoDiffusion(tf.keras.models.Model):
 
       grad_pred = self.call(frames, time_index = time_index)
 
-      loss = tf.reduce_sum((grad_pred - epsilon) ** 2)
+      loss = self.loss_func(epsilon, grad_pred)
 
     # Compute gradients
     trainable_vars = self.trainable_variables
