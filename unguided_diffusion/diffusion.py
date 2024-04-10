@@ -65,7 +65,7 @@ class UnguidedDiffusion(tf.keras.models.Model):
 
       grad_pred = self.call(x_corrupted, time_index = time_index)
 
-      loss = tf.reduce_sum(broadcasted_variance * (grad_pred - grad) ** 2)
+      loss = tf.reduce_sum(broadcasted_variance * (grad_pred - epsilon) ** 2)
 
     # Compute gradients
     trainable_vars = self.trainable_variables
@@ -167,20 +167,20 @@ class UnguidedVideoDiffusion(tf.keras.models.Model):
     # Concatenate with non-corrupted previous frames
     frames = tf.concat([prev_frames, x_corrupted], axis = -1)
 
-    grad = (x - x_corrupted) / broadcasted_variance
+    # grad = (x - x_corrupted) / broadcasted_variance
 
     with tf.GradientTape() as tape:
 
       grad_pred = self.call(frames, time_index = time_index)
 
-      loss = tf.reduce_sum(broadcasted_variance * (grad_pred - grad) ** 2)
+      loss = tf.reduce_sum((grad_pred - epsilon) ** 2)
 
     # Compute gradients
     trainable_vars = self.trainable_variables
     gradients = tape.gradient(loss, trainable_vars)
     self.optimizer.apply_gradients(zip(gradients, trainable_vars))
 
-    self.compiled_metrics.update_state(grad, grad_pred)
+    self.compiled_metrics.update_state(epsilon, grad_pred)
     return {**{m.name: m.result() for m in self.metrics}, "loss": loss}
 
   def langevin_dynamics(self, x, alpha, time_index, num_steps, prev_frames = None):
