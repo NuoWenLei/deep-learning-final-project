@@ -1,4 +1,4 @@
-BASE_FILEPATH = "/content/gdrive/MyDrive/personal_stuff/personal_projects_college/CSCI2470_FINAL_PROJECT/Model_Playground/Sample_Train_Results_120_prev_frames"
+BASE_FILEPATH = "/content/gdrive/MyDrive/personal_stuff/personal_projects_college/CSCI2470_FINAL_PROJECT/Model_Playground/Improved_Sample_Train_Results_120_prev_frames"
 # BASE_FILEPATH = "."
 LOG_FILEPATH = "log/fullLog.txt"
 RESULT_DIRPATH = "results"
@@ -20,7 +20,7 @@ USE_SAMPLE_DATA = True
 
 # Training Parameters
 BATCH_SIZE = 128
-NUM_EPOCHS = 400
+NUM_EPOCHS = 1000
 
 # Model Parameters
 LATENT_SHAPE = (32, 32, 4)
