@@ -156,7 +156,7 @@ class UnguidedVideoDiffusion(tf.keras.models.Model):
       return self.unet([x, *time_context])
 
   def create_encoder_model(self, encoded_layer_name = "UNET_MIDDLE_BLOCK"):
-    self.encoder_model = tf.keras.models.Model(inputs = self.unet.inputs, outputs = self.unet.get_layer(encoded_layer_name).outputs)
+    self.encoder_model = tf.keras.models.Model(inputs = self.unet.inputs, outputs = self.unet.get_layer(encoded_layer_name).output)
 
   def call_encoder_model(self, x, time_index):
     if not hasattr(self, "encoder_model"):
