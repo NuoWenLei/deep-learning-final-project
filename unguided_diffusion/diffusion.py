@@ -254,7 +254,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
                filter_size = 3,
                noise_level = 10,
                leaky = 0.05,
-               regularized_lambda = 0.03,
+               regularized_lambda = 0.3,
                **kwargs):
     super(self, UnguidedVideoDiffusion).__init__(input_shape = input_shape,
                num_channels = num_channels,
@@ -328,9 +328,14 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
 
     grad = (x - x_corrupted) / broadcasted_variance
 
-    with tf.GradientTape() as tape:
+    future_encoding = self.call_encoder_model(tf.concat([future_frames, tf.zeros_like(x_corrupted, dtype = tf.float32)], axis = -1))
+    prev_encoding = self.call_encoder_model(tf.concat([prev_frames, tf.zeros_like(x_corrupted, dtype = tf.float32)], axis = -1))
 
-      quantized_action = self.latent_action_model(future_frames)
+    encoding_diff = future_encoding - prev_encoding
+
+    with tf.GradientTape() as tape:   
+
+      quantized_action = self.latent_action_model(encoding_diff)
 
       grad_pred = self.call(frames, time_index = time_index, quantized_action_embedding = quantized_action)
 

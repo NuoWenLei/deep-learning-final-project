@@ -61,6 +61,26 @@ def calc_frame_indices(total_samples, num_frames_per_sample, episode_changes = [
     ))
   return np.array(stacked_indices)
 
+def calc_frame_indices_with_future_frames(total_samples, num_frames_per_sample, future_offset, episode_changes = []):
+  total_sample_indices = [i for i in range(total_samples)]
+  available_sample_indices = total_samples - num_frames_per_sample - future_offset
+  stacked_indices = []
+  stacked_future_indices = []
+  for i in range(available_sample_indices):
+    continueFlag = False
+    for episode_change in episode_changes:
+      if (episode_change - num_frames_per_sample - future_offset) <= i <= episode_change:
+        continueFlag = True
+    if continueFlag:
+      continue
+    stacked_indices.append((
+      total_sample_indices[i:i+num_frames_per_sample]
+    ))
+    stacked_future_indices.append(
+      total_sample_indices[i+future_offset:i+num_frames_per_sample+future_offset]
+    )
+  return np.array(stacked_indices), np.array(stacked_future_indices)
+
 def gather_samples_from_dataset(X_y_indices, dataset):
   # X_indices = []
   # y_indices = []
