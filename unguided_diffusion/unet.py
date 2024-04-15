@@ -1,9 +1,13 @@
 from imports import tf
 from unguided_diffusion.model_blocks import UNetBlocks
+from constants import VQVAE_OUTPUT_SHAPE, VQVAE_NUM_BLOCKS_WITH_ACTION
 
-def create_unet(input_shape, start_filters = 256, num_blocks = 2, dropout_prob = 0.3, filter_size = 3, num_channels = 1, leaky = 0.05, output_channels = None):
+def create_unet(input_shape, start_filters = 256, num_blocks = 2, dropout_prob = 0.3, filter_size = 3, num_channels = 1, leaky = 0.05, output_channels = None, use_action_embedding = False, action_embedding_shape = VQVAE_OUTPUT_SHAPE, num_blocks_with_action = VQVAE_NUM_BLOCKS_WITH_ACTION):
 
   input_block = tf.keras.layers.Input(shape = input_shape)
+
+  if use_action_embedding:
+     action_input = tf.keras.layers.Input(shape = action_embedding_shape)
   
   embed_inputs = []
   
@@ -22,9 +26,11 @@ def create_unet(input_shape, start_filters = 256, num_blocks = 2, dropout_prob =
   # middle block
   x, _ = UNetBlocks.EncoderMiniBlock(
       x, filter_size = filter_size, n_filters = start_filters, dropout_prob = dropout_prob, max_pooling = False, leaky = leaky, name = "UNET_MIDDLE_BLOCK")
-  
+
   for block in range(num_blocks):
     s = tf.shape(x)
+    if use_action_embedding and (block < num_blocks_with_action):
+       x = x + action_input
     broadcasted_time = tf.broadcast_to(embed_inputs[block], (s[0], s[1], s[2], start_filters))
     x = tf.concat([x, broadcasted_time], axis = -1) # TODO: try sum
     x = UNetBlocks.DecoderMiniBlock(x, skip_connections[-(block+1)], n_filters = start_filters, filter_size = filter_size, leaky = leaky)
@@ -36,4 +42,6 @@ def create_unet(input_shape, start_filters = 256, num_blocks = 2, dropout_prob =
   else:
     output_layer = tf.keras.layers.Conv2D(output_channels, filter_size, padding = "same")(x)
 
+  if use_action_embedding:
+     return tf.keras.models.Model(inputs = [input_block, action_input, *embed_inputs], outputs = output_layer)
   return tf.keras.models.Model(inputs = [input_block, *embed_inputs], outputs = output_layer)

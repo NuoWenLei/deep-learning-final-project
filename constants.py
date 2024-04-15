@@ -8,6 +8,17 @@ LATENT_SAMPLE_PATH = [
 	f"./data/sample_latents/sample_latents_{i}.npy" for i in range(1, 5)
 ]
 
+# VQVAE HYPERPARAMETERS
+VQVAE_COMMITMENT_COST = 0.25
+VQVAE_DECAY = 0.99
+
+VQVAE_NUM_EMBEDDINGS = 16
+VQVAE_EMBEDDING_DIM = 512
+
+VQVAE_INPUT_SHAPE = (4, 4, 512)
+VQVAE_OUTPUT_SHAPE = (1, 1, 512)
+VQVAE_NUM_BLOCKS_WITH_ACTION = 2
+
 # "./data/sample_latents.npy"
 CHECKPOINT_PATH = "checkpoints"
 CHECKPOINT_SAVE_RATE = 50
