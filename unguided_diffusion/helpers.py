@@ -24,6 +24,28 @@ def create_flow_unguided(x, batch_size = 128, preprocess_func = None, repeat = T
     else:
       yield preprocess_func(x[i: i + batch_size])
 
+def create_flow_with_future(x, futures, batch_size = 128, preprocess_func = None, repeat = True):
+  i = 0
+  total_samples = x.shape[0]
+  while True:
+    i += batch_size
+    if ((i + batch_size) >= total_samples) and repeat:
+      i = 0
+      idxs = tf.range(total_samples, dtype = tf.int32)
+      shuffled_idxs = tf.random.shuffle(idxs)
+      x = tf.gather(x, shuffled_idxs)
+      futures = tf.gather(futures, shuffled_idxs)
+    elif (i + batch_size) >= total_samples:
+      if preprocess_func is None:
+        yield x[i: i + batch_size], futures[i: i + batch_size]
+      else:
+        yield preprocess_func(x[i: i + batch_size], futures)
+      break
+    if preprocess_func is None:
+      yield x[i: i + batch_size], futures[i: i + batch_size]
+    else:
+      yield preprocess_func(x[i: i + batch_size], futures)
+
 # Load Latent Data
 def load_latent_data(fp_to_npy, preprocess_func = None):
   if type(fp_to_npy) == str:
@@ -81,7 +103,7 @@ def calc_frame_indices_with_future_frames(total_samples, num_frames_per_sample, 
     )
   return np.array(stacked_indices), np.array(stacked_future_indices)
 
-def gather_samples_from_dataset(X_y_indices, dataset):
+def gather_samples_from_dataset(X_y_indices, future_indices, dataset):
   # X_indices = []
   # y_indices = []
 
@@ -91,4 +113,5 @@ def gather_samples_from_dataset(X_y_indices, dataset):
 
   X = tf.gather(dataset, X_y_indices[:, :-1], axis = 0)
   y = tf.gather(dataset, X_y_indices[:, -1], axis = 0)
-  return X, y
+  future_X = tf.gather(dataset, future_indices, axis = 0)
+  return X, y, future_X

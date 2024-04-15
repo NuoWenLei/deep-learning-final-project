@@ -1,6 +1,6 @@
 from imports import tf, np, tqdm
 
-from unguided_diffusion.helpers import create_flow_unguided, gather_samples_from_dataset, load_latent_data, calc_frame_indices, calc_frame_indices_with_future_frames
+from unguided_diffusion.helpers import create_flow_with_future, gather_samples_from_dataset, load_latent_data, calc_frame_indices, calc_frame_indices_with_future_frames
 from unguided_diffusion.diffusion import LatentActionVideoDiffusion
 
 import gc
@@ -72,8 +72,8 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 		gather_func = partial(gather_samples_from_dataset, dataset = sample_latents)
 
 		# Create Data Generator
-		dataloader = create_flow_unguided(sample_indices, batch_size = BATCH_SIZE, preprocess_func=gather_func)
-		test_dataloader = create_flow_unguided(sample_indices, batch_size = SAMPLE_BATCH_SIZE, preprocess_func=gather_func)
+		dataloader = create_flow_with_future(sample_indices, sample_future_indices, batch_size = BATCH_SIZE, preprocess_func=gather_func)
+		test_dataloader = create_flow_with_future(sample_indices, sample_future_indices, batch_size = SAMPLE_BATCH_SIZE, preprocess_func=gather_func)
 		logger("USE_SAMPLE_DATA=True, using sample data")
 		logger(f"Sample indices shape: {sample_indices.shape}")
 		logger(f"Sample future indices shape: {sample_future_indices.shape}")
@@ -134,16 +134,22 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 			# if step % step_checkmarks == 0:
 			# 	logger(f"Step {step}:\n\nCurrent epoch averages: {str(dict((k, v[0] / v[1]) for k, v in pb._values.items()))}")
 			# Sample next batch of data
-			prev_frames_batch, new_frame_batch = next(dataloader)
+			prev_frames_batch, new_frame_batch, future_frames_batch = next(dataloader)
 
 			prev_frames_reshaped = tf.reshape(
 				tf.transpose(
 					prev_frames_batch,
 					[0, 2, 3, 1, 4]),
 					(BATCH_SIZE, ) + LATENT_SHAPE[:-1] + (-1, ))
+			
+			future_frames_reshaped = tf.reshape(
+				tf.transpose(
+					future_frames_batch,
+					[0, 2, 3, 1, 4]),
+					(BATCH_SIZE, ) + LATENT_SHAPE[:-1] + (-1, ))
 
 			# Train and update metrics
-			metrics = diffusion_model.train_step(new_frame_batch, prev_frames_reshaped)
+			metrics = diffusion_model.train_step(new_frame_batch, prev_frames_reshaped, future_frames_reshaped)
 			metric_list.append(metrics)
 			pb.add(BATCH_SIZE, values=[(k, v) for k,v in metrics.items()])
 
@@ -234,7 +240,7 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 								""")
 
 		if (RESULT_SAMPLE_RATE is not None) and (curr_epoch % RESULT_SAMPLE_RATE == 0) and (curr_epoch != 0):
-			prev_frames_sample_batch, _ = next(test_dataloader)
+			prev_frames_sample_batch, _, _ = next(test_dataloader)
 			print(tf.shape(prev_frames_sample_batch))
 			prev_frames_sample_reshaped  =  tf.reshape(
 				tf.transpose(
@@ -244,6 +250,7 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 			print(tf.shape(prev_frames_sample_reshaped))
 			new_frames = diffusion_model.sample_from_frames(
 				prev_frames_sample_reshaped,
+				action_index = tf.random.uniform((SAMPLE_BATCH_SIZE, ), minval = 0, maxval = 15, dtype = tf.int32),
 				num_frames = 4,
 				batch_size = SAMPLE_BATCH_SIZE).numpy()
 			
