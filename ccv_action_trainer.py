@@ -1,7 +1,7 @@
 from imports import tf, np, tqdm
 
-from unguided_diffusion.helpers import create_flow_unguided, gather_samples_from_dataset, load_latent_data, calc_frame_indices
-from unguided_diffusion.diffusion import UnguidedVideoDiffusion
+from unguided_diffusion.helpers import create_flow_unguided, gather_samples_from_dataset, load_latent_data, calc_frame_indices, calc_frame_indices_with_future_frames
+from unguided_diffusion.diffusion import LatentActionVideoDiffusion
 
 import gc
 import os
@@ -65,8 +65,8 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 		print("Using Sample Data")
 		sample_latents, episode_changes = load_latent_data(LATENT_SAMPLE_PATH)
 		NUM_SAMPLES = sample_latents.shape[0]
-		sample_indices, sample_future_indices = calc_frame_indices(NUM_SAMPLES, NUM_PREV_FRAMES + 1, episode_changes)
-
+		sample_indices, sample_future_indices = calc_frame_indices_with_future_frames(NUM_SAMPLES, NUM_PREV_FRAMES + 1, 10, episode_changes)
+		
 		assert len(sample_indices) <= NUM_SAMPLES
 
 		gather_func = partial(gather_samples_from_dataset, dataset = sample_latents)
@@ -79,7 +79,7 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 		logger(f"Sample future indices shape: {sample_future_indices.shape}")
 
 	# Initialize Diffusion Model
-	diffusion_model = UnguidedVideoDiffusion(
+	diffusion_model = LatentActionVideoDiffusion(
 		input_shape=LATENT_SHAPE[:2],
 		num_channels=LATENT_SHAPE[-1],
 		num_prev_frames=NUM_PREV_FRAMES,
@@ -174,7 +174,7 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 					send_email(logger("No previous save to restore, raising error"))
 					raise Exception("No previous save to restore from exploding gradient")
 				else:
-					diffusion_model = UnguidedVideoDiffusion(
+					diffusion_model = LatentActionVideoDiffusion(
 						input_shape=LATENT_SHAPE[:2],
 						num_channels=LATENT_SHAPE[-1],
 						num_prev_frames=NUM_PREV_FRAMES,

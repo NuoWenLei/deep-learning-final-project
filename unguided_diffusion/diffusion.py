@@ -328,7 +328,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
 
     grad = (x - x_corrupted) / broadcasted_variance
 
-    future_encoding = self.call_encoder_model(tf.concat([future_frames, tf.zeros_like(x_corrupted, dtype = tf.float32)], axis = -1))
+    future_encoding = self.call_encoder_model(future_frames)
     prev_encoding = self.call_encoder_model(tf.concat([prev_frames, tf.zeros_like(x_corrupted, dtype = tf.float32)], axis = -1))
 
     encoding_diff = future_encoding - prev_encoding
