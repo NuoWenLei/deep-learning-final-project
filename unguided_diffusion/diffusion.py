@@ -256,18 +256,31 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
                leaky = 0.05,
                regularized_lambda = 0.3,
                **kwargs):
-    super(UnguidedVideoDiffusion, self).__init__(input_shape,
-               num_channels,
-               num_prev_frames,
-               batch_size,
-               start_filters,
-               num_blocks,
-               dropout_prob,
-               filter_size,
-               noise_level,
-               leaky,
-               True,
+    # super(tf.keras.models.Model, self).__init__(**kwargs)
+    UnguidedVideoDiffusion.__init__(self, input_shape = input_shape,
+               num_channels = num_channels,
+               num_prev_frames = num_prev_frames,
+               batch_size = batch_size,
+               start_filters = start_filters,
+               num_blocks = num_blocks,
+               dropout_prob = dropout_prob,
+               filter_size = filter_size,
+               noise_level = noise_level,
+               leaky = leaky,
+               use_action = True,
                **kwargs)
+    # super(UnguidedVideoDiffusion, self).__init__(input_shape = input_shape,
+    #            num_channels = num_channels,
+    #            num_prev_frames = num_prev_frames,
+    #            batch_size = batch_size,
+    #            start_filters = start_filters,
+    #            num_blocks = num_blocks,
+    #            dropout_prob = dropout_prob,
+    #            filter_size = filter_size,
+    #            noise_level = noise_level,
+    #            leaky = leaky,
+    #            use_action = True,
+    #            **kwargs)
     
     self.regularized_lambda = regularized_lambda
 
