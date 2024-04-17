@@ -256,7 +256,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
                leaky = 0.05,
                regularized_lambda = 0.3,
                **kwargs):
-    super(self, UnguidedVideoDiffusion).__init__(input_shape = input_shape,
+    super(UnguidedVideoDiffusion, self).__init__(input_shape = input_shape,
                num_channels = num_channels,
                num_prev_frames = num_prev_frames,
                batch_size = batch_size,
