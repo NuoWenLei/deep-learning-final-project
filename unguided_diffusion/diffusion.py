@@ -305,10 +305,18 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
       print("Encoder Model created")
     return self.encoder_model(x)
   
+  def set_action_embeddings(self):
+    self.vq_action_embeddings = tf.transpose(self.latent_action_quantizer.embeddings)
+  
   def call_outside_of_train(self, prev_frames, time_index, action_index):
-    quantized_action = tf.nn.embedding_lookup(self.latent_action_quantizer.embeddings, action_index)
+    if not hasattr(self, "vq_action_embeddings"):
+      print("Setting Action Embeddings from VQ layer")
+      self.set_action_embeddings()
+    quantized_action = tf.nn.embedding_lookup(self.vq_action_embeddings, action_index)
 
-    return self.call(prev_frames, time_index, quantized_action)
+    
+
+    return self.call(prev_frames, time_index, quantized_action[:, tf.newaxis, tf.newaxis, ...])
   
   def call(self, prev_frames, time_index, quantized_action_embedding):
 
