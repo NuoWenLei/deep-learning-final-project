@@ -296,20 +296,21 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     self.create_encoder_model()
   
   def create_encoder_model(self, encoded_layer_name = "UNET_MIDDLE_BLOCK"):
-    self.encoder_model = tf.keras.models.Model(inputs = self.unet.inputs, outputs = self.unet.get_layer(encoded_layer_name).output)
+    self.encoder_model = tf.keras.models.Model(inputs = self.unet.inputs[0], outputs = self.unet.get_layer(encoded_layer_name).output)
 
   def call_encoder_model(self, x, time_index = None):
-    if not hasattr(self, "encoder_model"):
-      print("No model detected: Creating Encoder Model... [calling self.create_encoder_model()]")
-      self.create_encoder_model()
-      print("Encoder Model created")
+    return self.encoder_model(x)
+    # if not hasattr(self, "encoder_model"):
+    #   print("No model detected: Creating Encoder Model... [calling self.create_encoder_model()]")
+    #   self.create_encoder_model()
+    #   print("Encoder Model created")
     
-    if time_index is None:
-      b = tf.shape(x)[0]
-      time_index = tf.ones((b, )) * 10.
-    time_context = [time_embed(time_index)[:, tf.newaxis, tf.newaxis, ...] for time_embed in self.time_embeddings]
+    # if time_index is None:
+    #   b = tf.shape(x)[0]
+    #   time_index = tf.ones((b, )) * 10.
+    # time_context = [time_embed(time_index)[:, tf.newaxis, tf.newaxis, ...] for time_embed in self.time_embeddings]
 
-    return self.encoder_model([x, *time_context])
+    # return self.encoder_model([x, *time_context])
   
   def call_outside_of_train(self, prev_frames, time_index, action_index):
     quantized_action = tf.nn.embedding_lookup(self.latent_action_quantizer.embeddings, action_index)
