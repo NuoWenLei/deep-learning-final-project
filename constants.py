@@ -48,7 +48,7 @@ LEAKY=0.05
 # Optimizer
 CLIPNORM = None
 INITIAL_LEARNING_RATE = 0.0
-LEARNING_RATE = 1e-4
+LEARNING_RATE = 3e-5
 LR_WARMUP = 1000
 # Warmup to stabliize learning rate, otherwise loss may explode
 # Inspiration:
