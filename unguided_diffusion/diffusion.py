@@ -348,7 +348,9 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
 
       grad_pred = self.call(frames, time_index = time_index, quantized_action_embedding = quantized_action)
 
-      loss = tf.reduce_sum(broadcasted_variance * (grad_pred - grad) ** 2) + self.regularized_lambda * sum(self.losses)
+      vq_loss = sum(self.losses)
+
+      loss = tf.reduce_sum(broadcasted_variance * (grad_pred - grad) ** 2) + self.regularized_lambda * vq_loss
 
     # Compute gradients
     trainable_vars = self.trainable_variables
@@ -356,7 +358,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     self.optimizer.apply_gradients(zip(gradients, trainable_vars))
 
     self.compiled_metrics.update_state(grad, grad_pred)
-    return {**{m.name: m.result() for m in self.metrics}, "loss": loss}
+    return {**{m.name: m.result() for m in self.metrics}, "loss": loss, "vq_loss (unscaled term)": vq_loss}
   
   def langevin_dynamics(self, x, alpha, time_index, action_index, num_steps, prev_frames = None):
     z_t = tf.random.normal(tf.shape(x))
