@@ -408,3 +408,13 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
       new_frames.append(new_frame)
 
     return tf.stack(new_frames, axis = 1) # Shape: (batch, frames, h, w, channels)
+  
+  def load_from_ckpt(self, path):
+    if path is None:
+      raise Exception("Trying to load from null path")
+    
+    self.call(
+			prev_frames = tf.random.normal((self.batch_size, ) + self.full_input_shape[1:]),
+			time_index = tf.random.normal((self.batch_size, )),
+      quantized_action_embedding = tf.random.normal((self.batch_size, 1, 1, VQVAE_EMBEDDING_DIM)))
+    self.load_weights(path)
