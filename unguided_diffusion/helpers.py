@@ -44,7 +44,7 @@ def create_flow_with_future(x, futures, batch_size = 128, preprocess_func = None
     if preprocess_func is None:
       yield x[i: i + batch_size], futures[i: i + batch_size]
     else:
-      yield preprocess_func(x[i: i + batch_size], futures)
+      yield preprocess_func(x[i: i + batch_size], futures[i : i + batch_size])
 
 # Load Latent Data
 def load_latent_data(fp_to_npy, preprocess_func = None):
