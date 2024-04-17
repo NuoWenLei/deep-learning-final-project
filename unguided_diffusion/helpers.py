@@ -39,7 +39,7 @@ def create_flow_with_future(x, futures, batch_size = 128, preprocess_func = None
       if preprocess_func is None:
         yield x[i: i + batch_size], futures[i: i + batch_size]
       else:
-        yield preprocess_func(x[i: i + batch_size], futures)
+        yield preprocess_func(x[i: i + batch_size], futures[i : i + batch_size])
       break
     if preprocess_func is None:
       yield x[i: i + batch_size], futures[i: i + batch_size]
@@ -103,7 +103,19 @@ def calc_frame_indices_with_future_frames(total_samples, num_frames_per_sample, 
     )
   return np.array(stacked_indices), np.array(stacked_future_indices)
 
-def gather_samples_from_dataset(X_y_indices, future_indices, dataset):
+def gather_samples_from_dataset(X_y_indices, dataset):
+  # X_indices = []
+  # y_indices = []
+
+  # for X_ind, y_ind in X_y_indices:
+  #   X_indices.append(X_ind)
+  #   y_indices.append(y_ind)
+
+  X = tf.gather(dataset, X_y_indices[:, :-1], axis = 0)
+  y = tf.gather(dataset, X_y_indices[:, -1], axis = 0)
+  return X, y
+
+def gather_samples_from_dataset_with_future(X_y_indices, future_indices, dataset):
   # X_indices = []
   # y_indices = []
 

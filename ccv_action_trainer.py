@@ -1,6 +1,6 @@
 from imports import tf, np, tqdm
 
-from unguided_diffusion.helpers import create_flow_with_future, gather_samples_from_dataset, load_latent_data, calc_frame_indices, calc_frame_indices_with_future_frames
+from unguided_diffusion.helpers import create_flow_with_future, gather_samples_from_dataset_with_future, load_latent_data, calc_frame_indices_with_future_frames
 from unguided_diffusion.diffusion import LatentActionVideoDiffusion
 
 import gc
@@ -26,6 +26,7 @@ from constants import (
 	NUM_EPOCHS,
 	USE_EMAIL_NOTIFICATION,
 	USE_SAMPLE_DATA,
+	NUM_FUTURE_FRAMES,
 	
 	# Model Params
 	LATENT_SHAPE,
@@ -65,11 +66,11 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 		print("Using Sample Data")
 		sample_latents, episode_changes = load_latent_data(LATENT_SAMPLE_PATH)
 		NUM_SAMPLES = sample_latents.shape[0]
-		sample_indices, sample_future_indices = calc_frame_indices_with_future_frames(NUM_SAMPLES, NUM_PREV_FRAMES + 1, 10, episode_changes)
+		sample_indices, sample_future_indices = calc_frame_indices_with_future_frames(NUM_SAMPLES, NUM_PREV_FRAMES + 1, NUM_FUTURE_FRAMES, episode_changes)
 		
 		assert len(sample_indices) <= NUM_SAMPLES
 
-		gather_func = partial(gather_samples_from_dataset, dataset = sample_latents)
+		gather_func = partial(gather_samples_from_dataset_with_future, dataset = sample_latents)
 
 		# Create Data Generator
 		dataloader = create_flow_with_future(sample_indices, sample_future_indices, batch_size = BATCH_SIZE, preprocess_func=gather_func)
