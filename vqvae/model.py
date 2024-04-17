@@ -124,6 +124,7 @@ def get_image_vq_encoder(
 	quantized_latents = vq_layer(encoder_outputs)
 	vq_encoder = tf.keras.Model(inputs, quantized_latents, name=name)
 	vq_encoder.build(image_shape + (num_channels,))
+	print(vq_encoder.summary())
 	return vq_encoder, vq_layer
 
 def get_image_vqvae(

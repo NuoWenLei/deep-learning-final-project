@@ -312,14 +312,14 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
   
   def call(self, prev_frames, time_index, quantized_action_embedding):
 
-    quantized_embeddings = quantized_action_embedding[:, tf.newaxis, tf.newaxis, ...]
+    # quantized_embeddings = quantized_action_embedding[:, tf.newaxis, tf.newaxis, ...]
       
     # quantized_embeddings = tf.nn.embedding_lookup(self.latent_action_quantizer.embeddings, action_index)[:, tf.newaxis, tf.newaxis, ...]
 
     # Time embedding
     time_context = [time_embed(time_index)[:, tf.newaxis, tf.newaxis, ...] for time_embed in self.time_embeddings]
 
-    return self.unet([prev_frames, quantized_embeddings, *time_context])
+    return self.unet([prev_frames, quantized_action_embedding, *time_context])
   
   def train_step(self, x, prev_frames, future_frames):
     # Sample noise
@@ -344,7 +344,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
 
       quantized_action = self.latent_action_model(encoding_diff)
 
-      print(tf.shape(quantized_action))
+      # print(tf.shape(quantized_action))
 
       grad_pred = self.call(frames, time_index = time_index, quantized_action_embedding = quantized_action)
 
