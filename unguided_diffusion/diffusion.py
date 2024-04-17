@@ -289,7 +289,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
       num_embeddings=VQVAE_NUM_EMBEDDINGS,
       image_shape=VQVAE_INPUT_SHAPE[:2],
       num_channels=VQVAE_INPUT_SHAPE[-1],
-      ema=True,
+      ema=False,
       batchnorm=True
     )
 
