@@ -298,19 +298,12 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
   def create_encoder_model(self, encoded_layer_name = "UNET_MIDDLE_BLOCK"):
     self.encoder_model = tf.keras.models.Model(inputs = self.unet.inputs[0], outputs = self.unet.get_layer(encoded_layer_name).output)
 
-  def call_encoder_model(self, x, time_index = None):
+  def call_encoder_model(self, x):
+    if not hasattr(self, "encoder_model"):
+      print("No model detected: Creating Encoder Model... [calling self.create_encoder_model()]")
+      self.create_encoder_model()
+      print("Encoder Model created")
     return self.encoder_model(x)
-    # if not hasattr(self, "encoder_model"):
-    #   print("No model detected: Creating Encoder Model... [calling self.create_encoder_model()]")
-    #   self.create_encoder_model()
-    #   print("Encoder Model created")
-    
-    # if time_index is None:
-    #   b = tf.shape(x)[0]
-    #   time_index = tf.ones((b, )) * 10.
-    # time_context = [time_embed(time_index)[:, tf.newaxis, tf.newaxis, ...] for time_embed in self.time_embeddings]
-
-    # return self.encoder_model([x, *time_context])
   
   def call_outside_of_train(self, prev_frames, time_index, action_index):
     quantized_action = tf.nn.embedding_lookup(self.latent_action_quantizer.embeddings, action_index)
@@ -350,6 +343,8 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     with tf.GradientTape() as tape:   
 
       quantized_action = self.latent_action_model(encoding_diff)
+
+      print(tf.shape(quantized_action))
 
       grad_pred = self.call(frames, time_index = time_index, quantized_action_embedding = quantized_action)
 
