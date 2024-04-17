@@ -1,4 +1,4 @@
-from constants import VQVAE_EMBEDDING_DIM, VQVAE_NUM_EMBEDDINGS, VQVAE_INPUT_SHAPE
+from constants import VQVAE_EMBEDDING_DIM, VQVAE_NUM_EMBEDDINGS, VQVAE_INPUT_SHAPE, VQVAE_LOSS_LAMBDA
 from imports import tf, np, tqdm
 from unguided_diffusion.unet import create_unet
 from unguided_diffusion.model_blocks import TimeEmbedding2D
@@ -254,7 +254,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
                filter_size = 3,
                noise_level = 10,
                leaky = 0.05,
-               regularized_lambda = 0.3,
+               regularized_lambda = VQVAE_LOSS_LAMBDA,
                **kwargs):
     # super(tf.keras.models.Model, self).__init__(**kwargs)
     UnguidedVideoDiffusion.__init__(self, input_shape = input_shape,
