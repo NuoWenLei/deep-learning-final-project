@@ -30,7 +30,7 @@ def create_unet(input_shape, start_filters = 256, num_blocks = 2, dropout_prob =
   for block in range(num_blocks):
     s = tf.shape(x)
     if use_action_embedding and (block < num_blocks_with_action):
-       x = x + action_input
+       x = tf.concat([x, tf.broadcast_to(action_input, tf.shape(x))], axis = -1)
     broadcasted_time = tf.broadcast_to(embed_inputs[block], (s[0], s[1], s[2], start_filters))
     x = tf.concat([x, broadcasted_time], axis = -1) # TODO: try sum
     x = UNetBlocks.DecoderMiniBlock(x, skip_connections[-(block+1)], n_filters = start_filters, filter_size = filter_size, leaky = leaky)
