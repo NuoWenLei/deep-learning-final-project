@@ -1,4 +1,4 @@
-from constants import VQVAE_EMBEDDING_DIM, VQVAE_NUM_EMBEDDINGS, VQVAE_INPUT_SHAPE, VQVAE_LOSS_LAMBDA
+from constants import VQVAE_EMBEDDING_DIM, VQVAE_NUM_EMBEDDINGS, VQVAE_INPUT_SHAPE, VQVAE_LOSS_LAMBDA, CONDITIONAL_SAMPLING_LAMBDA
 from imports import tf, np, tqdm
 from unguided_diffusion.unet import create_unet
 from unguided_diffusion.model_blocks import TimeEmbedding2D
@@ -376,9 +376,16 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
       frames = tf.concat([prev_frames, x], axis = -1)
     else:
       frames = x
+
+    grad_p_x = self(x, time_index, tf.zeros_like(action_index))
+    grad_p_x_y = self.call_outside_of_train(frames, time_index, action_index)
+
+    # The central equation for classifier-free guidance
+    grad_p = (1 - CONDITIONAL_SAMPLING_LAMBDA) * grad_p_x + CONDITIONAL_SAMPLING_LAMBDA * grad_p_x_y
+
+    new_x = x + (alpha / 2.) * grad_p + (alpha ** 0.5) * z_t
     if num_steps == 0:
-      return x + (alpha / 2.) * self.call_outside_of_train(frames, time_index, action_index)
-    new_x = x + (alpha / 2.) * self.call_outside_of_train(frames, time_index, action_index) + (alpha ** 0.5) * z_t
+      return new_x
     return self.langevin_dynamics(new_x, alpha, time_index, action_index, num_steps - 1, prev_frames = prev_frames)
 
   def annealed_langevin_dynamics(self, x, action_index, step_size=2e-5, num_steps = 100, return_intermediate=False, prev_frames = None):

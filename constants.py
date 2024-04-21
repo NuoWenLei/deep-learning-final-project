@@ -1,4 +1,4 @@
-BASE_FILEPATH = "/content/gdrive/MyDrive/personal_stuff/personal_projects_college/CSCI2470_FINAL_PROJECT/Model_Playground/Action_Train_Results_2"
+BASE_FILEPATH = "/content/gdrive/MyDrive/personal_stuff/personal_projects_college/CSCI2470_FINAL_PROJECT/Model_Playground/Action_Train_Results_3"
 # BASE_FILEPATH = "."
 LOG_FILEPATH = "log/fullLog.txt"
 RESULT_DIRPATH = "results"
@@ -46,11 +46,12 @@ FILTER_SIZE=3
 NOISE_LEVELS=10
 LEAKY=0.05
 UNCONDITION_PROB=0.15
+CONDITIONAL_SAMPLING_LAMBDA=10.
 
 # Optimizer
 CLIPNORM = None
 INITIAL_LEARNING_RATE = 0.0
-LEARNING_RATE = 2e-3
+LEARNING_RATE = 1e-3
 LR_WARMUP = 1000
 # Warmup to stabliize learning rate, otherwise loss may explode
 # Inspiration:
