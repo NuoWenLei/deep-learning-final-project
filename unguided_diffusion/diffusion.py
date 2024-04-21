@@ -377,7 +377,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     else:
       frames = x
 
-    grad_p_x = self.call_outside_of_train(x, time_index, tf.zeros_like(action_index))
+    grad_p_x = self.call_outside_of_train(frames, time_index, tf.zeros_like(action_index))
     grad_p_x_y = self.call_outside_of_train(frames, time_index, action_index)
 
     # The central equation for classifier-free guidance
