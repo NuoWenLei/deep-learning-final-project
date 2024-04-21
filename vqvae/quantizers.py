@@ -9,6 +9,7 @@ from __future__ import division
 from __future__ import print_function
 
 from imports import tf
+from constants import UNCONDITION_PROB
 
 class VectorQuantizer(tf.keras.layers.Layer):
 	"""Sonnet module representing the VQ-VAE layer.
@@ -37,6 +38,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		self.num_embeddings = num_embeddings
 		self.commitment_cost = commitment_cost
 		self.trainable = True
+		self.is_training = True
 
 		# Initialize embedding weights
 		initializer = tf.keras.initializers.RandomUniform(-1., 1.)
@@ -52,6 +54,10 @@ class VectorQuantizer(tf.keras.layers.Layer):
 
 		# Quantization.
 		encoding_indices = self.get_code_indices(flattened)
+		if self.is_training:
+			# Percentage of unconditional training
+			uncondition_mask = tf.random.uniform((input_shape[0], ))
+			encoding_indices = tf.where(uncondition_mask > UNCONDITION_PROB, encoding_indices, 0)
 		encodings = tf.one_hot(encoding_indices, self.num_embeddings)
 		quantized = tf.matmul(encodings, self.embeddings, transpose_b=True)
 
