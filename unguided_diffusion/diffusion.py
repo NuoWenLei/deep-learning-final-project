@@ -1,4 +1,4 @@
-from constants import VQVAE_EMBEDDING_DIM, VQVAE_NUM_EMBEDDINGS, VQVAE_INPUT_SHAPE, VQVAE_LOSS_LAMBDA, CONDITIONAL_SAMPLING_LAMBDA
+from constants import VQVAE_EMBEDDING_DIM, VQVAE_NUM_EMBEDDINGS, VQVAE_INPUT_SHAPE, VQVAE_LOSS_LAMBDA, CONDITIONAL_SAMPLING_LAMBDA, GRAM_MATRIX_LAMBDA
 from imports import tf, np, tqdm
 from unguided_diffusion.unet import create_unet
 from unguided_diffusion.model_blocks import TimeEmbedding2D
@@ -255,6 +255,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
                noise_level = 10,
                leaky = 0.05,
                regularized_lambda = VQVAE_LOSS_LAMBDA,
+               gram_loss_lambda = GRAM_MATRIX_LAMBDA,
                **kwargs):
     # super(tf.keras.models.Model, self).__init__(**kwargs)
     UnguidedVideoDiffusion.__init__(self, input_shape = input_shape,
@@ -283,6 +284,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     #            **kwargs)
     
     self.regularized_lambda = regularized_lambda
+    self.gram_loss_lambda = gram_loss_lambda
 
     self.latent_action_model, self.latent_action_quantizer = get_image_vq_encoder(
       latent_dim=VQVAE_EMBEDDING_DIM,
@@ -329,6 +331,12 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
 
     return self.unet([prev_frames, quantized_action_embedding, *time_context])
   
+  def gram_matrix_loss(self):
+    # Taken from https://www.tensorflow.org/tutorials/generative/style_transfer#calculate_style
+    result = tf.reduce_sum(tf.transpose(self.latent_action_quantizer.embeddings) @ self.latent_action_quantizer.embeddings)
+    num_locations = tf.cast(VQVAE_NUM_EMBEDDINGS*VQVAE_EMBEDDING_DIM, tf.float32)
+    return result/(num_locations)
+  
   def train_step(self, x, prev_frames, future_frames):
     # Sample noise
     epsilon = tf.random.normal((self.batch_size, ) + self.image_input_shape + (self.num_channels, )) # (batch_size, *image_shape)
@@ -356,11 +364,16 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
 
       grad_pred = self.call(frames, time_index = time_index, quantized_action_embedding = quantized_action)
 
+      # VQ regularization losses
       vq_loss = sum(self.losses)
 
+      # Generation loss
       diffusion_loss = tf.reduce_mean(broadcasted_variance * (grad_pred - grad) ** 2)
 
-      loss = diffusion_loss + self.regularized_lambda * vq_loss
+      # Loss to make every action embedding orthogonal to each other
+      gram_loss = self.gram_matrix_loss()
+
+      loss = diffusion_loss + self.regularized_lambda * vq_loss + self.gram_loss_lambda * gram_loss
 
     # Compute gradients
     trainable_vars = self.trainable_variables
@@ -368,7 +381,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     self.optimizer.apply_gradients(zip(gradients, trainable_vars))
 
     self.compiled_metrics.update_state(grad, grad_pred)
-    return {**{m.name: m.result() for m in self.metrics}, "loss": loss, "vq_loss (unscaled term)": vq_loss, "diffusion_loss": diffusion_loss}
+    return {**{m.name: m.result() for m in self.metrics}, "loss": loss, "vq_loss (unscaled term)": vq_loss, "diffusion_loss": diffusion_loss, "gram_loss": gram_loss}
   
   def langevin_dynamics(self, x, alpha, time_index, action_index, num_steps, prev_frames = None):
     z_t = tf.random.normal(tf.shape(x))
