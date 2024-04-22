@@ -383,7 +383,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     self.compiled_metrics.update_state(grad, grad_pred)
     return {**{m.name: m.result() for m in self.metrics}, "loss": loss, "vq_loss (unscaled term)": vq_loss, "diffusion_loss": diffusion_loss, "gram_loss": gram_loss}
   
-  def langevin_dynamics(self, x, alpha, time_index, action_index, num_steps, prev_frames = None):
+  def langevin_dynamics(self, x, alpha, time_index, action_index, num_steps, prev_frames = None, lamb = CONDITIONAL_SAMPLING_LAMBDA):
     z_t = tf.random.normal(tf.shape(x))
     if prev_frames is not None:
       frames = tf.concat([prev_frames, x], axis = -1)
@@ -394,14 +394,14 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     grad_p_x_y = self.call_outside_of_train(frames, time_index, action_index)
 
     # The central equation for classifier-free guidance
-    grad_p = (1 - CONDITIONAL_SAMPLING_LAMBDA) * grad_p_x + CONDITIONAL_SAMPLING_LAMBDA * grad_p_x_y
+    grad_p = (1 - lamb) * grad_p_x + lamb * grad_p_x_y
 
     new_x = x + (alpha / 2.) * grad_p + (alpha ** 0.5) * z_t
     if num_steps == 0:
       return new_x
-    return self.langevin_dynamics(new_x, alpha, time_index, action_index, num_steps - 1, prev_frames = prev_frames)
+    return self.langevin_dynamics(new_x, alpha, time_index, action_index, num_steps - 1, prev_frames = prev_frames, lamb = lamb)
 
-  def annealed_langevin_dynamics(self, x, action_index, step_size=2e-5, num_steps = 100, return_intermediate=False, prev_frames = None):
+  def annealed_langevin_dynamics(self, x, action_index, step_size=2e-5, num_steps = 100, return_intermediate=False, prev_frames = None, lamb = CONDITIONAL_SAMPLING_LAMBDA):
     last_variance = self.variance_schedule[-1] # Smallest variance
     b = tf.shape(x)[0]
     x_t = x
@@ -409,14 +409,14 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     for i in tqdm(range(self.noise_level)):
       variance_t = self.variance_schedule[i]
       alpha_t = step_size * variance_t / last_variance
-      x_t = self.langevin_dynamics(x_t, alpha_t, tf.broadcast_to(i, (b,)), action_index, num_steps, prev_frames)
+      x_t = self.langevin_dynamics(x_t, alpha_t, tf.broadcast_to(i, (b,)), action_index, num_steps, prev_frames, lamb)
       intermediate_samples.append(x_t)
 
     if return_intermediate:
       return intermediate_samples
     return x_t
   
-  def sample_from_frames(self, frames, action_index, num_frames = 30, step_size=2e-5, num_steps = 100, batch_size = 32):
+  def sample_from_frames(self, frames, action_index, num_frames = 30, step_size=2e-5, num_steps = 100, batch_size = 32, lamb = CONDITIONAL_SAMPLING_LAMBDA):
     new_frames = []
 
     print(tf.shape(frames))
@@ -430,7 +430,8 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
         action_index = action_index,
         step_size = step_size,
         num_steps = num_steps,
-        prev_frames = frames)
+        prev_frames = frames,
+        lamb = lamb)
       
       frames = tf.concat([frames[..., self.num_channels:], new_frame], axis = -1)
       new_frames.append(new_frame)
