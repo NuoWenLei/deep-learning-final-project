@@ -1,4 +1,4 @@
-BASE_FILEPATH = "/content/gdrive/MyDrive/personal_stuff/personal_projects_college/CSCI2470_FINAL_PROJECT/Model_Playground/Action_Train_Results_6"
+BASE_FILEPATH = "/content/gdrive/MyDrive/CSCI2470_FINAL_PROJECT/Model_Playground/TrainResultsErik"
 # BASE_FILEPATH = "."
 LOG_FILEPATH = "log/fullLog.txt"
 RESULT_DIRPATH = "results"
