@@ -1,4 +1,4 @@
-BASE_FILEPATH = "/content/gdrive/MyDrive/personal_stuff/personal_projects_college/CSCI2470_FINAL_PROJECT/Model_Playground/Action_Train_Results_5"
+BASE_FILEPATH = "/content/gdrive/MyDrive/personal_stuff/personal_projects_college/CSCI2470_FINAL_PROJECT/Model_Playground/Action_Train_Results_6"
 # BASE_FILEPATH = "."
 LOG_FILEPATH = "log/fullLog.txt"
 RESULT_DIRPATH = "results"
@@ -9,7 +9,7 @@ LATENT_SAMPLE_PATH = [
 ]
 
 # VQVAE/ACTION HYPERPARAMETERS
-VQVAE_LOSS_LAMBDA = 0.05
+VQVAE_LOSS_LAMBDA = 0.3
 VQVAE_COMMITMENT_COST = 0.25
 VQVAE_DECAY = 0.99
 
@@ -20,7 +20,7 @@ VQVAE_INPUT_SHAPE = (4, 4, 512)
 VQVAE_OUTPUT_SHAPE = (1, 1, 512)
 VQVAE_NUM_BLOCKS_WITH_ACTION = 2
 
-NUM_FUTURE_FRAMES = 10
+NUM_FUTURE_FRAMES = 3
 
 # "./data/sample_latents.npy"
 CHECKPOINT_PATH = "checkpoints"
@@ -47,7 +47,7 @@ NOISE_LEVELS=10
 LEAKY=0.05
 UNCONDITION_PROB=0.15
 CONDITIONAL_SAMPLING_LAMBDA=5.
-GRAM_MATRIX_LAMBDA=0.1
+GRAM_MATRIX_LAMBDA=0.3
 
 # Optimizer
 CLIPNORM = None

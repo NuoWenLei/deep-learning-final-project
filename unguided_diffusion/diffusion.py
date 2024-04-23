@@ -333,7 +333,8 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
   
   def gram_matrix_loss(self):
     # Taken from https://www.tensorflow.org/tutorials/generative/style_transfer#calculate_style
-    result = tf.reduce_sum(tf.transpose(self.latent_action_quantizer.embeddings) @ self.latent_action_quantizer.embeddings)
+    normed_embeds = tf.math.l2_normalize(self.latent_action_quantizer.embeddings, axis = 0)
+    result = tf.reduce_sum(tf.transpose(normed_embeds) @ normed_embeds)
     num_locations = tf.cast(VQVAE_NUM_EMBEDDINGS*VQVAE_EMBEDDING_DIM, tf.float32)
     return result/(num_locations)
   
