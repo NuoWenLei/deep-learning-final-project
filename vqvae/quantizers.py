@@ -57,14 +57,11 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		if self.is_training:
 			# Percentage of unconditional training
 			uncondition_mask = tf.random.uniform((input_shape[0], ))
-			random_indices = tf.random.uniform(tf.shape(encoding_indices), minval = 0, maxval = self.num_embeddings, dtype = tf.int64)
+			# random_indices = tf.random.uniform(tf.shape(encoding_indices), minval = 0, maxval = self.num_embeddings, dtype = tf.int64)
 			encoding_indices = tf.where(
-				uncondition_mask > (UNCONDITION_PROB * 2),
+				uncondition_mask > (UNCONDITION_PROB),
 				encoding_indices,
-				tf.where(
-					uncondition_mask > UNCONDITION_PROB,
-					random_indices,
-					0))
+				0)
 			# encoding_indices = tf.where(uncondition_mask > UNCONDITION_PROB, encoding_indices, 0)
 		encodings = tf.one_hot(encoding_indices, self.num_embeddings)
 		quantized = tf.matmul(encodings, self.embeddings, transpose_b=True)
