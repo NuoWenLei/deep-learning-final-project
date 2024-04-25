@@ -24,7 +24,7 @@ NUM_FUTURE_FRAMES = 5 ####
 
 # "./data/sample_latents.npy"
 CHECKPOINT_PATH = "checkpoints"
-CHECKPOINT_SAVE_RATE = 50
+CHECKPOINT_SAVE_RATE = 10
 
 EXPLODING_LOSS_DETECTION = 5
 
