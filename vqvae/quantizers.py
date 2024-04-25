@@ -89,13 +89,21 @@ class VectorQuantizer(tf.keras.layers.Layer):
 			+ tf.reduce_sum(self.embeddings ** 2, axis=0)
 			- 2 * similarity
 		)
-
+		max_dist = tf.stop_gradient(tf.reduce_max(distances))
+		distances = tf.where(tf.range(self.num_embeddings) > 0, distances, max_dist)
 		# Derive the indices for minimum distances.
 		encoding_indices = tf.argmin(distances, axis=1)
 		return encoding_indices
 	
 	def quantize(self, encoding_indices):
 		return tf.nn.embedding_lookup(self.embeddings, encoding_indices, validate_indices=False)
+	
+	def reset_embeddings(self, embed_indices):
+		col_indices = tf.stop_gradient(tf.stack(tf.meshgrid(tf.range(self.embedding_dim), embed_indices, indexing='ij'), axis=-1))
+		tf.stop_gradient(self.embeddings.scatter_nd_update(
+			col_indices,
+			tf.transpose(self.initializer((tf.shape(embed_indices)[0], self.embedding_dim)))
+		))
 
 
 class VectorQuantizerEMA(tf.keras.layers.Layer):
