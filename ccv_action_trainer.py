@@ -225,7 +225,7 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 
 		if (CHECKPOINT_SAVE_RATE is not None) and (curr_epoch % CHECKPOINT_SAVE_RATE == 0) and (curr_epoch != 0):
 			save_path = os.path.join(os.path.join(BASE_FILEPATH, CHECKPOINT_PATH), f"e{curr_epoch}.ckpt")
-			print(save_path)
+			print("save_path", save_path)
 			diffusion_model.save_weights(save_path)
 			latest_save_path = save_path
 			logger(f"""
