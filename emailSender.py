@@ -40,10 +40,10 @@ def send_email(body):
 	# Set Global Variables
 	gmail_user = 'l39X35f828DPWf9j@gmail.com'
 	gmail_password = 'bybxcmedbwgqbijc'
-	to = "nuo_wen_lei@brown.edu"
+	to = "haiyang_wang@brown.edu"
 	# Create Email 
 	mail_from = f"stock_data_email <{gmail_user}>"
-	mail_to = f"Nuo Wen Lei <{to}>"
+	mail_to = f"Haiyang Wang <{to}>"
 	mail_subject = "CCV Run Status"
 	mail_message_body = body
 
