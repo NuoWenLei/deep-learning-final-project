@@ -128,6 +128,7 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 
 	for epoch in range(NUM_EPOCHS):
 		curr_epoch = starting_epoch + epoch
+		logger(f"Epoch {curr_epoch - 1} Action Counter: {diffusion_model.action_index_counter.numpy()}")
 		logger(f"Epoch {curr_epoch}, Num Steps {STEPS_PER_EPOCH}: ")
 		pb = tf.keras.utils.Progbar(BATCH_SIZE * STEPS_PER_EPOCH)
 		for step in range(STEPS_PER_EPOCH):
@@ -153,7 +154,6 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 			metrics = diffusion_model.train_step(new_frame_batch, prev_frames_reshaped, future_frames_reshaped)
 			metric_list.append(metrics)
 			pb.add(BATCH_SIZE, values=[(k, v) for k,v in metrics.items()])
-
 		# Calculate Metric Averages of Epoch
 		epoch_averages = dict((k, v[0] / v[1]) for k, v in pb._values.items())
 		for k in epoch_averages.keys():
