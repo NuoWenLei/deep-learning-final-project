@@ -100,6 +100,44 @@ def get_decoder(input_shape, latent_dim=VQVAE_EMBEDDING_DIM, num_resblocks = 2, 
 
 	return tf.keras.Model(decoder_inputs, decoder_outputs, name=name)
 
+class ImageVQEncoder(tf.keras.Model):
+
+	def __init__(self, latent_dim=VQVAE_EMBEDDING_DIM,
+		num_embeddings=VQVAE_NUM_EMBEDDINGS,
+		image_shape=LATENT_SHAPE[:2],
+		num_channels = LATENT_SHAPE[-1] * (NUM_PREV_FRAMES + 1),
+		ema = True,
+		batchnorm = True,
+		name = "vq_vae"):
+
+		super().__init__(name = name)
+
+		if ema:
+			self.vq_layer = VectorQuantizerEMA(
+				embedding_dim = latent_dim, 
+				num_embeddings = num_embeddings,
+				commitment_cost=VQVAE_COMMITMENT_COST,
+				decay=VQVAE_DECAY,
+				name="vector_quantizer")
+		else:
+			self.vq_layer = VectorQuantizer(
+				embedding_dim = latent_dim, 
+				num_embeddings = num_embeddings,
+				commitment_cost=VQVAE_COMMITMENT_COST,
+				name="vector_quantizer")
+			
+		self.encoder = get_encoder(latent_dim = latent_dim // 4, input_shape=image_shape + (num_channels,), batchnorm=batchnorm)
+		self.reshaper = tf.keras.layers.Reshape((1, 1, latent_dim))
+
+	def get_vq_layer(self):
+		return self.vq_layer
+	
+	def call(self, inputs, step):
+		encoder_output = self.encoder(inputs)
+		reshaped_encoding = self.reshaper(encoder_output)
+		quantized_latents, original_encoding_indices = self.vq_layer(reshaped_encoding, step)
+		return quantized_latents, original_encoding_indices
+
 def get_image_vq_encoder(
 		latent_dim=VQVAE_EMBEDDING_DIM,
 		num_embeddings=VQVAE_NUM_EMBEDDINGS,

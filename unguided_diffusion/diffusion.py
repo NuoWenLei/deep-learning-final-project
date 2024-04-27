@@ -2,7 +2,7 @@ from constants import VQVAE_EMBEDDING_DIM, VQVAE_NUM_EMBEDDINGS, LATENT_SHAPE, N
 from imports import tf, np, tqdm
 from unguided_diffusion.unet import create_unet
 from unguided_diffusion.model_blocks import TimeEmbedding2D
-from vqvae.model import get_image_vq_encoder
+from vqvae.model import get_image_vq_encoder, ImageVQEncoder
 
 class UnguidedDiffusion(tf.keras.models.Model):
 
@@ -287,14 +287,23 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     self.regularized_lambda = regularized_lambda
     self.gram_loss_lambda = gram_loss_lambda
 
-    self.latent_action_model, self.latent_action_quantizer = get_image_vq_encoder(
-      latent_dim=VQVAE_EMBEDDING_DIM,
+    self.latent_action_model = ImageVQEncoder(latent_dim=VQVAE_EMBEDDING_DIM,
       num_embeddings=VQVAE_NUM_EMBEDDINGS,
       image_shape=LATENT_SHAPE[:2],
 		  num_channels = LATENT_SHAPE[-1] * (NUM_PREV_FRAMES + 1),
       ema=False,
-      batchnorm=True
-    )
+      batchnorm=True)
+    
+    self.latent_action_quantizer = self.latent_action_model.get_vq_layer()
+
+    # self.latent_action_model, self.latent_action_quantizer = get_image_vq_encoder(
+    #   latent_dim=VQVAE_EMBEDDING_DIM,
+    #   num_embeddings=VQVAE_NUM_EMBEDDINGS,
+    #   image_shape=LATENT_SHAPE[:2],
+		#   num_channels = LATENT_SHAPE[-1] * (NUM_PREV_FRAMES + 1),
+    #   ema=False,
+    #   batchnorm=True
+    # )
 
     self.action_norm = tf.keras.layers.LayerNormalization()
 
