@@ -1,4 +1,4 @@
-from constants import VQVAE_EMBEDDING_DIM, VQVAE_NUM_EMBEDDINGS, VQVAE_INPUT_SHAPE, VQVAE_LOSS_LAMBDA, CONDITIONAL_SAMPLING_LAMBDA, GRAM_MATRIX_LAMBDA
+from constants import VQVAE_EMBEDDING_DIM, VQVAE_NUM_EMBEDDINGS, VQVAE_INPUT_SHAPE, VQVAE_LOSS_LAMBDA, CONDITIONAL_SAMPLING_LAMBDA, GRAM_MATRIX_LAMBDA, VQVAE_EXPLORE_STEPS
 from imports import tf, np, tqdm
 from unguided_diffusion.unet import create_unet
 from unguided_diffusion.model_blocks import TimeEmbedding2D
@@ -256,6 +256,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
                leaky = 0.05,
                regularized_lambda = VQVAE_LOSS_LAMBDA,
                gram_loss_lambda = GRAM_MATRIX_LAMBDA,
+               start_step = True,
                **kwargs):
     # super(tf.keras.models.Model, self).__init__(**kwargs)
     UnguidedVideoDiffusion.__init__(self, input_shape = input_shape,
@@ -298,6 +299,11 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     self.action_norm = tf.keras.layers.LayerNormalization()
 
     self.action_index_counter = tf.zeros((VQVAE_NUM_EMBEDDINGS, ))
+
+    if start_step:
+      self.step_count = tf.zeros((batch_size, ))
+    else:
+      self.step_count = (VQVAE_EXPLORE_STEPS + 1) * tf.ones((batch_size, ))
 
     self.create_encoder_model()
   
@@ -365,7 +371,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
 
       encoding_diff = self.action_norm(encoding_diff_unnormalized)
 
-      quantized_action, original_encoding_indices = self.latent_action_model(encoding_diff)
+      quantized_action, original_encoding_indices = self.latent_action_model([encoding_diff, self.step_count])
 
       # print(tf.shape(quantized_action))
 
@@ -392,6 +398,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     self.optimizer.apply_gradients(zip(gradients, trainable_vars))
 
     self.compiled_metrics.update_state(grad, grad_pred)
+    self.step_count = self.step_count + 1.
     return {**{m.name: m.result() for m in self.metrics}, "loss": loss, "vq_loss (unscaled term)": vq_loss, "diffusion_loss": diffusion_loss, "gram_loss": gram_loss}
   
   def langevin_dynamics(self, x, alpha, time_index, action_index, num_steps, prev_frames = None, lamb = CONDITIONAL_SAMPLING_LAMBDA):
