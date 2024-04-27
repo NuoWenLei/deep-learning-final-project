@@ -45,6 +45,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		self.embeddings = tf.Variable(
 					initial_value = initializer(shape = (embedding_dim, num_embeddings)),
 					trainable = True, name=f"{name}_embeddings")
+		self.index_counter = tf.zeros((num_embeddings, ))
 				
 	def call(self, x):
 		# Calculate the input shape of the inputs and
@@ -93,6 +94,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		distances = tf.where(tf.range(self.num_embeddings) > 0, distances, max_dist)
 		# Derive the indices for minimum distances.
 		encoding_indices = tf.argmin(distances, axis=1)
+		self.index_counter = self.index_counter + tf.reduce_sum(tf.one_hot(encoding_indices, self.num_embeddings), axis = 0)
 		return encoding_indices
 	
 	def quantize(self, encoding_indices):
