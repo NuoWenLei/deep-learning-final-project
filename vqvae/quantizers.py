@@ -41,7 +41,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		self.is_training = True
 
 		# Initialize embedding weights
-		initializer = tf.keras.initializers.RandomUniform(-1., 1.)
+		initializer = tf.keras.initializers.RandomNormal()
 		self.embeddings = tf.Variable(
 					initial_value = initializer(shape = (embedding_dim, num_embeddings)),
 					trainable = True, name=f"{name}_embeddings")
