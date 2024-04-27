@@ -295,6 +295,8 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
       batchnorm=True
     )
 
+    self.action_norm = tf.keras.layers.LayerNormalization()
+
     self.create_encoder_model()
   
   def create_encoder_model(self, encoded_layer_name = "UNET_MIDDLE_BLOCK"):
@@ -355,9 +357,11 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     future_encoding = self.call_encoder_model(future_frames)
     prev_encoding = self.call_encoder_model(tf.concat([prev_frames, tf.zeros_like(x_corrupted, dtype = tf.float32)], axis = -1))
 
-    encoding_diff = future_encoding - prev_encoding
+    encoding_diff_unnormalized = future_encoding - prev_encoding
 
     with tf.GradientTape() as tape:   
+
+      encoding_diff = self.action_norm(encoding_diff_unnormalized)
 
       quantized_action = self.latent_action_model(encoding_diff)
 
