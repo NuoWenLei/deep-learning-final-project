@@ -128,7 +128,7 @@ def get_image_vq_encoder(
 	self_attn = tf.keras.layers.MultiHeadAttention(num_heads = 4, key_dim = 512, output_shape=(image_shape[0] * image_shape[1], ))
 	attn_outputs = self_attn(transposed_inputs, transposed_inputs)
 	res_outputs = tf.keras.layers.BatchNormalization()(tf.reduce_sum(attn_outputs, axis = -1))
-	ff_output = tf.keras.layers.Dense(num_channels, activation = "relu")
+	ff_output = tf.keras.layers.Dense(num_channels, activation = "relu")(res_outputs)
 	ff_output = tf.keras.layers.Reshape((1, 1, num_channels))(ff_output)
 
 	quantized_latents, original_encoding_indices = vq_layer(ff_output, step)
