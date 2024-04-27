@@ -130,6 +130,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		)
 		max_dist = tf.stop_gradient(tf.reduce_max(distances))
 		distances = tf.where(tf.range(self.num_embeddings) > 0, distances, max_dist)
+		print(tf.shape(distances))
 		# Derive the indices for minimum distances.
 		encoding_indices = tf.argmin(distances, axis=1)
 		
