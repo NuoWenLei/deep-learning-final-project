@@ -116,7 +116,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 			quantized = x + tf.stop_gradient(quantized - x)
 		else:
 			quantized = x
-			original_encoding_indices = tf.zeros((input_shape[0], ))
+			original_encoding_indices = tf.zeros((input_shape[0], ), dtype = tf.int32)
 
 		return quantized, original_encoding_indices
 
