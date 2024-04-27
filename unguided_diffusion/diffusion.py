@@ -384,9 +384,9 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
       diffusion_loss = tf.reduce_mean(broadcasted_variance * (grad_pred - grad) ** 2)
 
       # Loss to make every action embedding orthogonal to each other
-      gram_loss = self.gram_matrix_loss()
+      # gram_loss = self.gram_matrix_loss()
 
-      loss = diffusion_loss + self.regularized_lambda * vq_loss + self.gram_loss_lambda * gram_loss
+      loss = diffusion_loss + self.regularized_lambda * vq_loss # + self.gram_loss_lambda * gram_loss
 
     # Add action indices to counter
       
