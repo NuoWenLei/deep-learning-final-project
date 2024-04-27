@@ -49,7 +49,8 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		self.num_explore_steps = VQVAE_EXPLORE_STEPS
 
 	def get_explore_pct(self, step):
-		if step > self.num_explore_steps:
+		mean_step = tf.reduce_mean(step)
+		if mean_step > self.num_explore_steps:
 			return 100.0 * tf.ones_like(step)
 		return step / self.num_explore_steps
 				
