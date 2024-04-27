@@ -374,13 +374,13 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     # future_encoding = self.call_encoder_model(future_frames)
     # prev_encoding = self.call_encoder_model(tf.concat([prev_frames, tf.zeros_like(x_corrupted, dtype = tf.float32)], axis = -1))
 
-    latent_diff_unnormalized = future_frames - tf.concat([prev_frames, tf.zeros_like(x_corrupted, dtype = tf.float32)], axis = -1)
+    # latent_diff_unnormalized = future_frames - tf.concat([prev_frames, tf.zeros_like(x_corrupted, dtype = tf.float32)], axis = -1)
 
     with tf.GradientTape() as tape:   
 
-      latent_diff = self.action_norm(latent_diff_unnormalized)
+      # latent_diff = self.action_norm(latent_diff_unnormalized)
 
-      quantized_action, original_encoding_indices = self.latent_action_model(latent_diff, self.step_count)
+      quantized_action, original_encoding_indices = self.latent_action_model(future_frames, self.step_count)
 
       # print(tf.shape(quantized_action))
 
