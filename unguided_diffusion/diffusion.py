@@ -297,6 +297,8 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
 
     self.action_norm = tf.keras.layers.LayerNormalization()
 
+    self.action_index_counter = tf.zeros((VQVAE_NUM_EMBEDDINGS, ))
+
     self.create_encoder_model()
   
   def create_encoder_model(self, encoded_layer_name = "UNET_MIDDLE_BLOCK"):
@@ -363,7 +365,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
 
       encoding_diff = self.action_norm(encoding_diff_unnormalized)
 
-      quantized_action = self.latent_action_model(encoding_diff)
+      quantized_action, original_encoding_indices = self.latent_action_model(encoding_diff)
 
       # print(tf.shape(quantized_action))
 
@@ -379,6 +381,10 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
       gram_loss = self.gram_matrix_loss()
 
       loss = diffusion_loss + self.regularized_lambda * vq_loss + self.gram_loss_lambda * gram_loss
+
+    # Add action indices to counter
+      
+    self.action_index_counter += tf.reduce_sum(tf.one_hot(original_encoding_indices, VQVAE_NUM_EMBEDDINGS), axis = 0)
 
     # Compute gradients
     trainable_vars = self.trainable_variables

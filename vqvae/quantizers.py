@@ -54,7 +54,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		flattened = tf.reshape(x, [-1, self.embedding_dim])
 
 		# Quantization.
-		encoding_indices = self.get_code_indices(flattened)
+		original_encoding_indices = self.get_code_indices(flattened)
 		if self.is_training:
 			# Percentage of unconditional training
 			uncondition_mask = tf.random.uniform((input_shape[0], ))
@@ -63,6 +63,8 @@ class VectorQuantizer(tf.keras.layers.Layer):
 				uncondition_mask > (UNCONDITION_PROB),
 				encoding_indices,
 				0)
+		else:
+			encoding_indices = original_encoding_indices
 			# encoding_indices = tf.where(uncondition_mask > UNCONDITION_PROB, encoding_indices, 0)
 		encodings = tf.one_hot(encoding_indices, self.num_embeddings)
 		quantized = tf.matmul(encodings, self.embeddings, transpose_b=True)
@@ -80,7 +82,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 
 		# Straight-through estimator.
 		quantized = x + tf.stop_gradient(quantized - x)
-		return quantized
+		return quantized, original_encoding_indices
 
 	def get_code_indices(self, flattened_inputs):
 		# Calculate L2-normalized distance between the inputs and the codes.
@@ -94,7 +96,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		distances = tf.where(tf.range(self.num_embeddings) > 0, distances, max_dist)
 		# Derive the indices for minimum distances.
 		encoding_indices = tf.argmin(distances, axis=1)
-		self.index_counter = self.index_counter + tf.reduce_sum(tf.one_hot(encoding_indices, self.num_embeddings), axis = 0)
+		
 		return encoding_indices
 	
 	def quantize(self, encoding_indices):

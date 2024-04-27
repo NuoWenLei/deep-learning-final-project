@@ -121,53 +121,8 @@ def get_image_vq_encoder(
 	inputs = tf.keras.Input(shape=image_shape + (num_channels,))
 	encoder.build(image_shape + (num_channels,))
 	encoder_outputs = encoder(inputs)
-	quantized_latents = vq_layer(encoder_outputs)
-	vq_encoder = tf.keras.Model(inputs, quantized_latents, name=name)
+	quantized_latents, original_encoding_indices = vq_layer(encoder_outputs)
+	vq_encoder = tf.keras.Model(inputs, outputs = [quantized_latents, original_encoding_indices], name=name)
 	vq_encoder.build(image_shape + (num_channels,))
 	print(vq_encoder.summary())
 	return vq_encoder, vq_layer
-
-def get_image_vqvae(
-		latent_dim=VQVAE_EMBEDDING_DIM,
-		num_embeddings=VQVAE_NUM_EMBEDDINGS,
-		image_shape=VQVAE_INPUT_SHAPE[:2],
-		num_channels = VQVAE_INPUT_SHAPE[-1],
-		ema = True,
-		batchnorm = True,
-		name = "vq_vae"):
-	"""
-	Constructs VQ-VAE for Images
-	Args:
-		- latent_dim = EMBEDDING_DIM: embedding size for auto-encoder
-		- num_embeddings = NUM_EMBEDDINGS: number of codes in the codebook
-		- image_shape = (IMAGE_HEIGHT, IMAGE_WIDTH): height + width of an image
-		- num_channels = 3: number of output channels (RGB)
-		- ema = True: use Vector Quantizer Exponential Moving Average or normal
-		- batchnorm = True: use Batch Normalization or not
-		- name = "vq_vae": name of model
-	Returns:
-		- tensorflow.keras.Model
-	"""
-	if ema:
-		vq_layer = VectorQuantizerEMA(
-			embedding_dim = latent_dim, 
-			num_embeddings = num_embeddings,
-			commitment_cost=VQVAE_COMMITMENT_COST,
-			decay=VQVAE_DECAY,
-			name="vector_quantizer")
-	else:
-		vq_layer = VectorQuantizer(
-			embedding_dim = latent_dim, 
-			num_embeddings = num_embeddings,
-			commitment_cost=VQVAE_COMMITMENT_COST,
-			name="vector_quantizer")
-	encoder = get_encoder(latent_dim = latent_dim, input_shape=image_shape + (num_channels,), batchnorm=batchnorm)
-	inputs = tf.keras.Input(shape=image_shape + (num_channels,))
-	encoder.build(image_shape + (num_channels,))
-	encoder_outputs = encoder(inputs)
-	decoder = get_decoder(encoder.output_shape[1:], latent_dim = latent_dim)
-	quantized_latents = vq_layer(encoder_outputs)
-	reconstructions = decoder(quantized_latents)
-	vq_vae = tf.keras.Model(inputs, reconstructions, name=name)
-	vq_vae.build(image_shape + (num_channels,))
-	return vq_vae
