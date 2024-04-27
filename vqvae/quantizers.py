@@ -45,7 +45,6 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		self.embeddings = tf.Variable(
 					initial_value = initializer(shape = (embedding_dim, num_embeddings)),
 					trainable = True, name=f"{name}_embeddings")
-		self.index_counter = tf.zeros((num_embeddings, ))
 		self.num_warmup_steps = VQVAE_WARMUP_STEPS
 		self.num_explore_steps = VQVAE_EXPLORE_STEPS
 
