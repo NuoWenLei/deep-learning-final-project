@@ -380,7 +380,7 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
 
       latent_diff = self.action_norm(latent_diff_unnormalized)
 
-      quantized_action, original_encoding_indices = self.latent_action_model([latent_diff, self.step_count])
+      quantized_action, original_encoding_indices = self.latent_action_model(latent_diff, self.step_count)
 
       # print(tf.shape(quantized_action))
 
