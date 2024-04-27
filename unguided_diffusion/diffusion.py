@@ -392,6 +392,9 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
       
     self.action_index_counter += tf.reduce_sum(tf.one_hot(original_encoding_indices, VQVAE_NUM_EMBEDDINGS), axis = 0)
 
+    # Loss to make every action embedding orthogonal to each other
+    gram_loss = self.gram_matrix_loss()
+
     # Compute gradients
     trainable_vars = self.trainable_variables
     gradients = tape.gradient(loss, trainable_vars)
