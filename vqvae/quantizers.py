@@ -64,7 +64,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		explore_mask = tf.random.uniform((input_shape[0], ))
 
 		# Quantization.
-		original_encoding_indices = self.get_code_indices(flattened, step)
+		original_encoding_indices = self.get_code_indices(flattened)
 		random_indices = tf.random.uniform(tf.shape(original_encoding_indices), minval = 0, maxval = self.num_embeddings, dtype = tf.int64)
 
 		# Action exploration decays linearly per steps
