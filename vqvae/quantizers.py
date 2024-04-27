@@ -61,7 +61,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 			# random_indices = tf.random.uniform(tf.shape(encoding_indices), minval = 0, maxval = self.num_embeddings, dtype = tf.int64)
 			encoding_indices = tf.where(
 				uncondition_mask > (UNCONDITION_PROB),
-				encoding_indices,
+				original_encoding_indices,
 				0)
 		else:
 			encoding_indices = original_encoding_indices
