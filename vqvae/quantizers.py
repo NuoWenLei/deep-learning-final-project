@@ -59,7 +59,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 	
 	def initialize_embeddings(self, x):
 		centers_, _ = kmeans_plusplus(x.numpy(), self.num_embeddings)
-		self.embeddings.assign(tf.transpose(tf.constant(centers_, dtype = tf.float64)))
+		self.embeddings.assign(tf.transpose(tf.constant(centers_, dtype = tf.float32)))
 				
 	def call(self, x, step):
 		# Calculate the input shape of the inputs and
