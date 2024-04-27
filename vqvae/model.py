@@ -121,13 +121,16 @@ def get_image_vq_encoder(
 	
 	inputs = tf.keras.Input(shape=image_shape + (num_channels,))
 	step = tf.keras.Input(shape=())
-	reshaped_inputs = tf.keras.layers.Reshape((1, -1))(inputs)
+	reshaped_inputs = tf.keras.layers.Reshape((image_shape[0] * image_shape[1], num_channels))(inputs)
 
-	self_attn = tf.keras.layers.MultiHeadAttention(num_heads = image_shape[0], key_dim = image_shape[1] * num_channels, output_shape=(num_channels, ))
-	attn_outputs = self_attn(reshaped_inputs, reshaped_inputs)
-	attn_outputs = tf.keras.layers.Reshape((1, 1, num_channels))(attn_outputs)
+	transposed_inputs = tf.transpose(reshaped_inputs, perm = [0, 2, 1])
 
-	quantized_latents, original_encoding_indices = vq_layer(attn_outputs, step)
+	self_attn = tf.keras.layers.MultiHeadAttention(num_heads = 4, key_dim = 512, output_shape=(image_shape[0] * image_shape[1], ))
+	attn_outputs = self_attn(transposed_inputs, transposed_inputs)
+	res_outputs = tf.keras.layers.BatchNormalization()(tf.reduce_sum(transposed_inputs + attn_outputs, axis = -1))
+	res_outputs = tf.keras.layers.Reshape((1, 1, num_channels))(res_outputs)
+
+	quantized_latents, original_encoding_indices = vq_layer(res_outputs, step)
 
 	vq_encoder = tf.keras.Model(inputs = [inputs, step], outputs = [quantized_latents, original_encoding_indices], name=name)
 	vq_encoder.build(image_shape + (num_channels,))
