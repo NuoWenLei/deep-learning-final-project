@@ -9,7 +9,7 @@ from __future__ import division
 from __future__ import print_function
 
 from imports import tf
-from constants import UNCONDITION_PROB, VQVAE_EXPLORE_STEPS
+from constants import UNCONDITION_PROB, VQVAE_EXPLORE_STEPS, VQVAE_WARMUP_STEPS
 
 class VectorQuantizer(tf.keras.layers.Layer):
 	"""Sonnet module representing the VQ-VAE layer.
@@ -46,13 +46,16 @@ class VectorQuantizer(tf.keras.layers.Layer):
 					initial_value = initializer(shape = (embedding_dim, num_embeddings)),
 					trainable = True, name=f"{name}_embeddings")
 		self.index_counter = tf.zeros((num_embeddings, ))
+		self.num_warmup_steps = VQVAE_WARMUP_STEPS
 		self.num_explore_steps = VQVAE_EXPLORE_STEPS
 
 	def get_explore_pct(self, step):
 		mean_step = tf.reduce_mean(step)
-		if mean_step > self.num_explore_steps:
+		if mean_step < self.num_warmup_steps:
+			return tf.zeros_like(step)
+		if mean_step > (self.num_warmup_steps + self.num_explore_steps):
 			return 100.0 * tf.ones_like(step)
-		return step / self.num_explore_steps
+		return (step - self.num_warmup_steps) / self.num_explore_steps
 				
 	def call(self, x, step):
 		# Calculate the input shape of the inputs and
