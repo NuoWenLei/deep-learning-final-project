@@ -1,4 +1,4 @@
-from constants import VQVAE_EMBEDDING_DIM, VQVAE_NUM_EMBEDDINGS, VQVAE_INPUT_SHAPE, VQVAE_LOSS_LAMBDA, CONDITIONAL_SAMPLING_LAMBDA, GRAM_MATRIX_LAMBDA, VQVAE_EXPLORE_STEPS
+from constants import VQVAE_EMBEDDING_DIM, VQVAE_NUM_EMBEDDINGS, LATENT_SHAPE, NUM_PREV_FRAMES, VQVAE_LOSS_LAMBDA, CONDITIONAL_SAMPLING_LAMBDA, GRAM_MATRIX_LAMBDA, VQVAE_EXPLORE_STEPS
 from imports import tf, np, tqdm
 from unguided_diffusion.unet import create_unet
 from unguided_diffusion.model_blocks import TimeEmbedding2D
@@ -290,8 +290,8 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
     self.latent_action_model, self.latent_action_quantizer = get_image_vq_encoder(
       latent_dim=VQVAE_EMBEDDING_DIM,
       num_embeddings=VQVAE_NUM_EMBEDDINGS,
-      image_shape=VQVAE_INPUT_SHAPE[:2],
-      num_channels=VQVAE_INPUT_SHAPE[-1],
+      image_shape=LATENT_SHAPE[:2],
+		  num_channels = LATENT_SHAPE[-1] * (NUM_PREV_FRAMES + 1),
       ema=False,
       batchnorm=True
     )
@@ -362,16 +362,16 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
 
     grad = (x - x_corrupted) / broadcasted_variance
 
-    future_encoding = self.call_encoder_model(future_frames)
-    prev_encoding = self.call_encoder_model(tf.concat([prev_frames, tf.zeros_like(x_corrupted, dtype = tf.float32)], axis = -1))
+    # future_encoding = self.call_encoder_model(future_frames)
+    # prev_encoding = self.call_encoder_model(tf.concat([prev_frames, tf.zeros_like(x_corrupted, dtype = tf.float32)], axis = -1))
 
-    encoding_diff_unnormalized = future_encoding - prev_encoding
+    latent_diff_unnormalized = future_frames - tf.concat([prev_frames, tf.zeros_like(x_corrupted, dtype = tf.float32)], axis = -1)
 
     with tf.GradientTape() as tape:   
 
-      encoding_diff = self.action_norm(encoding_diff_unnormalized)
+      latent_diff = self.action_norm(latent_diff_unnormalized)
 
-      quantized_action, original_encoding_indices = self.latent_action_model([encoding_diff, self.step_count])
+      quantized_action, original_encoding_indices = self.latent_action_model([latent_diff, self.step_count])
 
       # print(tf.shape(quantized_action))
 
