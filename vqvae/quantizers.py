@@ -42,7 +42,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		# self.use_kmeans_late_initialization = True
 
 		# Initialize embedding weights
-		initializer = tf.keras.initializers.Zeros()
+		initializer = tf.keras.initializers.RandomUniform(0., 1.)
 		self.embeddings = tf.Variable(
 					initial_value = initializer(shape = (embedding_dim, num_embeddings)),
 					trainable = True, name=f"{name}_embeddings")
@@ -58,6 +58,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		return (step - self.num_warmup_steps) / self.num_explore_steps
 	
 	def initialize_embeddings(self, x):
+		# DEPRICATED
 		centers_, _ = kmeans_plusplus(x.numpy(), self.num_embeddings)
 		self.embeddings.assign(tf.transpose(tf.constant(centers_, dtype = tf.float32)))
 				
@@ -70,8 +71,8 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		mean_step = tf.reduce_mean(step)
 
 		if mean_step >= self.num_warmup_steps:
-			if mean_step == self.num_warmup_steps:
-				self.initialize_embeddings(flattened)
+			# if mean_step == self.num_warmup_steps:
+			# 	self.initialize_embeddings(flattened)
 
 			explore_pct = self.get_explore_pct(step)
 
