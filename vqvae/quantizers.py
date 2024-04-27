@@ -71,7 +71,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 
 		if mean_step >= self.num_warmup_steps:
 			if mean_step == self.num_warmup_steps:
-				self.initialize_embeddings(x)
+				tf.stop_gradient(self.initialize_embeddings(x))
 
 			explore_pct = self.get_explore_pct(step)
 
