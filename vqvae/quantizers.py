@@ -8,7 +8,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from imports import tf
+from imports import tf, kmeans_plusplus
 from constants import UNCONDITION_PROB, VQVAE_EXPLORE_STEPS, VQVAE_WARMUP_STEPS
 
 class VectorQuantizer(tf.keras.layers.Layer):
@@ -39,9 +39,10 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		self.commitment_cost = commitment_cost
 		self.trainable = True
 		self.is_training = True
+		# self.use_kmeans_late_initialization = True
 
 		# Initialize embedding weights
-		initializer = tf.keras.initializers.RandomNormal()
+		initializer = tf.keras.initializers.Zeros()
 		self.embeddings = tf.Variable(
 					initial_value = initializer(shape = (embedding_dim, num_embeddings)),
 					trainable = True, name=f"{name}_embeddings")
@@ -55,6 +56,10 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		if mean_step > (self.num_warmup_steps + self.num_explore_steps):
 			return 100.0 * tf.ones_like(step)
 		return (step - self.num_warmup_steps) / self.num_explore_steps
+	
+	def initialize_embeddings(self, x):
+		centers_, _ = kmeans_plusplus(x, self.num_embeddings)
+		self.embeddings.assign(tf.transpose(tf.constant(centers_)))
 				
 	def call(self, x, step):
 		# Calculate the input shape of the inputs and
@@ -62,47 +67,57 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		input_shape = tf.shape(x)
 		flattened = tf.reshape(x, [-1, self.embedding_dim])
 
-		explore_pct = self.get_explore_pct(step)
+		mean_step = tf.reduce_mean(step)
 
-		explore_mask = tf.random.uniform((input_shape[0], ))
+		if mean_step >= self.num_warmup_steps:
+			if mean_step == self.num_warmup_steps:
+				self.initialize_embeddings()
 
-		# Quantization.
-		original_encoding_indices = self.get_code_indices(flattened)
-		random_indices = tf.random.uniform(tf.shape(original_encoding_indices), minval = 1, maxval = self.num_embeddings, dtype = tf.int64)
+			explore_pct = self.get_explore_pct(step)
 
-		# Action exploration decays linearly per steps
-		original_encoding_indices = tf.where(
-			explore_mask > explore_pct,
-			random_indices,
-			original_encoding_indices
-		)
-		if self.is_training:
-			# Percentage of unconditional training
-			uncondition_mask = tf.random.uniform((input_shape[0], ))
-			# random_indices = tf.random.uniform(tf.shape(encoding_indices), minval = 0, maxval = self.num_embeddings, dtype = tf.int64)
-			encoding_indices = tf.where(
-				uncondition_mask > (UNCONDITION_PROB),
-				original_encoding_indices,
-				0)
+			explore_mask = tf.random.uniform((input_shape[0], ))
+
+			# Quantization.
+			original_encoding_indices = self.get_code_indices(flattened)
+			random_indices = tf.random.uniform(tf.shape(original_encoding_indices), minval = 1, maxval = self.num_embeddings, dtype = tf.int64)
+
+			# Action exploration decays linearly per steps
+			original_encoding_indices = tf.where(
+				explore_mask > explore_pct,
+				random_indices,
+				original_encoding_indices
+			)
+			if self.is_training:
+				# Percentage of unconditional training
+				uncondition_mask = tf.random.uniform((input_shape[0], ))
+				# random_indices = tf.random.uniform(tf.shape(encoding_indices), minval = 0, maxval = self.num_embeddings, dtype = tf.int64)
+				encoding_indices = tf.where(
+					uncondition_mask > (UNCONDITION_PROB),
+					original_encoding_indices,
+					0)
+			else:
+				encoding_indices = original_encoding_indices
+				# encoding_indices = tf.where(uncondition_mask > UNCONDITION_PROB, encoding_indices, 0)
+			encodings = tf.one_hot(encoding_indices, self.num_embeddings)
+			quantized = tf.matmul(encodings, self.embeddings, transpose_b=True)
+
+			# Reshape the quantized values back to the original input shape
+			quantized = tf.reshape(quantized, input_shape)
+
+			# Calculate vector quantization loss and add that to the layer. You can learn more
+			# about adding losses to different layers here:
+			# https://keras.io/guides/making_new_layers_and_models_via_subclassing/. Check
+			# the original paper to get a handle on the formulation of the loss function.
+			commitment_loss = tf.reduce_mean((tf.stop_gradient(quantized) - x) ** 2)
+			codebook_loss = tf.reduce_mean((quantized - tf.stop_gradient(x)) ** 2)
+			self.add_loss(self.commitment_cost * commitment_loss + codebook_loss)
+
+			# Straight-through estimator.
+			quantized = x + tf.stop_gradient(quantized - x)
 		else:
-			encoding_indices = original_encoding_indices
-			# encoding_indices = tf.where(uncondition_mask > UNCONDITION_PROB, encoding_indices, 0)
-		encodings = tf.one_hot(encoding_indices, self.num_embeddings)
-		quantized = tf.matmul(encodings, self.embeddings, transpose_b=True)
+			quantized = x
+			original_encoding_indices = tf.zeros((input_shape[0], ))
 
-		# Reshape the quantized values back to the original input shape
-		quantized = tf.reshape(quantized, input_shape)
-
-		# Calculate vector quantization loss and add that to the layer. You can learn more
-		# about adding losses to different layers here:
-		# https://keras.io/guides/making_new_layers_and_models_via_subclassing/. Check
-		# the original paper to get a handle on the formulation of the loss function.
-		commitment_loss = tf.reduce_mean((tf.stop_gradient(quantized) - x) ** 2)
-		codebook_loss = tf.reduce_mean((quantized - tf.stop_gradient(x)) ** 2)
-		self.add_loss(self.commitment_cost * commitment_loss + codebook_loss)
-
-		# Straight-through estimator.
-		quantized = x + tf.stop_gradient(quantized - x)
 		return quantized, original_encoding_indices
 
 	def get_code_indices(self, flattened_inputs):
