@@ -74,20 +74,21 @@ class VectorQuantizer(tf.keras.layers.Layer):
 			# if mean_step == self.num_warmup_steps:
 			# 	self.initialize_embeddings(flattened)
 
-			explore_pct = self.get_explore_pct(step)
-
-			explore_mask = tf.random.uniform((input_shape[0], ))
-
-			# Quantization.
-			original_encoding_indices = self.get_code_indices(flattened)
-			random_indices = tf.random.uniform(tf.shape(original_encoding_indices), minval = 1, maxval = self.num_embeddings, dtype = tf.int64)
 
 			# Action exploration decays linearly per steps
-			original_encoding_indices = tf.where(
-				explore_mask > explore_pct,
-				random_indices,
-				original_encoding_indices
-			)
+			explore_pct = self.get_explore_pct(step)
+			# explore_mask = tf.random.uniform((input_shape[0], ))
+
+			# Quantization.
+			original_encoding_indices = self.get_code_indices(flattened, explore_pct)
+			# random_indices = tf.random.uniform(tf.shape(original_encoding_indices), minval = 1, maxval = self.num_embeddings, dtype = tf.int64)
+
+			# Action exploration decays linearly per steps
+			# original_encoding_indices = tf.where(
+			# 	explore_mask > explore_pct,
+			# 	random_indices,
+			# 	original_encoding_indices
+			# )
 			if self.is_training:
 				# Percentage of unconditional training
 				uncondition_mask = tf.random.uniform((input_shape[0], ))
@@ -121,7 +122,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 
 		return quantized, original_encoding_indices
 
-	def get_code_indices(self, flattened_inputs):
+	def get_code_indices(self, flattened_inputs, explore_pct):
 		# Calculate L2-normalized distance between the inputs and the codes.
 		similarity = tf.matmul(flattened_inputs, self.embeddings)
 		distances = (
@@ -131,6 +132,15 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		)
 		max_dist = tf.stop_gradient(tf.reduce_max(distances))
 		distances = tf.where(tf.range(self.num_embeddings) > 0, distances, max_dist)
+
+		# Mask decaying percentage of indices to allow for exploration (similar to dropout)
+		explore_mask = tf.random.uniform(tf.shape(distances))
+		epsilon = 1e-9
+		distances = tf.where(
+				explore_mask > explore_pct,
+				max_dist - epsilon,
+				distances
+			)
 
 		# Derive the indices for minimum distances.
 		encoding_indices = tf.argmin(distances, axis=1)
