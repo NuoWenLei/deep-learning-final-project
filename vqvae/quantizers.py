@@ -76,11 +76,11 @@ class VectorQuantizer(tf.keras.layers.Layer):
 
 
 			# Action exploration decays linearly per steps
-			explore_pct = self.get_explore_pct(step)
+			# explore_pct = self.get_explore_pct(step)
 			# explore_mask = tf.random.uniform((input_shape[0], ))
 
 			# Quantization.
-			original_encoding_indices = self.get_code_indices(flattened, explore_pct)
+			original_encoding_indices = self.get_code_indices(flattened)
 			# random_indices = tf.random.uniform(tf.shape(original_encoding_indices), minval = 1, maxval = self.num_embeddings, dtype = tf.int64)
 
 			# Action exploration decays linearly per steps
@@ -122,7 +122,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 
 		return quantized, original_encoding_indices
 
-	def get_code_indices(self, flattened_inputs, explore_pct):
+	def get_code_indices(self, flattened_inputs):
 		# Calculate L2-normalized distance between the inputs and the codes.
 		similarity = tf.matmul(flattened_inputs, self.embeddings)
 		distances = (
@@ -130,20 +130,16 @@ class VectorQuantizer(tf.keras.layers.Layer):
 			+ tf.reduce_sum(self.embeddings ** 2, axis=0)
 			- 2 * similarity
 		)
+
+		# Disable 0-th index to be chosen
 		max_dist = tf.stop_gradient(tf.reduce_max(distances))
 		distances = tf.where(tf.range(self.num_embeddings) > 0, distances, max_dist)
+		
 
-		# Mask decaying percentage of indices to allow for exploration (similar to dropout)
-		explore_mask = tf.random.uniform(tf.shape(distances))
-		epsilon = 1e-9
-		distances = tf.where(
-				explore_mask > explore_pct,
-				max_dist - epsilon,
-				distances
-			)
-
-		# Derive the indices for minimum distances.
-		encoding_indices = tf.argmin(distances, axis=1)
+		# Derive the indices for minimum distances, however we allow chance to take other indices of embedding
+		distributed_indices = tf.cast(tf.abs(((self.num_embeddings - 1) // 3) * tf.random.normal(tf.shape(distances))), tf.int32) % self.num_embeddings
+		min_dist_indices = tf.argsort(distances, axis = 1)
+		encoding_indices = tf.gather(min_dist_indices, distributed_indices, axis = 1, batch_dims = 1)
 		
 		return encoding_indices
 	
