@@ -137,7 +137,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		
 
 		# Derive the indices for minimum distances, however we allow chance to take other indices of embedding
-		distributed_indices = tf.cast(tf.abs(((self.num_embeddings - 1) // 3) * tf.random.normal(tf.shape(distances))), tf.int32) % self.num_embeddings
+		distributed_indices = tf.cast(tf.abs(((self.num_embeddings - 1) // 3) * tf.random.normal(tf.shape(flattened_inputs)[0], )), tf.int32) % self.num_embeddings
 		min_dist_indices = tf.argsort(distances, axis = 1)
 		encoding_indices = tf.gather(min_dist_indices, distributed_indices, axis = 1, batch_dims = 1)
 		
