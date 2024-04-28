@@ -55,7 +55,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 			return tf.zeros_like(step)
 		if mean_step > (self.num_warmup_steps + self.num_explore_steps):
 			return 100.0 * tf.ones_like(step)
-		return (step - self.num_warmup_steps) / self.num_explore_steps
+		return tf.reduce_mean((step - self.num_warmup_steps) / self.num_explore_steps)
 	
 	def initialize_embeddings(self, x):
 		# DEPRICATED
