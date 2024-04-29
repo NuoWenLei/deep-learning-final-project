@@ -126,16 +126,16 @@ class ImageVQEncoder(tf.keras.Model):
 				commitment_cost=VQVAE_COMMITMENT_COST,
 				name="vector_quantizer")
 			
-		self.encoder = get_encoder(latent_dim = latent_dim // 4, input_shape=image_shape + (num_channels,), batchnorm=batchnorm)
-		self.reshaper = tf.keras.layers.Reshape((1, 1, latent_dim))
+		self.encoder = get_encoder(latent_dim = latent_dim, input_shape=image_shape + (num_channels,), batchnorm=batchnorm)
+		# self.reshaper = tf.keras.layers.Reshape((1, 1, latent_dim))
 
 	def get_vq_layer(self):
 		return self.vq_layer
 	
 	def call(self, inputs, step):
 		encoder_output = self.encoder(inputs)
-		reshaped_encoding = self.reshaper(encoder_output)
-		quantized_latents, original_encoding_indices = self.vq_layer(reshaped_encoding, step)
+		# reshaped_encoding = self.reshaper()
+		quantized_latents, original_encoding_indices = self.vq_layer(encoder_output, step)
 		return quantized_latents, original_encoding_indices
 
 def get_image_vq_encoder(
