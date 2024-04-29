@@ -289,8 +289,8 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
 
     self.latent_action_model = ImageVQEncoder(latent_dim=VQVAE_EMBEDDING_DIM,
       num_embeddings=VQVAE_NUM_EMBEDDINGS,
-      image_shape=LATENT_SHAPE[:2],
-		  num_channels = LATENT_SHAPE[-1] * (NUM_PREV_FRAMES + 1),
+      # image_shape=VQVAE_[:2],
+		  # num_channels = LATENT_SHAPE[-1] * (NUM_PREV_FRAMES + 1),
       ema=False,
       batchnorm=True)
     
@@ -371,10 +371,10 @@ class LatentActionVideoDiffusion(UnguidedVideoDiffusion):
 
     grad = (x - x_corrupted) / broadcasted_variance
 
-    # future_encoding = self.call_encoder_model(future_frames)
-    # prev_encoding = self.call_encoder_model(tf.concat([prev_frames, tf.zeros_like(x_corrupted, dtype = tf.float32)], axis = -1))
+    future_encoding = self.call_encoder_model(future_frames)
+    prev_encoding = self.call_encoder_model(tf.concat([prev_frames, tf.zeros_like(x_corrupted, dtype = tf.float32)], axis = -1))
 
-    latent_diff_unnormalized = future_frames - tf.concat([prev_frames, tf.zeros_like(x_corrupted, dtype = tf.float32)], axis = -1)
+    latent_diff_unnormalized = future_encoding - prev_encoding
 
     with tf.GradientTape() as tape:   
 

@@ -104,8 +104,8 @@ class ImageVQEncoder(tf.keras.Model):
 
 	def __init__(self, latent_dim=VQVAE_EMBEDDING_DIM,
 		num_embeddings=VQVAE_NUM_EMBEDDINGS,
-		image_shape=LATENT_SHAPE[:2],
-		num_channels = LATENT_SHAPE[-1] * (NUM_PREV_FRAMES + 1),
+		image_shape=VQVAE_INPUT_SHAPE[:2],
+		num_channels = VQVAE_INPUT_SHAPE[-1],
 		ema = True,
 		batchnorm = True,
 		name = "vq_vae"):
