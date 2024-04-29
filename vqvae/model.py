@@ -46,12 +46,12 @@ def get_encoder(latent_dim=VQVAE_EMBEDDING_DIM, input_shape=VQVAE_INPUT_SHAPE, n
 	conv1 = tf.keras.layers.Conv2D(latent_dim, 3, padding = "same")(encoder_inputs)
 	conv1 = tf.keras.layers.LeakyReLU()(conv1)
 	conv1 = tf.keras.layers.BatchNormalization()(conv1)
-	conv1 = tf.keras.layers.MaxPool2D()(conv1)
+	# conv1 = tf.keras.layers.MaxPool2D()(conv1)
 	
 	conv2 = tf.keras.layers.Conv2D(latent_dim, 3, padding = "same")(conv1)
 	conv2 = tf.keras.layers.LeakyReLU()(conv2)
 	conv2 = tf.keras.layers.BatchNormalization()(conv2)
-	conv2 = tf.keras.layers.MaxPool2D()(conv2)
+	# conv2 = tf.keras.layers.MaxPool2D()(conv2)
 
 	x = conv2
 
