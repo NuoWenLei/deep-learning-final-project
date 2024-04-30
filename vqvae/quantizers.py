@@ -134,11 +134,16 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		# Disable 0-th index to be chosen
 		max_dist = tf.stop_gradient(tf.reduce_max(distances))
 		distances = tf.where(tf.range(self.num_embeddings) > 0, distances, max_dist)
+		encoding_indices = tf.argmin(distances, axis = 1)
 
-		rev_distance = tf.reduce_min(distances, axis = 1, keepdims = True) / (distances + 1e-9)
+		# # Leaky index choice to avoid index collapse
+		# rev_distance = tf.reduce_min(distances, axis = 1, keepdims = True) / (distances + 1e-9)
+
+		# # Disable 0-th index to be chosen
+		# rev_distance = tf.where(tf.range(self.num_embeddings) > 0, rev_distance, 0.)
 		
-		# Derive the indices for minimum distances, however we allow chance to take other indices of embedding
-		encoding_indices = tf.reshape(tf.random.categorical(tf.math.log(rev_distance), 1), (-1, ))
+		# # Derive the indices for minimum distances, however we allow chance to take other indices of embedding
+		# encoding_indices = tf.reshape(tf.random.categorical(tf.math.log(rev_distance), 1), (-1, ))
 		# normal_mask = tf.abs(tf.random.normal((tf.shape(flattened_inputs)[0], )))
 		# distributed_indices = tf.cast(normal_mask, tf.int32) % self.num_embeddings
 		# min_dist_indices = tf.argsort(distances, axis = 1)
