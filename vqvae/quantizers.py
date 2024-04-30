@@ -135,7 +135,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		max_dist = tf.stop_gradient(tf.reduce_max(distances))
 		distances = tf.where(tf.range(self.num_embeddings) > 0, distances, max_dist)
 
-		rev_distance = tf.reduce_max(distances, axis = 1, keepdims = True) - distances
+		rev_distance = tf.reduce_min(distances, axis = 1, keepdims = True) / (distances + 1e-9)
 		
 		# Derive the indices for minimum distances, however we allow chance to take other indices of embedding
 		encoding_indices = tf.reshape(tf.random.categorical(tf.math.log(rev_distance), 1), (-1, ))
