@@ -55,7 +55,7 @@ GRAM_MATRIX_LAMBDA=0.3
 # Optimizer
 CLIPNORM = None
 INITIAL_LEARNING_RATE = 0.0
-LEARNING_RATE = 7e-5
+LEARNING_RATE = 4e-5
 LR_WARMUP = 1000
 # Warmup to stabliize learning rate, otherwise loss may explode
 # Inspiration:
