@@ -78,7 +78,6 @@ class VectorQuantizer(tf.keras.layers.Layer):
 
 			# Create bitmask for whether to use conditional or unconditional signal
 			bitmask = tf.where(uncondition_mask > (UNCONDITION_PROB), 1., 0.)
-			print(tf.shape(bitmask))
 			encoding_indices = tf.cast(bitmask, tf.int64) * original_encoding_indices
 
 			# Gather quantized embeddings from encoding indices
@@ -97,7 +96,7 @@ class VectorQuantizer(tf.keras.layers.Layer):
 			self.add_loss(self.commitment_cost * commitment_loss + codebook_loss)
 
 			# IMPORTANT: zero-out gradient for samples that were chosen to be unconditional
-			masked_x = bitmask * x
+			masked_x = tf.reshape(bitmask, (-1, 1, 1, 1)) * x
 
 			# Straight-through estimator.
 			quantized = masked_x + tf.stop_gradient(quantized - masked_x)
