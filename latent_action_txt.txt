@@ -1,643 +1,285 @@
 Epoch 1, Num Steps 232: 
-29696/29696 [==============================] - 401s 14ms/step - mse: 100.9357 - loss: 1.1442 - vq_loss (unscaled term): 0.4641 - diffusion_loss: 0.6801 - gram_loss: 0.0123
-Epoch 1 Action Counter: [   14.  1080.  4845.  8933. 11230.   720.   669.  2205.]
+29696/29696 [==============================] - 423s 14ms/step - mse: 101.3647 - loss: 0.9439 - vq_loss (unscaled term): 0.1228 - diffusion_loss: 0.8211 - gram_loss: 0.0123
+Epoch 1 Action Counter: [   0. 3995. 3827. 4232. 4396. 4740. 4256. 4250.]
 Epoch 2, Num Steps 232: 
-29696/29696 [==============================] - 349s 12ms/step - mse: 100.4718 - loss: 0.4456 - vq_loss (unscaled term): 0.1225 - diffusion_loss: 0.3230 - gram_loss: 0.0123
-Epoch 2 Action Counter: [   23.  1432. 11494. 16729. 22497.   807.  2595.  3815.]
+29696/29696 [==============================] - 375s 13ms/step - mse: 101.1210 - loss: 0.3436 - vq_loss (unscaled term): 0.0790 - diffusion_loss: 0.2646 - gram_loss: 0.0126
+Epoch 2 Action Counter: [   0. 7914. 7703. 8432. 8844. 9266. 8570. 8663.]
 Epoch 3, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 100.3531 - loss: 0.3526 - vq_loss (unscaled term): 0.1043 - diffusion_loss: 0.2484 - gram_loss: 0.0124
-Epoch 3 Action Counter: [2.9000e+01 1.7040e+03 2.0516e+04 2.0901e+04 3.3835e+04 8.9200e+02
- 6.4420e+03 4.7690e+03]
+29696/29696 [==============================] - 375s 13ms/step - mse: 99.6168 - loss: 0.2569 - vq_loss (unscaled term): 0.0689 - diffusion_loss: 0.1880 - gram_loss: 0.0129
+Epoch 3 Action Counter: [    0. 11796. 11660. 12501. 13212. 14063. 12700. 13156.]
 Epoch 4, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 99.7135 - loss: 0.3102 - vq_loss (unscaled term): 0.0933 - diffusion_loss: 0.2169 - gram_loss: 0.0125
-Epoch 4 Action Counter: [4.2000e+01 2.0070e+03 2.9529e+04 2.3240e+04 4.5121e+04 9.7200e+02
- 1.1858e+04 6.0150e+03]
+29696/29696 [==============================] - 375s 13ms/step - mse: 99.0102 - loss: 0.2353 - vq_loss (unscaled term): 0.0597 - diffusion_loss: 0.1756 - gram_loss: 0.0132
+Epoch 4 Action Counter: [    0. 15552. 15642. 16879. 17720. 18449. 16992. 17550.]
 Epoch 5, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 99.8650 - loss: 0.2859 - vq_loss (unscaled term): 0.0851 - diffusion_loss: 0.2008 - gram_loss: 0.0125
-Epoch 5 Action Counter: [   59.  2301. 38591. 24945. 56415.  1035. 17237.  7897.]
+29696/29696 [==============================] - 375s 13ms/step - mse: 98.8448 - loss: 0.2141 - vq_loss (unscaled term): 0.0522 - diffusion_loss: 0.1619 - gram_loss: 0.0135
+Epoch 5 Action Counter: [    0. 19482. 19382. 21130. 22304. 23129. 21075. 21978.]
 Epoch 6, Num Steps 232: 
-29696/29696 [==============================] - 349s 12ms/step - mse: 99.9543 - loss: 0.2680 - vq_loss (unscaled term): 0.0785 - diffusion_loss: 0.1895 - gram_loss: 0.0126
-Epoch 6 Action Counter: [   72.  2598. 47525. 25933. 67777.  1099. 22726. 10446.]
+29696/29696 [==============================] - 375s 13ms/step - mse: 98.4832 - loss: 0.2019 - vq_loss (unscaled term): 0.0453 - diffusion_loss: 0.1566 - gram_loss: 0.0138
+Epoch 6 Action Counter: [    0. 23399. 23292. 25335. 26855. 27793. 25349. 26153.]
 Epoch 7, Num Steps 232: 
-29696/29696 [==============================] - 349s 12ms/step - mse: 99.6635 - loss: 0.2529 - vq_loss (unscaled term): 0.0731 - diffusion_loss: 0.1798 - gram_loss: 0.0127
-Epoch 7 Action Counter: [7.7000e+01 2.9120e+03 5.6367e+04 2.6899e+04 7.9186e+04 1.1650e+03
- 2.8190e+04 1.3076e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 98.3952 - loss: 0.1912 - vq_loss (unscaled term): 0.0385 - diffusion_loss: 0.1527 - gram_loss: 0.0140
+Epoch 7 Action Counter: [    0. 27272. 27064. 29682. 31400. 32415. 29612. 30427.]
 Epoch 8, Num Steps 232: 
-29696/29696 [==============================] - 349s 12ms/step - mse: 99.4589 - loss: 0.2403 - vq_loss (unscaled term): 0.0682 - diffusion_loss: 0.1720 - gram_loss: 0.0127
-Epoch 8 Action Counter: [8.6000e+01 3.1950e+03 6.5358e+04 2.7895e+04 9.0432e+04 1.2330e+03
- 3.3658e+04 1.5711e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 97.9864 - loss: 0.1794 - vq_loss (unscaled term): 0.0327 - diffusion_loss: 0.1467 - gram_loss: 0.0142
+Epoch 8 Action Counter: [    0. 31088. 30864. 34018. 35970. 37196. 33900. 34532.]
 Epoch 9, Num Steps 232: 
-29696/29696 [==============================] - 349s 12ms/step - mse: 99.2354 - loss: 0.2334 - vq_loss (unscaled term): 0.0638 - diffusion_loss: 0.1696 - gram_loss: 0.0128
-Epoch 9 Action Counter: [9.40000e+01 3.50700e+03 7.43700e+04 2.88700e+04 1.01743e+05 1.30600e+03
- 3.90820e+04 1.82920e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 97.4301 - loss: 0.1664 - vq_loss (unscaled term): 0.0274 - diffusion_loss: 0.1390 - gram_loss: 0.0144
+Epoch 9 Action Counter: [    0. 34786. 34611. 38440. 40771. 41898. 38124. 38634.]
 Epoch 10, Num Steps 232: 
-29696/29696 [==============================] - 349s 12ms/step - mse: 99.0239 - loss: 0.2220 - vq_loss (unscaled term): 0.0600 - diffusion_loss: 0.1620 - gram_loss: 0.0129
-Epoch 10 Action Counter: [1.07000e+02 3.79100e+03 8.33060e+04 2.98670e+04 1.12999e+05 1.38400e+03
- 4.46090e+04 2.08970e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 96.4748 - loss: 0.1587 - vq_loss (unscaled term): 0.0230 - diffusion_loss: 0.1357 - gram_loss: 0.0146
+Epoch 10 Action Counter: [    0. 38511. 38147. 43022. 45641. 46791. 42267. 42581.]
 Epoch 11, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 98.8265 - loss: 0.2185 - vq_loss (unscaled term): 0.0565 - diffusion_loss: 0.1620 - gram_loss: 0.0130
-Epoch 11 Action Counter: [1.1500e+02 4.0830e+03 9.2298e+04 3.0844e+04 1.2423e+05 1.4540e+03
- 5.0067e+04 2.3565e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 95.2798 - loss: 0.1427 - vq_loss (unscaled term): 0.0195 - diffusion_loss: 0.1232 - gram_loss: 0.0148
+Epoch 11 Action Counter: [    0. 42285. 41913. 47753. 50130. 51629. 46434. 46512.]
 Epoch 12, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 98.5632 - loss: 0.2106 - vq_loss (unscaled term): 0.0532 - diffusion_loss: 0.1575 - gram_loss: 0.0130
-Epoch 12 Action Counter: [1.24000e+02 4.35400e+03 1.01116e+05 3.18310e+04 1.35673e+05 1.52100e+03
- 5.55200e+04 2.62130e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 93.1895 - loss: 0.1277 - vq_loss (unscaled term): 0.0165 - diffusion_loss: 0.1113 - gram_loss: 0.0149
+Epoch 12 Action Counter: [    0. 45797. 45530. 52429. 54824. 56641. 50695. 50436.]
 Epoch 13, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 98.4812 - loss: 0.2033 - vq_loss (unscaled term): 0.0503 - diffusion_loss: 0.1530 - gram_loss: 0.0131
-Epoch 13 Action Counter: [1.35000e+02 4.64000e+03 1.10016e+05 3.28150e+04 1.46967e+05 1.58700e+03
- 6.10510e+04 2.88370e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 90.6967 - loss: 0.1147 - vq_loss (unscaled term): 0.0134 - diffusion_loss: 0.1013 - gram_loss: 0.0150
+Epoch 13 Action Counter: [    0. 49355. 49176. 57155. 59626. 61582. 54850. 54304.]
 Epoch 14, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 98.3948 - loss: 0.2022 - vq_loss (unscaled term): 0.0474 - diffusion_loss: 0.1548 - gram_loss: 0.0132
-Epoch 14 Action Counter: [1.47000e+02 4.94200e+03 1.18847e+05 3.37840e+04 1.58445e+05 1.65600e+03
- 6.65080e+04 3.14150e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 88.1806 - loss: 0.1078 - vq_loss (unscaled term): 0.0110 - diffusion_loss: 0.0968 - gram_loss: 0.0151
+Epoch 14 Action Counter: [    0. 52729. 52724. 62155. 64493. 66662. 59022. 57959.]
 Epoch 15, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 98.3754 - loss: 0.1966 - vq_loss (unscaled term): 0.0449 - diffusion_loss: 0.1516 - gram_loss: 0.0132
-Epoch 15 Action Counter: [1.65000e+02 5.27200e+03 1.27786e+05 3.47620e+04 1.69779e+05 1.72200e+03
- 7.18540e+04 3.41000e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 85.7523 - loss: 0.0986 - vq_loss (unscaled term): 0.0089 - diffusion_loss: 0.0897 - gram_loss: 0.0152
+Epoch 15 Action Counter: [    0. 55945. 56086. 67440. 69281. 72019. 63085. 61584.]
 Epoch 16, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 98.3158 - loss: 0.1897 - vq_loss (unscaled term): 0.0421 - diffusion_loss: 0.1476 - gram_loss: 0.0133
-Epoch 16 Action Counter: [1.75000e+02 5.56200e+03 1.36800e+05 3.56670e+04 1.81184e+05 1.78500e+03
- 7.72370e+04 3.67260e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 83.4550 - loss: 0.0944 - vq_loss (unscaled term): 0.0072 - diffusion_loss: 0.0873 - gram_loss: 0.0153
+Epoch 16 Action Counter: [    0. 59145. 59529. 72837. 74250. 77303. 67064. 65008.]
 Epoch 17, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 98.0599 - loss: 0.1852 - vq_loss (unscaled term): 0.0398 - diffusion_loss: 0.1454 - gram_loss: 0.0134
-Epoch 17 Action Counter: [1.86000e+02 5.85400e+03 1.45645e+05 3.66350e+04 1.92776e+05 1.84300e+03
- 8.26480e+04 3.92450e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 81.3464 - loss: 0.0900 - vq_loss (unscaled term): 0.0058 - diffusion_loss: 0.0843 - gram_loss: 0.0154
+Epoch 17 Action Counter: [    0. 62165. 62885. 78367. 79307. 82759. 71003. 68346.]
 Epoch 18, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 97.8824 - loss: 0.1812 - vq_loss (unscaled term): 0.0377 - diffusion_loss: 0.1435 - gram_loss: 0.0134
-Epoch 18 Action Counter: [1.97000e+02 6.15500e+03 1.54485e+05 3.75740e+04 2.04316e+05 1.91500e+03
- 8.80650e+04 4.18210e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 79.4570 - loss: 0.0878 - vq_loss (unscaled term): 0.0045 - diffusion_loss: 0.0833 - gram_loss: 0.0154
+Epoch 18 Action Counter: [    0. 64928. 66263. 84310. 84631. 88206. 74774. 71416.]
 Epoch 19, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 97.6244 - loss: 0.1763 - vq_loss (unscaled term): 0.0358 - diffusion_loss: 0.1405 - gram_loss: 0.0135
-Epoch 19 Action Counter: [2.0600e+02 6.4450e+03 1.6337e+05 3.8577e+04 2.1566e+05 1.9770e+03
- 9.3570e+04 4.4419e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 77.6762 - loss: 0.0812 - vq_loss (unscaled term): 0.0035 - diffusion_loss: 0.0777 - gram_loss: 0.0155
+Epoch 19 Action Counter: [    0. 67495. 69355. 90522. 89915. 94090. 78538. 74309.]
 Epoch 20, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 97.4318 - loss: 0.1759 - vq_loss (unscaled term): 0.0339 - diffusion_loss: 0.1420 - gram_loss: 0.0135
-Epoch 20 Action Counter: [2.21000e+02 6.71800e+03 1.72344e+05 3.95680e+04 2.27048e+05 2.05100e+03
- 9.88840e+04 4.70860e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 76.0433 - loss: 0.0823 - vq_loss (unscaled term): 0.0027 - diffusion_loss: 0.0796 - gram_loss: 0.0155
+Epoch 20 Action Counter: [    0. 69738. 72380. 97464. 95491. 99866. 82083. 76898.]
 Epoch 21, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 97.2225 - loss: 0.1693 - vq_loss (unscaled term): 0.0320 - diffusion_loss: 0.1373 - gram_loss: 0.0136
-Epoch 21 Action Counter: [2.27000e+02 7.03600e+03 1.81294e+05 4.05360e+04 2.38410e+05 2.12300e+03
- 1.04286e+05 4.97040e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 74.5574 - loss: 0.0762 - vq_loss (unscaled term): 0.0021 - diffusion_loss: 0.0742 - gram_loss: 0.0155
+Epoch 21 Action Counter: [     0.  71735.  75198. 104897. 100973. 105977.  85611.  79225.]
 Epoch 22, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 96.9067 - loss: 0.1652 - vq_loss (unscaled term): 0.0301 - diffusion_loss: 0.1351 - gram_loss: 0.0137
-Epoch 22 Action Counter: [2.42000e+02 7.31400e+03 1.90196e+05 4.14560e+04 2.49883e+05 2.18200e+03
- 1.09755e+05 5.22840e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 73.0735 - loss: 0.0728 - vq_loss (unscaled term): 0.0016 - diffusion_loss: 0.0712 - gram_loss: 0.0155
+Epoch 22 Action Counter: [     0.  73436.  77848. 112893. 106763. 112345.  88739.  81288.]
 Epoch 23, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 96.6203 - loss: 0.1634 - vq_loss (unscaled term): 0.0287 - diffusion_loss: 0.1348 - gram_loss: 0.0137
-Epoch 23 Action Counter: [2.57000e+02 7.62800e+03 1.98997e+05 4.24230e+04 2.61217e+05 2.24300e+03
- 1.15313e+05 5.49300e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 71.7026 - loss: 0.0704 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0692 - gram_loss: 0.0156
+Epoch 23 Action Counter: [     0.  75024.  80298. 121348. 112729. 118721.  91741.  83147.]
 Epoch 24, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 96.3150 - loss: 0.1593 - vq_loss (unscaled term): 0.0270 - diffusion_loss: 0.1322 - gram_loss: 0.0138
-Epoch 24 Action Counter: [2.69000e+02 7.91700e+03 2.07881e+05 4.33940e+04 2.72558e+05 2.29300e+03
- 1.20765e+05 5.76270e+04]
+29696/29696 [==============================] - 375s 13ms/step - mse: 70.4064 - loss: 0.0723 - vq_loss (unscaled term): 0.0013 - diffusion_loss: 0.0711 - gram_loss: 0.0156
+Epoch 24 Action Counter: [     0.  76696.  82812. 129417. 118739. 125134.  94882.  85024.]
 Epoch 25, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 96.0420 - loss: 0.1569 - vq_loss (unscaled term): 0.0256 - diffusion_loss: 0.1313 - gram_loss: 0.0139
-Epoch 25 Action Counter: [   288.   8264. 216790.  44380. 283815.   2362. 126215.  60286.]
+29696/29696 [==============================] - 375s 13ms/step - mse: 69.2820 - loss: 0.0691 - vq_loss (unscaled term): 9.8844e-04 - diffusion_loss: 0.0682 - gram_loss: 0.0156
+Epoch 25 Action Counter: [     0.  78340.  85762. 136701. 124806. 131426.  98333.  87032.]
 Epoch 26, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 95.6838 - loss: 0.1515 - vq_loss (unscaled term): 0.0241 - diffusion_loss: 0.1275 - gram_loss: 0.0139
-Epoch 26 Action Counter: [   309.   8571. 225693.  45405. 295170.   2437. 131624.  62887.]
+29696/29696 [==============================] - 375s 13ms/step - mse: 68.1268 - loss: 0.0658 - vq_loss (unscaled term): 6.7532e-04 - diffusion_loss: 0.0652 - gram_loss: 0.0156
+Epoch 26 Action Counter: [     0.  79780.  88799. 144065. 131012. 137807. 101900.  88733.]
 Epoch 27, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 95.1952 - loss: 0.1445 - vq_loss (unscaled term): 0.0226 - diffusion_loss: 0.1219 - gram_loss: 0.0140
-Epoch 27 Action Counter: [   324.   8856. 234576.  46427. 306612.   2499. 137033.  65465.]
+29696/29696 [==============================] - 375s 13ms/step - mse: 67.0644 - loss: 0.0650 - vq_loss (unscaled term): 5.0228e-04 - diffusion_loss: 0.0645 - gram_loss: 0.0156
+Epoch 27 Action Counter: [     0.  81035.  91730. 151321. 137443. 144146. 105663.  90454.]
 Epoch 28, Num Steps 232: 
-29696/29696 [==============================] - 349s 12ms/step - mse: 94.6023 - loss: 0.1408 - vq_loss (unscaled term): 0.0212 - diffusion_loss: 0.1196 - gram_loss: 0.0140
-Epoch 28 Action Counter: [   337.   9159. 243392.  47366. 318067.   2558. 142578.  68031.]
+29696/29696 [==============================] - 375s 13ms/step - mse: 66.0663 - loss: 0.0631 - vq_loss (unscaled term): 4.4418e-04 - diffusion_loss: 0.0627 - gram_loss: 0.0156
+Epoch 28 Action Counter: [     0.  82426.  95125. 158118. 143419. 150245. 109896.  92259.]
 Epoch 29, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 93.9380 - loss: 0.1331 - vq_loss (unscaled term): 0.0200 - diffusion_loss: 0.1130 - gram_loss: 0.0141
-Epoch 29 Action Counter: [   353.   9454. 252188.  48331. 329523.   2626. 148091.  70618.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 65.1018 - loss: 0.0614 - vq_loss (unscaled term): 4.3987e-04 - diffusion_loss: 0.0609 - gram_loss: 0.0156
+Epoch 29 Action Counter: [     0.  84090.  99208. 164041. 149114. 155989. 114420.  94322.]
 Epoch 30, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 93.1250 - loss: 0.1267 - vq_loss (unscaled term): 0.0189 - diffusion_loss: 0.1078 - gram_loss: 0.0141
-Epoch 30 Action Counter: [   363.   9747. 261171.  49272. 340813.   2691. 153519.  73304.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 64.1655 - loss: 0.0592 - vq_loss (unscaled term): 3.9289e-04 - diffusion_loss: 0.0588 - gram_loss: 0.0156
+
+								Reached checkpoint at Epoch 30!
+								
+
+
+
+								Epoch Averages: {'mse': <tf.Tensor: shape=(), dtype=float32, numpy=64.16545>, 'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.05917552>, 'vq_loss (unscaled term)': <tf.Tensor: shape=(), dtype=float32, numpy=0.00039288859>, 'diffusion_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.058782633>, 'gram_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.015618906>}
+								
+Epoch 30 Action Counter: [     0.  85820. 103720. 169583. 154451. 161386. 119246.  96674.]
 Epoch 31, Num Steps 232: 
-29696/29696 [==============================] - 349s 12ms/step - mse: 92.2036 - loss: 0.1215 - vq_loss (unscaled term): 0.0178 - diffusion_loss: 0.1036 - gram_loss: 0.0142
-Epoch 31 Action Counter: [   372.  10064. 270201.  50261. 352120.   2756. 158948.  75854.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 63.2411 - loss: 0.0577 - vq_loss (unscaled term): 2.8231e-04 - diffusion_loss: 0.0574 - gram_loss: 0.0156
+Epoch 31 Action Counter: [     0.  87724. 108394. 174903. 159690. 166529. 123977.  99359.]
 Epoch 32, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 91.2616 - loss: 0.1168 - vq_loss (unscaled term): 0.0166 - diffusion_loss: 0.1002 - gram_loss: 0.0142
-Epoch 32 Action Counter: [   382.  10324. 278963.  51181. 363667.   2821. 164470.  78464.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 62.3856 - loss: 0.0571 - vq_loss (unscaled term): 2.7651e-04 - diffusion_loss: 0.0568 - gram_loss: 0.0156
+Epoch 32 Action Counter: [     0.  90084. 113128. 179786. 164603. 171307. 128715. 102649.]
 Epoch 33, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 90.2668 - loss: 0.1127 - vq_loss (unscaled term): 0.0158 - diffusion_loss: 0.0969 - gram_loss: 0.0143
-Epoch 33 Action Counter: [   388.  10639. 287784.  52170. 375074.   2892. 169979.  81042.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 61.5282 - loss: 0.0545 - vq_loss (unscaled term): 2.8717e-04 - diffusion_loss: 0.0542 - gram_loss: 0.0156
+Epoch 33 Action Counter: [     0.  93012. 117535. 184388. 169208. 175963. 133234. 106628.]
 Epoch 34, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 89.2158 - loss: 0.1053 - vq_loss (unscaled term): 0.0147 - diffusion_loss: 0.0907 - gram_loss: 0.0143
-Epoch 34 Action Counter: [   400.  10918. 296916.  53128. 386336.   2959. 175401.  83606.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 60.7156 - loss: 0.0540 - vq_loss (unscaled term): 2.0972e-04 - diffusion_loss: 0.0538 - gram_loss: 0.0156
+Epoch 34 Action Counter: [     0.  96319. 121985. 188870. 173675. 180453. 137639. 110723.]
 Epoch 35, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 88.1268 - loss: 0.1041 - vq_loss (unscaled term): 0.0139 - diffusion_loss: 0.0902 - gram_loss: 0.0144
-Epoch 35 Action Counter: [   410.  11189. 305810.  54140. 397493.   3032. 180966.  86320.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 59.9312 - loss: 0.0519 - vq_loss (unscaled term): 2.0693e-04 - diffusion_loss: 0.0517 - gram_loss: 0.0156
+Epoch 35 Action Counter: [     0. 100122. 126324. 193198. 178042. 184690. 142093. 114891.]
 Epoch 36, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 87.1057 - loss: 0.1022 - vq_loss (unscaled term): 0.0129 - diffusion_loss: 0.0893 - gram_loss: 0.0144
-Epoch 36 Action Counter: [   420.  11477. 314635.  55139. 408922.   3080. 186413.  88970.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 59.1643 - loss: 0.0525 - vq_loss (unscaled term): 2.4832e-04 - diffusion_loss: 0.0522 - gram_loss: 0.0156
+Epoch 36 Action Counter: [     0. 104140. 130640. 197480. 182387. 188941. 146378. 119090.]
 Epoch 37, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 86.1309 - loss: 0.0995 - vq_loss (unscaled term): 0.0121 - diffusion_loss: 0.0875 - gram_loss: 0.0145
-Epoch 37 Action Counter: [   438.  11765. 323467.  56131. 420309.   3138. 191934.  91570.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 58.4611 - loss: 0.0520 - vq_loss (unscaled term): 2.8688e-04 - diffusion_loss: 0.0517 - gram_loss: 0.0156
+Epoch 37 Action Counter: [     0. 108324. 134918. 201627. 186726. 193204. 150672. 123281.]
 Epoch 38, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 85.1816 - loss: 0.0976 - vq_loss (unscaled term): 0.0112 - diffusion_loss: 0.0864 - gram_loss: 0.0145
-Epoch 38 Action Counter: [   448.  12046. 332353.  57101. 431601.   3211. 197508.  94180.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 57.7626 - loss: 0.0499 - vq_loss (unscaled term): 2.2016e-04 - diffusion_loss: 0.0496 - gram_loss: 0.0156
+Epoch 38 Action Counter: [     0. 112515. 139181. 205897. 190921. 197356. 154944. 127634.]
 Epoch 39, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 84.2701 - loss: 0.0961 - vq_loss (unscaled term): 0.0105 - diffusion_loss: 0.0856 - gram_loss: 0.0146
-Epoch 39 Action Counter: [   458.  12336. 341151.  58091. 443001.   3282. 202990.  96835.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 57.1085 - loss: 0.0493 - vq_loss (unscaled term): 2.0321e-04 - diffusion_loss: 0.0491 - gram_loss: 0.0156
+Epoch 39 Action Counter: [     0. 116731. 143349. 210167. 195219. 201645. 159081. 131952.]
 Epoch 40, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 83.3791 - loss: 0.0921 - vq_loss (unscaled term): 0.0097 - diffusion_loss: 0.0823 - gram_loss: 0.0146
-Epoch 40 Action Counter: [   473.  12612. 350116.  59070. 454446.   3350. 208346.  99427.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 56.4582 - loss: 0.0487 - vq_loss (unscaled term): 2.0420e-04 - diffusion_loss: 0.0485 - gram_loss: 0.0156
+Epoch 40 Action Counter: [     0. 120969. 147562. 214377. 199560. 205937. 163248. 136187.]
 Epoch 41, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 82.5147 - loss: 0.0928 - vq_loss (unscaled term): 0.0091 - diffusion_loss: 0.0837 - gram_loss: 0.0147
-Epoch 41 Action Counter: [   490.  12912. 358931.  60088. 465914.   3419. 213727. 102055.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 55.8301 - loss: 0.0484 - vq_loss (unscaled term): 2.6187e-04 - diffusion_loss: 0.0481 - gram_loss: 0.0156
+Epoch 41 Action Counter: [     0. 125203. 151790. 218610. 203829. 210184. 167493. 140427.]
 Epoch 42, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 81.6885 - loss: 0.0897 - vq_loss (unscaled term): 0.0084 - diffusion_loss: 0.0812 - gram_loss: 0.0147
-Epoch 42 Action Counter: [   502.  13219. 367819.  61073. 477325.   3479. 219167. 104648.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 55.2065 - loss: 0.0468 - vq_loss (unscaled term): 1.8857e-04 - diffusion_loss: 0.0467 - gram_loss: 0.0156
+Epoch 42 Action Counter: [     0. 129356. 156031. 222916. 208000. 214430. 171754. 144745.]
 Epoch 43, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 80.8662 - loss: 0.0876 - vq_loss (unscaled term): 0.0079 - diffusion_loss: 0.0798 - gram_loss: 0.0147
-Epoch 43 Action Counter: [   510.  13507. 376617.  62069. 488720.   3557. 224626. 107322.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 54.6193 - loss: 0.0463 - vq_loss (unscaled term): 1.8112e-04 - diffusion_loss: 0.0461 - gram_loss: 0.0156
+Epoch 43 Action Counter: [     0. 133606. 160303. 227085. 212248. 218601. 176075. 149010.]
 Epoch 44, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 80.0815 - loss: 0.0870 - vq_loss (unscaled term): 0.0072 - diffusion_loss: 0.0798 - gram_loss: 0.0148
-Epoch 44 Action Counter: [   524.  13778. 385602.  63053. 500093.   3617. 230005. 109952.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 54.0504 - loss: 0.0457 - vq_loss (unscaled term): 1.6441e-04 - diffusion_loss: 0.0456 - gram_loss: 0.0156
+Epoch 44 Action Counter: [     0. 137905. 164538. 231390. 216536. 222896. 180265. 153094.]
 Epoch 45, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 79.3408 - loss: 0.0853 - vq_loss (unscaled term): 0.0067 - diffusion_loss: 0.0786 - gram_loss: 0.0148
-Epoch 45 Action Counter: [   538.  14086. 394604.  64023. 511411.   3675. 235475. 112508.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 53.4986 - loss: 0.0447 - vq_loss (unscaled term): 1.8759e-04 - diffusion_loss: 0.0445 - gram_loss: 0.0156
+Epoch 45 Action Counter: [     0. 142169. 168790. 235612. 220796. 227096. 184587. 157270.]
 Epoch 46, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 78.6141 - loss: 0.0845 - vq_loss (unscaled term): 0.0062 - diffusion_loss: 0.0783 - gram_loss: 0.0148
-Epoch 46 Action Counter: [   550.  14381. 403506.  64963. 522712.   3740. 240947. 115217.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 52.9760 - loss: 0.0472 - vq_loss (unscaled term): 2.2237e-04 - diffusion_loss: 0.0469 - gram_loss: 0.0156
+Epoch 46 Action Counter: [     0. 146359. 173103. 239860. 225032. 231282. 188830. 161550.]
 Epoch 47, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 77.9020 - loss: 0.0828 - vq_loss (unscaled term): 0.0056 - diffusion_loss: 0.0772 - gram_loss: 0.0149
-Epoch 47 Action Counter: [   559.  14659. 412604.  65874. 533899.   3803. 246458. 117856.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 52.4803 - loss: 0.0449 - vq_loss (unscaled term): 1.7907e-04 - diffusion_loss: 0.0447 - gram_loss: 0.0156
+Epoch 47 Action Counter: [     0. 150521. 177375. 244117. 229292. 235460. 193135. 165812.]
 Epoch 48, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 77.2079 - loss: 0.0813 - vq_loss (unscaled term): 0.0052 - diffusion_loss: 0.0761 - gram_loss: 0.0149
-Epoch 48 Action Counter: [   569.  14945. 421589.  66850. 545220.   3860. 251930. 120445.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 51.9830 - loss: 0.0442 - vq_loss (unscaled term): 1.6285e-04 - diffusion_loss: 0.0440 - gram_loss: 0.0156
+Epoch 48 Action Counter: [     0. 154677. 181634. 248370. 233609. 239709. 197352. 170057.]
 Epoch 49, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 76.5470 - loss: 0.0810 - vq_loss (unscaled term): 0.0049 - diffusion_loss: 0.0762 - gram_loss: 0.0149
-Epoch 49 Action Counter: [   585.  15234. 430624.  67869. 556464.   3924. 257331. 123073.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 51.5388 - loss: 0.0438 - vq_loss (unscaled term): 1.3373e-04 - diffusion_loss: 0.0436 - gram_loss: 0.0156
+Epoch 49 Action Counter: [     0. 158942. 185842. 252598. 237778. 244008. 201690. 174246.]
 Epoch 50, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 75.8844 - loss: 0.0771 - vq_loss (unscaled term): 0.0044 - diffusion_loss: 0.0727 - gram_loss: 0.0150
-
-								Reached checkpoint at Epoch 50!
-								
-
-
-
-								Epoch Averages: {'mse': <tf.Tensor: shape=(), dtype=float32, numpy=75.884415>, 'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.077102944>, 'vq_loss (unscaled term)': <tf.Tensor: shape=(), dtype=float32, numpy=0.004424082>, 'diffusion_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.07267881>, 'gram_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.014960299>}
-								
-Epoch 50 Action Counter: [   594.  15496. 439565.  68855. 567853.   3986. 262797. 125654.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 51.0739 - loss: 0.0434 - vq_loss (unscaled term): 1.6284e-04 - diffusion_loss: 0.0432 - gram_loss: 0.0156
+Epoch 50 Action Counter: [     0. 163271. 190019. 256813. 242118. 248341. 205917. 178321.]
 Epoch 51, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 75.2127 - loss: 0.0771 - vq_loss (unscaled term): 0.0041 - diffusion_loss: 0.0730 - gram_loss: 0.0150
-Epoch 51 Action Counter: [   602.  15752. 448596.  69841. 579225.   4053. 268236. 128191.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 50.6279 - loss: 0.0422 - vq_loss (unscaled term): 1.5791e-04 - diffusion_loss: 0.0421 - gram_loss: 0.0156
+Epoch 51 Action Counter: [     0. 167375. 194324. 261033. 246556. 252560. 210193. 182455.]
 Epoch 52, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 74.5804 - loss: 0.0763 - vq_loss (unscaled term): 0.0037 - diffusion_loss: 0.0726 - gram_loss: 0.0150
-Epoch 52 Action Counter: [   613.  16018. 457871.  70764. 590393.   4107. 273635. 130791.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 50.1877 - loss: 0.0422 - vq_loss (unscaled term): 1.5511e-04 - diffusion_loss: 0.0420 - gram_loss: 0.0156
+Epoch 52 Action Counter: [     0. 171611. 198495. 265306. 250644. 256914. 214388. 186834.]
 Epoch 53, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 73.9645 - loss: 0.0757 - vq_loss (unscaled term): 0.0035 - diffusion_loss: 0.0722 - gram_loss: 0.0150
-Epoch 53 Action Counter: [   630.  16325. 468868.  71720. 599682.   4170. 279063. 133430.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 49.7730 - loss: 0.0423 - vq_loss (unscaled term): 1.4830e-04 - diffusion_loss: 0.0421 - gram_loss: 0.0156
+Epoch 53 Action Counter: [     0. 175875. 202768. 269547. 254803. 261188. 218668. 191039.]
 Epoch 54, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 73.3643 - loss: 0.0730 - vq_loss (unscaled term): 0.0032 - diffusion_loss: 0.0698 - gram_loss: 0.0151
-Epoch 54 Action Counter: [   640.  16635. 480182.  72765. 608623.   4227. 284504. 136008.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 49.3634 - loss: 0.0414 - vq_loss (unscaled term): 2.0466e-04 - diffusion_loss: 0.0412 - gram_loss: 0.0156
+Epoch 54 Action Counter: [     0. 180053. 207133. 273782. 259081. 265407. 222895. 195233.]
 Epoch 55, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 72.7689 - loss: 0.0741 - vq_loss (unscaled term): 0.0029 - diffusion_loss: 0.0712 - gram_loss: 0.0151
-Epoch 55 Action Counter: [   656.  16969. 491473.  73737. 617742.   4293. 289860. 138550.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 48.9797 - loss: 0.0415 - vq_loss (unscaled term): 1.4686e-04 - diffusion_loss: 0.0414 - gram_loss: 0.0156
+Epoch 55 Action Counter: [     0. 184309. 211428. 278144. 263198. 269597. 227053. 199551.]
 Epoch 56, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 72.2033 - loss: 0.0725 - vq_loss (unscaled term): 0.0026 - diffusion_loss: 0.0698 - gram_loss: 0.0151
-Epoch 56 Action Counter: [   669.  17248. 502801.  74788. 626752.   4355. 295282. 141081.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 48.5809 - loss: 0.0398 - vq_loss (unscaled term): 1.5039e-04 - diffusion_loss: 0.0397 - gram_loss: 0.0156
+Epoch 56 Action Counter: [     0. 188552. 215747. 282247. 267461. 273874. 231286. 203809.]
 Epoch 57, Num Steps 232: 
-29696/29696 [==============================] - 349s 12ms/step - mse: 71.6455 - loss: 0.0709 - vq_loss (unscaled term): 0.0024 - diffusion_loss: 0.0685 - gram_loss: 0.0151
-Epoch 57 Action Counter: [   678.  17532. 514334.  75766. 635449.   4430. 300917. 143566.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 48.2082 - loss: 0.0410 - vq_loss (unscaled term): 1.1853e-04 - diffusion_loss: 0.0409 - gram_loss: 0.0156
+Epoch 57 Action Counter: [     0. 192905. 220013. 286489. 271675. 278098. 235495. 207997.]
 Epoch 58, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 71.0959 - loss: 0.0698 - vq_loss (unscaled term): 0.0022 - diffusion_loss: 0.0676 - gram_loss: 0.0152
-Epoch 58 Action Counter: [   690.  17821. 525852.  76741. 644181.   4496. 306404. 146183.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 47.8427 - loss: 0.0389 - vq_loss (unscaled term): 1.1974e-04 - diffusion_loss: 0.0388 - gram_loss: 0.0156
+Epoch 58 Action Counter: [     0. 197135. 224329. 290782. 275846. 282321. 239684. 212271.]
 Epoch 59, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 70.5561 - loss: 0.0701 - vq_loss (unscaled term): 0.0020 - diffusion_loss: 0.0681 - gram_loss: 0.0152
-Epoch 59 Action Counter: [   702.  18118. 537234.  77743. 652984.   4574. 311901. 148808.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 47.4731 - loss: 0.0387 - vq_loss (unscaled term): 1.2360e-04 - diffusion_loss: 0.0386 - gram_loss: 0.0156
+Epoch 59 Action Counter: [     0. 201332. 228686. 294998. 280185. 286516. 243878. 216469.]
 Epoch 60, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 70.0405 - loss: 0.0690 - vq_loss (unscaled term): 0.0018 - diffusion_loss: 0.0671 - gram_loss: 0.0152
-Epoch 60 Action Counter: [   713.  18408. 548429.  78740. 661604.   4638. 317797. 151431.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 47.1286 - loss: 0.0400 - vq_loss (unscaled term): 1.7758e-04 - diffusion_loss: 0.0398 - gram_loss: 0.0156
+
+								Reached checkpoint at Epoch 60!
+								
+
+
+
+								Epoch Averages: {'mse': <tf.Tensor: shape=(), dtype=float32, numpy=47.12857>, 'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.039993554>, 'vq_loss (unscaled term)': <tf.Tensor: shape=(), dtype=float32, numpy=0.0001775757>, 'diffusion_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.03981596>, 'gram_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.015625>}
+								
+Epoch 60 Action Counter: [     0. 205593. 233024. 299228. 284350. 290769. 248084. 220712.]
 Epoch 61, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 69.5446 - loss: 0.0680 - vq_loss (unscaled term): 0.0016 - diffusion_loss: 0.0664 - gram_loss: 0.0152
-Epoch 61 Action Counter: [   724.  18683. 559817.  79710. 668117.   4699. 325710. 153996.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 46.7787 - loss: 0.0375 - vq_loss (unscaled term): 1.7901e-04 - diffusion_loss: 0.0373 - gram_loss: 0.0156
+Epoch 61 Action Counter: [     0. 209863. 237298. 303563. 288583. 294991. 252323. 224835.]
 Epoch 62, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 69.0510 - loss: 0.0679 - vq_loss (unscaled term): 0.0015 - diffusion_loss: 0.0664 - gram_loss: 0.0152
-Epoch 62 Action Counter: [   740.  18985. 571240.  80671. 673665.   4768. 334508. 156575.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 46.4382 - loss: 0.0385 - vq_loss (unscaled term): 1.2093e-04 - diffusion_loss: 0.0384 - gram_loss: 0.0156
+Epoch 62 Action Counter: [     0. 214203. 241574. 307713. 292748. 299261. 256529. 229124.]
 Epoch 63, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 68.5783 - loss: 0.0662 - vq_loss (unscaled term): 0.0014 - diffusion_loss: 0.0648 - gram_loss: 0.0152
-Epoch 63 Action Counter: [   760.  19264. 582348.  81643. 679103.   4850. 343661. 159219.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 46.1156 - loss: 0.0382 - vq_loss (unscaled term): 1.5522e-04 - diffusion_loss: 0.0380 - gram_loss: 0.0156
+Epoch 63 Action Counter: [     0. 218368. 245786. 311949. 297026. 303580. 260809. 233330.]
 Epoch 64, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 68.0989 - loss: 0.0661 - vq_loss (unscaled term): 0.0013 - diffusion_loss: 0.0649 - gram_loss: 0.0153
-Epoch 64 Action Counter: [   770.  19531. 593332.  82640. 684555.   4919. 352995. 161802.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 45.8007 - loss: 0.0371 - vq_loss (unscaled term): 1.0461e-04 - diffusion_loss: 0.0370 - gram_loss: 0.0156
+Epoch 64 Action Counter: [     0. 222633. 249962. 316245. 301200. 307872. 264982. 237650.]
 Epoch 65, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 67.6480 - loss: 0.0665 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0653 - gram_loss: 0.0153
-Epoch 65 Action Counter: [   779.  19805. 603716.  83639. 689982.   4989. 362883. 164447.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 45.4834 - loss: 0.0374 - vq_loss (unscaled term): 1.2510e-04 - diffusion_loss: 0.0373 - gram_loss: 0.0156
+Epoch 65 Action Counter: [     0. 226833. 254208. 320562. 305411. 312256. 269153. 241817.]
 Epoch 66, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 67.2095 - loss: 0.0652 - vq_loss (unscaled term): 0.0011 - diffusion_loss: 0.0641 - gram_loss: 0.0153
-Epoch 66 Action Counter: [   789.  20068. 613333.  84650. 695463.   5056. 373578. 166999.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 45.1749 - loss: 0.0376 - vq_loss (unscaled term): 1.3430e-04 - diffusion_loss: 0.0374 - gram_loss: 0.0156
+Epoch 66 Action Counter: [     0. 231003. 258426. 324827. 309632. 316650. 273309. 246089.]
 Epoch 67, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 66.7696 - loss: 0.0644 - vq_loss (unscaled term): 9.8692e-04 - diffusion_loss: 0.0634 - gram_loss: 0.0153
-Epoch 67 Action Counter: [   801.  20364. 622679.  85625. 700885.   5114. 384564. 169600.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 44.8675 - loss: 0.0357 - vq_loss (unscaled term): 8.1284e-05 - diffusion_loss: 0.0357 - gram_loss: 0.0156
+Epoch 67 Action Counter: [     0. 235186. 262688. 329005. 313860. 321100. 277436. 250357.]
 Epoch 68, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 66.3420 - loss: 0.0633 - vq_loss (unscaled term): 8.9126e-04 - diffusion_loss: 0.0624 - gram_loss: 0.0153
-Epoch 68 Action Counter: [   814.  20656. 631701.  86625. 706245.   5164. 395877. 172246.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 44.5769 - loss: 0.0367 - vq_loss (unscaled term): 1.0387e-04 - diffusion_loss: 0.0366 - gram_loss: 0.0156
+Epoch 68 Action Counter: [     0. 239428. 266983. 333331. 317974. 325453. 281609. 254550.]
 Epoch 69, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 65.9247 - loss: 0.0648 - vq_loss (unscaled term): 8.4595e-04 - diffusion_loss: 0.0639 - gram_loss: 0.0153
-Epoch 69 Action Counter: [   824.  20948. 640805.  87605. 711686.   5232. 407091. 174833.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 44.2853 - loss: 0.0356 - vq_loss (unscaled term): 9.1118e-05 - diffusion_loss: 0.0355 - gram_loss: 0.0156
+Epoch 69 Action Counter: [     0. 243767. 271124. 337650. 322059. 329811. 285792. 258821.]
 Epoch 70, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 65.5203 - loss: 0.0623 - vq_loss (unscaled term): 7.6977e-04 - diffusion_loss: 0.0615 - gram_loss: 0.0153
-Epoch 70 Action Counter: [   837.  21201. 649730.  88616. 717241.   5292. 418350. 177453.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 43.9945 - loss: 0.0342 - vq_loss (unscaled term): 9.1541e-05 - diffusion_loss: 0.0341 - gram_loss: 0.0156
+Epoch 70 Action Counter: [     0. 247924. 275267. 341914. 326220. 334233. 290012. 263150.]
 Epoch 71, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 65.1160 - loss: 0.0636 - vq_loss (unscaled term): 7.3328e-04 - diffusion_loss: 0.0629 - gram_loss: 0.0154
-Epoch 71 Action Counter: [   850.  21484. 658929.  89589. 722788.   5354. 429296. 180126.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 43.7042 - loss: 0.0355 - vq_loss (unscaled term): 7.0529e-05 - diffusion_loss: 0.0354 - gram_loss: 0.0156
+Epoch 71 Action Counter: [     0. 252242. 279485. 346087. 330489. 338546. 294187. 267380.]
 Epoch 72, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 64.7207 - loss: 0.0611 - vq_loss (unscaled term): 6.8562e-04 - diffusion_loss: 0.0604 - gram_loss: 0.0154
-Epoch 72 Action Counter: [   862.  21752. 668071.  90591. 728268.   5419. 440398. 182751.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 43.4250 - loss: 0.0337 - vq_loss (unscaled term): 6.3766e-05 - diffusion_loss: 0.0337 - gram_loss: 0.0156
+Epoch 72 Action Counter: [     0. 256427. 283774. 350290. 334802. 342754. 298409. 271656.]
 Epoch 73, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 64.3156 - loss: 0.0590 - vq_loss (unscaled term): 6.3910e-04 - diffusion_loss: 0.0584 - gram_loss: 0.0154
-Epoch 73 Action Counter: [   879.  22052. 677374.  91553. 733726.   5483. 451334. 185407.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 43.1552 - loss: 0.0350 - vq_loss (unscaled term): 8.5457e-05 - diffusion_loss: 0.0349 - gram_loss: 0.0156
+Epoch 73 Action Counter: [     0. 260662. 287946. 354490. 339018. 346994. 302794. 275904.]
 Epoch 74, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 63.9230 - loss: 0.0600 - vq_loss (unscaled term): 5.9828e-04 - diffusion_loss: 0.0594 - gram_loss: 0.0154
-Epoch 74 Action Counter: [   889.  22348. 686576.  92568. 739158.   5547. 462259. 188159.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 42.9062 - loss: 0.0365 - vq_loss (unscaled term): 9.7115e-05 - diffusion_loss: 0.0364 - gram_loss: 0.0156
+Epoch 74 Action Counter: [     0. 264791. 292278. 358716. 343290. 351206. 307076. 280147.]
 Epoch 75, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 63.5340 - loss: 0.0598 - vq_loss (unscaled term): 5.6325e-04 - diffusion_loss: 0.0592 - gram_loss: 0.0154
-Epoch 75 Action Counter: [   897.  22649. 695761.  93593. 744631.   5612. 473218. 190839.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 42.6644 - loss: 0.0346 - vq_loss (unscaled term): 8.5039e-05 - diffusion_loss: 0.0345 - gram_loss: 0.0156
+Epoch 75 Action Counter: [     0. 269071. 296657. 362891. 347511. 355408. 311282. 284380.]
 Epoch 76, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 63.1665 - loss: 0.0596 - vq_loss (unscaled term): 5.3212e-04 - diffusion_loss: 0.0590 - gram_loss: 0.0154
-Epoch 76 Action Counter: [   910.  22939. 705035.  94584. 750118.   5681. 484234. 193395.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 42.4193 - loss: 0.0345 - vq_loss (unscaled term): 9.8972e-05 - diffusion_loss: 0.0344 - gram_loss: 0.0156
+Epoch 76 Action Counter: [     0. 273368. 301044. 367180. 351731. 359629. 315424. 288520.]
 Epoch 77, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 62.8065 - loss: 0.0590 - vq_loss (unscaled term): 5.0606e-04 - diffusion_loss: 0.0585 - gram_loss: 0.0154
-Epoch 77 Action Counter: [   918.  23225. 714777.  95589. 755690.   5756. 494670. 195967.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 42.1795 - loss: 0.0342 - vq_loss (unscaled term): 8.0818e-05 - diffusion_loss: 0.0341 - gram_loss: 0.0156
+Epoch 77 Action Counter: [     0. 277505. 305524. 371350. 355999. 363769. 319645. 292800.]
 Epoch 78, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 62.4533 - loss: 0.0585 - vq_loss (unscaled term): 4.7641e-04 - diffusion_loss: 0.0581 - gram_loss: 0.0154
-Epoch 78 Action Counter: [   932.  23533. 724346.  96565. 761257.   5819. 505013. 198823.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 41.9390 - loss: 0.0338 - vq_loss (unscaled term): 9.5128e-05 - diffusion_loss: 0.0337 - gram_loss: 0.0156
+Epoch 78 Action Counter: [     0. 281614. 310051. 375505. 360212. 368034. 323880. 296992.]
 Epoch 79, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 62.1036 - loss: 0.0586 - vq_loss (unscaled term): 4.6028e-04 - diffusion_loss: 0.0582 - gram_loss: 0.0154
-Epoch 79 Action Counter: [   946.  23877. 733586.  97537. 766817.   5887. 515128. 202206.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 41.7180 - loss: 0.0349 - vq_loss (unscaled term): 5.0837e-05 - diffusion_loss: 0.0348 - gram_loss: 0.0156
+Epoch 79 Action Counter: [     0. 285793. 314368. 379729. 364473. 372234. 328146. 301241.]
 Epoch 80, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 61.7641 - loss: 0.0583 - vq_loss (unscaled term): 4.3058e-04 - diffusion_loss: 0.0578 - gram_loss: 0.0154
-Epoch 80 Action Counter: [   956.  24189. 742598.  98561. 772198.   5946. 524669. 206563.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 41.4999 - loss: 0.0342 - vq_loss (unscaled term): 8.6494e-05 - diffusion_loss: 0.0341 - gram_loss: 0.0156
+Epoch 80 Action Counter: [     0. 290066. 318741. 383925. 368798. 376408. 332298. 305444.]
 Epoch 81, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 61.4321 - loss: 0.0582 - vq_loss (unscaled term): 4.0845e-04 - diffusion_loss: 0.0578 - gram_loss: 0.0154
-Epoch 81 Action Counter: [   974.  24466. 751471.  99534. 777526.   6013. 533476. 211916.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 41.2694 - loss: 0.0326 - vq_loss (unscaled term): 6.9089e-05 - diffusion_loss: 0.0325 - gram_loss: 0.0156
+Epoch 81 Action Counter: [     0. 294367. 323210. 387997. 373152. 380577. 336468. 309605.]
 Epoch 82, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 61.1067 - loss: 0.0565 - vq_loss (unscaled term): 3.9589e-04 - diffusion_loss: 0.0561 - gram_loss: 0.0154
-Epoch 82 Action Counter: [   985.  24721. 760121. 100457. 782728.   6093. 542011. 217956.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 41.0437 - loss: 0.0327 - vq_loss (unscaled term): 6.8162e-05 - diffusion_loss: 0.0327 - gram_loss: 0.0156
+Epoch 82 Action Counter: [     0. 298600. 327593. 392213. 377421. 384759. 340711. 313775.]
 Epoch 83, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 60.7780 - loss: 0.0565 - vq_loss (unscaled term): 3.6578e-04 - diffusion_loss: 0.0561 - gram_loss: 0.0155
-Epoch 83 Action Counter: [   994.  25007. 768509. 101491. 788172.   6155. 550309. 224131.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 40.8302 - loss: 0.0329 - vq_loss (unscaled term): 4.8826e-05 - diffusion_loss: 0.0329 - gram_loss: 0.0156
+Epoch 83 Action Counter: [     0. 302912. 331949. 396459. 381628. 388910. 344912. 317998.]
 Epoch 84, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 60.4634 - loss: 0.0561 - vq_loss (unscaled term): 3.6787e-04 - diffusion_loss: 0.0558 - gram_loss: 0.0155
-Epoch 84 Action Counter: [  1005.  25288. 776662. 102473. 793883.   6228. 558368. 230557.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 40.6117 - loss: 0.0318 - vq_loss (unscaled term): 7.4724e-05 - diffusion_loss: 0.0317 - gram_loss: 0.0156
+Epoch 84 Action Counter: [     0. 307255. 336260. 400700. 385811. 393223. 349020. 322195.]
 Epoch 85, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 60.1451 - loss: 0.0558 - vq_loss (unscaled term): 3.3958e-04 - diffusion_loss: 0.0554 - gram_loss: 0.0155
-Epoch 85 Action Counter: [  1014.  25601. 784704. 103473. 799730.   6290. 566420. 236928.]
+29696/29696 [==============================] - 377s 13ms/step - mse: 40.4036 - loss: 0.0333 - vq_loss (unscaled term): 4.8820e-05 - diffusion_loss: 0.0332 - gram_loss: 0.0156
+Epoch 85 Action Counter: [     0. 311667. 340684. 404838. 390091. 397384. 353181. 326315.]
 Epoch 86, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 59.8310 - loss: 0.0549 - vq_loss (unscaled term): 3.2225e-04 - diffusion_loss: 0.0545 - gram_loss: 0.0155
-Epoch 86 Action Counter: [  1030.  25900. 792753. 104485. 805767.   6347. 574393. 243181.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 40.1979 - loss: 0.0322 - vq_loss (unscaled term): 7.1961e-05 - diffusion_loss: 0.0321 - gram_loss: 0.0156
+Epoch 86 Action Counter: [     0. 315937. 345148. 408983. 394245. 401516. 357429. 330598.]
 Epoch 87, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 59.5335 - loss: 0.0565 - vq_loss (unscaled term): 3.3150e-04 - diffusion_loss: 0.0562 - gram_loss: 0.0155
-Epoch 87 Action Counter: [  1041.  26193. 800740. 105458. 811788.   6429. 582363. 249540.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 40.0021 - loss: 0.0328 - vq_loss (unscaled term): 4.7804e-05 - diffusion_loss: 0.0327 - gram_loss: 0.0156
+Epoch 87 Action Counter: [     0. 320246. 349656. 413194. 398405. 405660. 361646. 334745.]
 Epoch 88, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 59.2504 - loss: 0.0557 - vq_loss (unscaled term): 3.1672e-04 - diffusion_loss: 0.0554 - gram_loss: 0.0155
-Epoch 88 Action Counter: [  1055.  26506. 808636. 106470. 817864.   6498. 590200. 256019.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 39.8140 - loss: 0.0325 - vq_loss (unscaled term): 6.3493e-05 - diffusion_loss: 0.0325 - gram_loss: 0.0156
+Epoch 88 Action Counter: [     0. 324482. 353917. 417446. 402582. 409932. 365891. 338998.]
 Epoch 89, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 58.9602 - loss: 0.0545 - vq_loss (unscaled term): 2.9467e-04 - diffusion_loss: 0.0542 - gram_loss: 0.0155
-Epoch 89 Action Counter: [  1069.  26811. 816629. 107523. 824039.   6559. 598044. 262270.]
+29696/29696 [==============================] - 376s 13ms/step - mse: 39.6242 - loss: 0.0325 - vq_loss (unscaled term): 6.3153e-05 - diffusion_loss: 0.0324 - gram_loss: 0.0156
+Epoch 89 Action Counter: [     0. 328856. 358213. 421757. 406682. 414034. 370184. 343218.]
 Epoch 90, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 58.6644 - loss: 0.0531 - vq_loss (unscaled term): 3.0037e-04 - diffusion_loss: 0.0528 - gram_loss: 0.0155
-Epoch 90 Action Counter: [  1077.  27077. 824542. 108673. 830200.   6640. 605880. 268551.]
-Epoch 91, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 58.3713 - loss: 0.0530 - vq_loss (unscaled term): 2.7994e-04 - diffusion_loss: 0.0528 - gram_loss: 0.0155
-Epoch 91 Action Counter: [  1085.  27382. 832247. 110199. 836498.   6704. 613696. 274525.]
-Epoch 92, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 58.0820 - loss: 0.0524 - vq_loss (unscaled term): 2.7800e-04 - diffusion_loss: 0.0522 - gram_loss: 0.0155
-Epoch 92 Action Counter: [  1093.  27655. 839796. 112493. 842612.   6774. 621451. 280158.]
-Epoch 93, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 57.8136 - loss: 0.0531 - vq_loss (unscaled term): 2.6566e-04 - diffusion_loss: 0.0528 - gram_loss: 0.0155
-Epoch 93 Action Counter: [  1100.  27960. 847006. 115685. 848844.   6842. 628789. 285502.]
-Epoch 94, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 57.5304 - loss: 0.0522 - vq_loss (unscaled term): 2.6109e-04 - diffusion_loss: 0.0519 - gram_loss: 0.0155
-Epoch 94 Action Counter: [  1112.  28238. 853805. 119403. 855146.   6914. 636101. 290705.]
-Epoch 95, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 57.2700 - loss: 0.0531 - vq_loss (unscaled term): 2.4751e-04 - diffusion_loss: 0.0529 - gram_loss: 0.0155
-Epoch 95 Action Counter: [  1125.  28533. 860599. 123397. 861531.   6976. 643382. 295577.]
-Epoch 96, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 57.0048 - loss: 0.0510 - vq_loss (unscaled term): 2.4391e-04 - diffusion_loss: 0.0508 - gram_loss: 0.0155
-Epoch 96 Action Counter: [  1140.  28815. 867230. 127666. 867920.   7042. 650625. 300378.]
-Epoch 97, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 56.7396 - loss: 0.0522 - vq_loss (unscaled term): 2.4308e-04 - diffusion_loss: 0.0520 - gram_loss: 0.0155
-Epoch 97 Action Counter: [  1152.  29114. 873731. 132177. 874257.   7104. 657730. 305247.]
-Epoch 98, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 56.4858 - loss: 0.0516 - vq_loss (unscaled term): 2.3152e-04 - diffusion_loss: 0.0513 - gram_loss: 0.0155
-Epoch 98 Action Counter: [  1166.  29392. 880469. 136535. 880415.   7166. 664887. 310178.]
-Epoch 99, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 56.2390 - loss: 0.0516 - vq_loss (unscaled term): 2.3213e-04 - diffusion_loss: 0.0514 - gram_loss: 0.0155
-Epoch 99 Action Counter: [  1184.  29698. 887000. 140839. 886770.   7243. 672124. 315046.]
-Epoch 100, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 55.9948 - loss: 0.0510 - vq_loss (unscaled term): 2.1982e-04 - diffusion_loss: 0.0508 - gram_loss: 0.0155
-
-								Reached checkpoint at Epoch 100!
-								
-
-
-
-								Epoch Averages: {'mse': <tf.Tensor: shape=(), dtype=float32, numpy=55.9948>, 'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.05101481>, 'vq_loss (unscaled term)': <tf.Tensor: shape=(), dtype=float32, numpy=0.00021982355>, 'diffusion_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.050794974>, 'gram_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.015534272>}
-								
-Epoch 100 Action Counter: [  1191.  29974. 893588. 145182. 892990.   7303. 679390. 319982.]
-Epoch 101, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 55.7496 - loss: 0.0507 - vq_loss (unscaled term): 2.1945e-04 - diffusion_loss: 0.0505 - gram_loss: 0.0155
-Epoch 101 Action Counter: [  1205.  30271. 900125. 149704. 899238.   7375. 686509. 324869.]
-Epoch 102, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 55.5085 - loss: 0.0506 - vq_loss (unscaled term): 2.0932e-04 - diffusion_loss: 0.0504 - gram_loss: 0.0155
-Epoch 102 Action Counter: [  1221.  30567. 906836. 153944. 905458.   7441. 693599. 329926.]
-Epoch 103, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 55.2644 - loss: 0.0485 - vq_loss (unscaled term): 2.0808e-04 - diffusion_loss: 0.0483 - gram_loss: 0.0155
-Epoch 103 Action Counter: [  1238.  30825. 913505. 158434. 911622.   7515. 700779. 334770.]
-Epoch 104, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 55.0267 - loss: 0.0495 - vq_loss (unscaled term): 2.0139e-04 - diffusion_loss: 0.0493 - gram_loss: 0.0155
-Epoch 104 Action Counter: [  1246.  31133. 920090. 162819. 917954.   7585. 707969. 339588.]
-Epoch 105, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 54.7938 - loss: 0.0497 - vq_loss (unscaled term): 1.9711e-04 - diffusion_loss: 0.0495 - gram_loss: 0.0156
-Epoch 105 Action Counter: [  1261.  31489. 926690. 167205. 924220.   7657. 715101. 344457.]
-Epoch 106, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 54.5645 - loss: 0.0498 - vq_loss (unscaled term): 2.0235e-04 - diffusion_loss: 0.0496 - gram_loss: 0.0156
-Epoch 106 Action Counter: [  1274.  31889. 933170. 171712. 930427.   7722. 722297. 349285.]
-Epoch 107, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 54.3452 - loss: 0.0495 - vq_loss (unscaled term): 1.8810e-04 - diffusion_loss: 0.0493 - gram_loss: 0.0156
-Epoch 107 Action Counter: [  1288.  32360. 939713. 176251. 936843.   7785. 729362. 353870.]
-Epoch 108, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 54.1241 - loss: 0.0494 - vq_loss (unscaled term): 1.8611e-04 - diffusion_loss: 0.0493 - gram_loss: 0.0156
-Epoch 108 Action Counter: [  1296.  33126. 946019. 180710. 943221.   7859. 736393. 358544.]
-Epoch 109, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 53.9112 - loss: 0.0488 - vq_loss (unscaled term): 1.7721e-04 - diffusion_loss: 0.0486 - gram_loss: 0.0156
-Epoch 109 Action Counter: [  1309.  34253. 952126. 185391. 949590.   7919. 743252. 363024.]
-Epoch 110, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 53.6970 - loss: 0.0485 - vq_loss (unscaled term): 1.7576e-04 - diffusion_loss: 0.0483 - gram_loss: 0.0156
-Epoch 110 Action Counter: [  1319.  35816. 958090. 190050. 955995.   7991. 750148. 367151.]
-Epoch 111, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 53.4802 - loss: 0.0476 - vq_loss (unscaled term): 1.7097e-04 - diffusion_loss: 0.0474 - gram_loss: 0.0156
-Epoch 111 Action Counter: [  1333.  37853. 963700. 194989. 962204.   8052. 756941. 371184.]
-Epoch 112, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 53.2724 - loss: 0.0490 - vq_loss (unscaled term): 1.7768e-04 - diffusion_loss: 0.0488 - gram_loss: 0.0156
-Epoch 112 Action Counter: [  1345.  40439. 969328. 199845. 968396.   8128. 763294. 375177.]
-Epoch 113, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 53.0713 - loss: 0.0484 - vq_loss (unscaled term): 1.6278e-04 - diffusion_loss: 0.0482 - gram_loss: 0.0156
-Epoch 113 Action Counter: [  1354.  42934. 974806. 204654. 974796.   8196. 769830. 379078.]
-Epoch 114, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 52.8683 - loss: 0.0469 - vq_loss (unscaled term): 1.6082e-04 - diffusion_loss: 0.0468 - gram_loss: 0.0156
-Epoch 114 Action Counter: [  1370.  45753. 980217. 209706. 980976.   8264. 776211. 382847.]
-Epoch 115, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 52.6584 - loss: 0.0467 - vq_loss (unscaled term): 1.5986e-04 - diffusion_loss: 0.0465 - gram_loss: 0.0156
-Epoch 115 Action Counter: [  1381.  48648. 985688. 214444. 987155.   8337. 782774. 386613.]
-Epoch 116, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 52.4616 - loss: 0.0471 - vq_loss (unscaled term): 1.6344e-04 - diffusion_loss: 0.0469 - gram_loss: 0.0156
-Epoch 116 Action Counter: [  1393.  51644. 991110. 219224. 993360.   8426. 789213. 390366.]
-Epoch 117, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 52.2633 - loss: 0.0473 - vq_loss (unscaled term): 1.5501e-04 - diffusion_loss: 0.0471 - gram_loss: 0.0156
-Epoch 117 Action Counter: [  1402.  54744. 996508. 224087. 999598.   8497. 795539. 394057.]
-Epoch 118, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 52.0707 - loss: 0.0469 - vq_loss (unscaled term): 1.5048e-04 - diffusion_loss: 0.0468 - gram_loss: 0.0156
-Epoch 118 Action Counter: [   1418.   57851. 1002024.  228907. 1005724.    8568.  801786.  397850.]
-Epoch 119, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 51.8831 - loss: 0.0464 - vq_loss (unscaled term): 1.4849e-04 - diffusion_loss: 0.0463 - gram_loss: 0.0156
-Epoch 119 Action Counter: [   1432.   60698. 1007612.  233678. 1011882.    8645.  808151.  401726.]
-Epoch 120, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 51.6946 - loss: 0.0457 - vq_loss (unscaled term): 1.4337e-04 - diffusion_loss: 0.0455 - gram_loss: 0.0156
-Epoch 120 Action Counter: [   1455.   64060. 1012899.  238627. 1017937.    8705.  814468.  405369.]
-Epoch 121, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 51.4996 - loss: 0.0444 - vq_loss (unscaled term): 1.3521e-04 - diffusion_loss: 0.0442 - gram_loss: 0.0156
-Epoch 121 Action Counter: [   1463.   67237. 1018161.  243440. 1024217.    8761.  820958.  408979.]
-Epoch 122, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 51.3038 - loss: 0.0454 - vq_loss (unscaled term): 1.3562e-04 - diffusion_loss: 0.0453 - gram_loss: 0.0156
-Epoch 122 Action Counter: [   1479.   70500. 1023477.  248289. 1030352.    8821.  827260.  412734.]
-Epoch 123, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 51.1206 - loss: 0.0446 - vq_loss (unscaled term): 1.3845e-04 - diffusion_loss: 0.0445 - gram_loss: 0.0156
-Epoch 123 Action Counter: [   1497.   73619. 1028810.  253069. 1036592.    8893.  833729.  416399.]
-Epoch 124, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 50.9388 - loss: 0.0472 - vq_loss (unscaled term): 1.3828e-04 - diffusion_loss: 0.0471 - gram_loss: 0.0156
-Epoch 124 Action Counter: [   1513.   76943. 1034096.  257890. 1042569.    8959.  840066.  420268.]
-Epoch 125, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 50.7676 - loss: 0.0462 - vq_loss (unscaled term): 1.3374e-04 - diffusion_loss: 0.0461 - gram_loss: 0.0156
-Epoch 125 Action Counter: [   1525.   80121. 1039477.  262728. 1048774.    9035.  846195.  424145.]
-Epoch 126, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 50.5936 - loss: 0.0449 - vq_loss (unscaled term): 1.2923e-04 - diffusion_loss: 0.0447 - gram_loss: 0.0156
-Epoch 126 Action Counter: [   1536.   83463. 1044804.  267685. 1054814.    9093.  852455.  427846.]
-Epoch 127, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 50.4215 - loss: 0.0452 - vq_loss (unscaled term): 1.2625e-04 - diffusion_loss: 0.0451 - gram_loss: 0.0156
-Epoch 127 Action Counter: [   1547.   86516. 1050291.  272507. 1060888.    9147.  858894.  431602.]
-Epoch 128, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 50.2550 - loss: 0.0451 - vq_loss (unscaled term): 1.2563e-04 - diffusion_loss: 0.0449 - gram_loss: 0.0156
-Epoch 128 Action Counter: [   1556.   89730. 1055596.  277508. 1067080.    9224.  865215.  435179.]
-Epoch 129, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 50.0866 - loss: 0.0450 - vq_loss (unscaled term): 1.1935e-04 - diffusion_loss: 0.0449 - gram_loss: 0.0156
-Epoch 129 Action Counter: [   1569.   92833. 1061054.  282339. 1073200.    9285.  871648.  438856.]
-Epoch 130, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 49.9202 - loss: 0.0441 - vq_loss (unscaled term): 1.2162e-04 - diffusion_loss: 0.0440 - gram_loss: 0.0156
-Epoch 130 Action Counter: [   1585.   96067. 1066392.  287140. 1079341.    9363.  877864.  442728.]
-Epoch 131, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 49.7514 - loss: 0.0434 - vq_loss (unscaled term): 1.1781e-04 - diffusion_loss: 0.0433 - gram_loss: 0.0156
-Epoch 131 Action Counter: [   1593.   99274. 1071849.  291833. 1085432.    9426.  884193.  446576.]
-Epoch 132, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 49.5785 - loss: 0.0427 - vq_loss (unscaled term): 1.1456e-04 - diffusion_loss: 0.0425 - gram_loss: 0.0156
-Epoch 132 Action Counter: [   1598.  102333. 1077246.  296632. 1091602.    9499.  890605.  450357.]
-Epoch 133, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 49.4158 - loss: 0.0452 - vq_loss (unscaled term): 1.1781e-04 - diffusion_loss: 0.0451 - gram_loss: 0.0156
-Epoch 133 Action Counter: [   1608.  105672. 1082727.  301380. 1097612.    9563.  896760.  454246.]
-Epoch 134, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 49.2655 - loss: 0.0452 - vq_loss (unscaled term): 1.1758e-04 - diffusion_loss: 0.0450 - gram_loss: 0.0156
-Epoch 134 Action Counter: [   1620.  108723. 1088142.  306255. 1103814.    9646.  903118.  457946.]
-Epoch 135, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 49.1040 - loss: 0.0420 - vq_loss (unscaled term): 1.0979e-04 - diffusion_loss: 0.0419 - gram_loss: 0.0156
-Epoch 135 Action Counter: [   1631.  111857. 1093561.  311229. 1109971.    9711.  909450.  461550.]
-Epoch 136, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 48.9430 - loss: 0.0437 - vq_loss (unscaled term): 1.1041e-04 - diffusion_loss: 0.0436 - gram_loss: 0.0156
-Epoch 136 Action Counter: [   1647.  115156. 1098718.  316243. 1116241.    9778.  915590.  465283.]
-Epoch 137, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 48.7914 - loss: 0.0435 - vq_loss (unscaled term): 1.0645e-04 - diffusion_loss: 0.0434 - gram_loss: 0.0156
-Epoch 137 Action Counter: [   1664.  118211. 1104035.  321126. 1122492.    9839.  922119.  468866.]
-Epoch 138, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 48.6414 - loss: 0.0435 - vq_loss (unscaled term): 1.0221e-04 - diffusion_loss: 0.0434 - gram_loss: 0.0156
-Epoch 138 Action Counter: [   1673.  121371. 1109394.  326057. 1128713.    9894.  928474.  472472.]
-Epoch 139, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 48.4940 - loss: 0.0434 - vq_loss (unscaled term): 1.0426e-04 - diffusion_loss: 0.0433 - gram_loss: 0.0156
-Epoch 139 Action Counter: [   1684.  124602. 1114829.  330832. 1134856.    9961.  934742.  476238.]
-Epoch 140, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 48.3491 - loss: 0.0438 - vq_loss (unscaled term): 1.0425e-04 - diffusion_loss: 0.0437 - gram_loss: 0.0156
-Epoch 140 Action Counter: [   1695.  127897. 1120059.  335790. 1140872.   10029.  941030.  480068.]
-Epoch 141, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 48.2047 - loss: 0.0427 - vq_loss (unscaled term): 1.0279e-04 - diffusion_loss: 0.0426 - gram_loss: 0.0156
-Epoch 141 Action Counter: [   1706.  131195. 1125376.  340724. 1147032.   10088.  947184.  483831.]
-Epoch 142, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 48.0599 - loss: 0.0417 - vq_loss (unscaled term): 1.0157e-04 - diffusion_loss: 0.0416 - gram_loss: 0.0156
-Epoch 142 Action Counter: [   1722.  134223. 1130760.  345658. 1153116.   10165.  953600.  487588.]
-Epoch 143, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 47.9150 - loss: 0.0433 - vq_loss (unscaled term): 9.8613e-05 - diffusion_loss: 0.0432 - gram_loss: 0.0156
-Epoch 143 Action Counter: [   1738.  137303. 1136042.  350477. 1159259.   10227.  959995.  491487.]
-Epoch 144, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 47.7711 - loss: 0.0429 - vq_loss (unscaled term): 9.8348e-05 - diffusion_loss: 0.0428 - gram_loss: 0.0156
-Epoch 144 Action Counter: [   1742.  140585. 1141306.  355430. 1165466.   10304.  966286.  495105.]
-Epoch 145, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 47.6335 - loss: 0.0418 - vq_loss (unscaled term): 9.6144e-05 - diffusion_loss: 0.0417 - gram_loss: 0.0156
-Epoch 145 Action Counter: [   1758.  143985. 1146671.  360411. 1171323.   10372.  972404.  498996.]
-Epoch 146, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 47.4915 - loss: 0.0415 - vq_loss (unscaled term): 9.3371e-05 - diffusion_loss: 0.0414 - gram_loss: 0.0156
-Epoch 146 Action Counter: [   1775.  147300. 1151875.  365449. 1177467.   10440.  978698.  502612.]
-Epoch 147, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 47.3495 - loss: 0.0413 - vq_loss (unscaled term): 9.4873e-05 - diffusion_loss: 0.0412 - gram_loss: 0.0156
-Epoch 147 Action Counter: [   1789.  150460. 1157258.  370366. 1183708.   10515.  985019.  506197.]
-Epoch 148, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 47.2134 - loss: 0.0424 - vq_loss (unscaled term): 9.2705e-05 - diffusion_loss: 0.0423 - gram_loss: 0.0156
-Epoch 148 Action Counter: [   1801.  153599. 1162632.  375222. 1189719.   10584.  991306.  510145.]
-Epoch 149, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 47.0825 - loss: 0.0420 - vq_loss (unscaled term): 9.4490e-05 - diffusion_loss: 0.0419 - gram_loss: 0.0156
-Epoch 149 Action Counter: [   1820.  156937. 1167905.  380204. 1195787.   10661.  997585.  513805.]
-Epoch 150, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 46.9508 - loss: 0.0416 - vq_loss (unscaled term): 9.3227e-05 - diffusion_loss: 0.0415 - gram_loss: 0.0156
-
-								Reached checkpoint at Epoch 150!
-								
-
-
-
-								Epoch Averages: {'mse': <tf.Tensor: shape=(), dtype=float32, numpy=46.95082>, 'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.041637257>, 'vq_loss (unscaled term)': <tf.Tensor: shape=(), dtype=float32, numpy=9.322654e-05>, 'diffusion_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.041544016>, 'gram_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.015617442>}
-								
-Epoch 150 Action Counter: [   1837.  160052. 1173257.  385011. 1201833.   10735. 1004012.  517663.]
-Epoch 151, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 46.8225 - loss: 0.0415 - vq_loss (unscaled term): 9.1447e-05 - diffusion_loss: 0.0414 - gram_loss: 0.0156
-Epoch 151 Action Counter: [   1846.  163260. 1178517.  390001. 1207974.   10800. 1010290.  521408.]
-Epoch 152, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 46.6870 - loss: 0.0406 - vq_loss (unscaled term): 8.7751e-05 - diffusion_loss: 0.0406 - gram_loss: 0.0156
-Epoch 152 Action Counter: [   1854.  166379. 1183916.  394845. 1214076.   10862. 1016561.  525299.]
-Epoch 153, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 46.5570 - loss: 0.0407 - vq_loss (unscaled term): 8.7324e-05 - diffusion_loss: 0.0407 - gram_loss: 0.0156
-Epoch 153 Action Counter: [   1860.  169631. 1189154.  399903. 1220301.   10943. 1022721.  528975.]
-Epoch 154, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 46.4287 - loss: 0.0414 - vq_loss (unscaled term): 9.2501e-05 - diffusion_loss: 0.0413 - gram_loss: 0.0156
-Epoch 154 Action Counter: [   1866.  172817. 1194423.  404839. 1226422.   11006. 1028952.  532859.]
-Epoch 155, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 46.3010 - loss: 0.0410 - vq_loss (unscaled term): 8.4675e-05 - diffusion_loss: 0.0409 - gram_loss: 0.0156
-Epoch 155 Action Counter: [   1879.  175943. 1199888.  409826. 1232497.   11072. 1035271.  536504.]
-Epoch 156, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 46.1740 - loss: 0.0402 - vq_loss (unscaled term): 8.4188e-05 - diffusion_loss: 0.0401 - gram_loss: 0.0156
-Epoch 156 Action Counter: [   1892.  179130. 1205342.  414641. 1238648.   11146. 1041472.  540305.]
-Epoch 157, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 46.0432 - loss: 0.0389 - vq_loss (unscaled term): 8.1175e-05 - diffusion_loss: 0.0389 - gram_loss: 0.0156
-Epoch 157 Action Counter: [   1901.  182412. 1210696.  419520. 1244740.   11211. 1047633.  544159.]
-Epoch 158, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 45.9135 - loss: 0.0401 - vq_loss (unscaled term): 8.2955e-05 - diffusion_loss: 0.0400 - gram_loss: 0.0156
-Epoch 158 Action Counter: [   1917.  185894. 1216063.  424303. 1250601.   11272. 1053858.  548060.]
-Epoch 159, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 45.7873 - loss: 0.0399 - vq_loss (unscaled term): 8.1701e-05 - diffusion_loss: 0.0398 - gram_loss: 0.0156
-Epoch 159 Action Counter: [   1930.  189145. 1221212.  429264. 1256870.   11338. 1060214.  551691.]
-Epoch 160, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 45.6640 - loss: 0.0398 - vq_loss (unscaled term): 7.9874e-05 - diffusion_loss: 0.0398 - gram_loss: 0.0156
-Epoch 160 Action Counter: [   1945.  192506. 1226446.  434372. 1263113.   11405. 1066265.  555308.]
-Epoch 161, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 45.5457 - loss: 0.0404 - vq_loss (unscaled term): 8.0548e-05 - diffusion_loss: 0.0403 - gram_loss: 0.0156
-Epoch 161 Action Counter: [   1963.  195802. 1231689.  439354. 1269245.   11478. 1072527.  558998.]
-Epoch 162, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 45.4284 - loss: 0.0400 - vq_loss (unscaled term): 7.9375e-05 - diffusion_loss: 0.0400 - gram_loss: 0.0156
-Epoch 162 Action Counter: [   1977.  199147. 1237023.  444307. 1275345.   11546. 1078711.  562696.]
-Epoch 163, Num Steps 232: 
-29696/29696 [==============================] - 353s 12ms/step - mse: 45.3096 - loss: 0.0395 - vq_loss (unscaled term): 7.8693e-05 - diffusion_loss: 0.0395 - gram_loss: 0.0156
-Epoch 163 Action Counter: [   1988.  202475. 1242263.  449228. 1281445.   11611. 1084985.  566453.]
-Epoch 164, Num Steps 232: 
-29696/29696 [==============================] - 354s 12ms/step - mse: 45.1948 - loss: 0.0402 - vq_loss (unscaled term): 7.7460e-05 - diffusion_loss: 0.0401 - gram_loss: 0.0156
-Epoch 164 Action Counter: [   2002.  205877. 1247439.  454126. 1287483.   11673. 1091235.  570309.]
-Epoch 165, Num Steps 232: 
-29696/29696 [==============================] - 353s 12ms/step - mse: 45.0832 - loss: 0.0398 - vq_loss (unscaled term): 7.6253e-05 - diffusion_loss: 0.0397 - gram_loss: 0.0156
-Epoch 165 Action Counter: [   2021.  209105. 1252794.  458854. 1293672.   11743. 1097600.  574051.]
-Epoch 166, Num Steps 232: 
-29696/29696 [==============================] - 362s 12ms/step - mse: 44.9677 - loss: 0.0395 - vq_loss (unscaled term): 7.2686e-05 - diffusion_loss: 0.0395 - gram_loss: 0.0156
-Epoch 166 Action Counter: [   2031.  212391. 1258169.  463714. 1299739.   11803. 1103864.  577825.]
-Epoch 167, Num Steps 232: 
-29696/29696 [==============================] - 358s 12ms/step - mse: 44.8551 - loss: 0.0402 - vq_loss (unscaled term): 7.4335e-05 - diffusion_loss: 0.0401 - gram_loss: 0.0156
-Epoch 167 Action Counter: [   2045.  215750. 1263543.  468549. 1305799.   11859. 1110073.  581614.]
-Epoch 168, Num Steps 232: 
-29696/29696 [==============================] - 354s 12ms/step - mse: 44.7430 - loss: 0.0381 - vq_loss (unscaled term): 7.4747e-05 - diffusion_loss: 0.0380 - gram_loss: 0.0156
-Epoch 168 Action Counter: [   2057.  218916. 1268926.  473495. 1311836.   11918. 1116370.  585410.]
-Epoch 169, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 44.6296 - loss: 0.0391 - vq_loss (unscaled term): 7.0760e-05 - diffusion_loss: 0.0390 - gram_loss: 0.0156
-Epoch 169 Action Counter: [   2064.  222157. 1274195.  478483. 1318013.   11974. 1122745.  588993.]
-Epoch 170, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 44.5217 - loss: 0.0398 - vq_loss (unscaled term): 7.2865e-05 - diffusion_loss: 0.0398 - gram_loss: 0.0156
-Epoch 170 Action Counter: [   2077.  225686. 1279260.  483525. 1324164.   12040. 1128918.  592650.]
-Epoch 171, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 44.4127 - loss: 0.0376 - vq_loss (unscaled term): 7.0244e-05 - diffusion_loss: 0.0376 - gram_loss: 0.0156
-Epoch 171 Action Counter: [   2089.  229086. 1284488.  488515. 1330087.   12116. 1135190.  596445.]
-Epoch 172, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 44.2941 - loss: 0.0371 - vq_loss (unscaled term): 6.8873e-05 - diffusion_loss: 0.0370 - gram_loss: 0.0156
-Epoch 172 Action Counter: [   2099.  232456. 1289820.  493422. 1336151.   12189. 1141318.  600257.]
-Epoch 173, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 44.1843 - loss: 0.0390 - vq_loss (unscaled term): 6.7928e-05 - diffusion_loss: 0.0389 - gram_loss: 0.0156
-Epoch 173 Action Counter: [   2107.  235717. 1295116.  498387. 1342171.   12273. 1147619.  604018.]
-Epoch 174, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 44.0731 - loss: 0.0395 - vq_loss (unscaled term): 7.6046e-05 - diffusion_loss: 0.0394 - gram_loss: 0.0156
-Epoch 174 Action Counter: [   2127.  239086. 1300572.  503122. 1348025.   12381. 1153880.  607911.]
-Epoch 175, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 43.9717 - loss: 0.0384 - vq_loss (unscaled term): 6.8058e-05 - diffusion_loss: 0.0384 - gram_loss: 0.0156
-Epoch 175 Action Counter: [   2139.  242090. 1305979.  508044. 1354305.   12512. 1160310.  611421.]
-Epoch 176, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 43.8640 - loss: 0.0378 - vq_loss (unscaled term): 7.1271e-05 - diffusion_loss: 0.0378 - gram_loss: 0.0156
-Epoch 176 Action Counter: [   2156.  245616. 1311014.  513214. 1360395.   12749. 1166464.  614888.]
-Epoch 177, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 43.7592 - loss: 0.0386 - vq_loss (unscaled term): 6.7274e-05 - diffusion_loss: 0.0386 - gram_loss: 0.0156
-Epoch 177 Action Counter: [   2170.  249038. 1316120.  518163. 1366483.   13216. 1172543.  618459.]
-Epoch 178, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 43.6564 - loss: 0.0373 - vq_loss (unscaled term): 6.4921e-05 - diffusion_loss: 0.0372 - gram_loss: 0.0156
-Epoch 178 Action Counter: [   2183.  252653. 1320955.  523158. 1372620.   14033. 1178449.  621837.]
-Epoch 179, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 43.5523 - loss: 0.0384 - vq_loss (unscaled term): 6.2897e-05 - diffusion_loss: 0.0383 - gram_loss: 0.0156
-Epoch 179 Action Counter: [   2198.  256275. 1325694.  528301. 1378635.   15247. 1184189.  625045.]
-Epoch 180, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 43.4540 - loss: 0.0395 - vq_loss (unscaled term): 6.4376e-05 - diffusion_loss: 0.0395 - gram_loss: 0.0156
-Epoch 180 Action Counter: [   2209.  260170. 1330265.  533345. 1384296.   16979. 1189770.  628246.]
-Epoch 181, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 43.3587 - loss: 0.0375 - vq_loss (unscaled term): 6.4256e-05 - diffusion_loss: 0.0374 - gram_loss: 0.0156
-Epoch 181 Action Counter: [   2223.  263932. 1334721.  538444. 1390043.   19088. 1195255.  631270.]
-Epoch 182, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 43.2560 - loss: 0.0379 - vq_loss (unscaled term): 6.2133e-05 - diffusion_loss: 0.0378 - gram_loss: 0.0156
-Epoch 182 Action Counter: [   2239.  267456. 1339220.  543364. 1396019.   21129. 1200940.  634305.]
-Epoch 183, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 43.1567 - loss: 0.0375 - vq_loss (unscaled term): 6.1569e-05 - diffusion_loss: 0.0374 - gram_loss: 0.0156
-Epoch 183 Action Counter: [   2247.  271156. 1343590.  548483. 1401870.   23319. 1206458.  637245.]
-Epoch 184, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 43.0596 - loss: 0.0375 - vq_loss (unscaled term): 6.0428e-05 - diffusion_loss: 0.0374 - gram_loss: 0.0156
-Epoch 184 Action Counter: [   2255.  274803. 1348122.  553620. 1407557.   25485. 1211932.  640290.]
-Epoch 185, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 42.9602 - loss: 0.0367 - vq_loss (unscaled term): 6.1025e-05 - diffusion_loss: 0.0366 - gram_loss: 0.0156
-Epoch 185 Action Counter: [   2269.  278519. 1352540.  558510. 1413309.   27845. 1217320.  643448.]
-Epoch 186, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 42.8613 - loss: 0.0374 - vq_loss (unscaled term): 5.8628e-05 - diffusion_loss: 0.0373 - gram_loss: 0.0156
-Epoch 186 Action Counter: [   2285.  282341. 1356826.  563610. 1419269.   30179. 1222598.  646348.]
-Epoch 187, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 42.7666 - loss: 0.0385 - vq_loss (unscaled term): 6.4947e-05 - diffusion_loss: 0.0384 - gram_loss: 0.0156
-Epoch 187 Action Counter: [   2299.  286255. 1361203.  568614. 1424855.   32727. 1227819.  649380.]
-Epoch 188, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 42.6727 - loss: 0.0364 - vq_loss (unscaled term): 6.5214e-05 - diffusion_loss: 0.0364 - gram_loss: 0.0156
-Epoch 188 Action Counter: [   2305.  289863. 1365482.  573940. 1431184.   34654. 1233539.  651881.]
-Epoch 189, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 42.5759 - loss: 0.0369 - vq_loss (unscaled term): 5.7559e-05 - diffusion_loss: 0.0369 - gram_loss: 0.0156
-Epoch 189 Action Counter: [   2316.  293705. 1369766.  579069. 1437012.   36917. 1239025.  654734.]
-Epoch 190, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 42.4784 - loss: 0.0353 - vq_loss (unscaled term): 5.7272e-05 - diffusion_loss: 0.0353 - gram_loss: 0.0156
-Epoch 190 Action Counter: [   2329.  297605. 1374017.  584130. 1442751.   39474. 1244247.  657687.]
-Epoch 191, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 42.3817 - loss: 0.0371 - vq_loss (unscaled term): 5.6597e-05 - diffusion_loss: 0.0370 - gram_loss: 0.0156
-Epoch 191 Action Counter: [   2346.  301388. 1378419.  589223. 1448382.   41799. 1249770.  660609.]
-Epoch 192, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 42.2889 - loss: 0.0367 - vq_loss (unscaled term): 5.9701e-05 - diffusion_loss: 0.0367 - gram_loss: 0.0156
-Epoch 192 Action Counter: [   2363.  305450. 1382540.  594463. 1454001.   44335. 1254937.  663543.]
-Epoch 193, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 42.1987 - loss: 0.0369 - vq_loss (unscaled term): 5.7719e-05 - diffusion_loss: 0.0369 - gram_loss: 0.0156
-Epoch 193 Action Counter: [   2379.  309177. 1386881.  599507. 1459787.   46688. 1260495.  666414.]
-Epoch 194, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 42.1114 - loss: 0.0378 - vq_loss (unscaled term): 5.4995e-05 - diffusion_loss: 0.0377 - gram_loss: 0.0156
-Epoch 194 Action Counter: [   2385.  312897. 1391311.  604510. 1465498.   49035. 1265960.  669428.]
-Epoch 195, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 42.0227 - loss: 0.0362 - vq_loss (unscaled term): 5.4180e-05 - diffusion_loss: 0.0362 - gram_loss: 0.0156
-Epoch 195 Action Counter: [   2398.  316813. 1395496.  609553. 1471207.   51514. 1271392.  672347.]
-Epoch 196, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 41.9317 - loss: 0.0359 - vq_loss (unscaled term): 5.4771e-05 - diffusion_loss: 0.0359 - gram_loss: 0.0156
-Epoch 196 Action Counter: [   2420.  320617. 1399878.  614614. 1476873.   53943. 1276717.  675354.]
-Epoch 197, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 41.8402 - loss: 0.0356 - vq_loss (unscaled term): 5.5183e-05 - diffusion_loss: 0.0355 - gram_loss: 0.0156
-Epoch 197 Action Counter: [   2430.  324525. 1404125.  619722. 1482492.   56538. 1282088.  678192.]
-Epoch 198, Num Steps 232: 
-29696/29696 [==============================] - 351s 12ms/step - mse: 41.7491 - loss: 0.0354 - vq_loss (unscaled term): 5.7118e-05 - diffusion_loss: 0.0353 - gram_loss: 0.0156
-Epoch 198 Action Counter: [   2441.  328336. 1408390.  624701. 1488250.   59067. 1287263.  681360.]
-Epoch 199, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 41.6552 - loss: 0.0342 - vq_loss (unscaled term): 5.3907e-05 - diffusion_loss: 0.0342 - gram_loss: 0.0156
-Epoch 199 Action Counter: [   2449.  332094. 1412766.  629552. 1494127.   61381. 1292764.  684371.]
-Epoch 200, Num Steps 232: 
-29696/29696 [==============================] - 350s 12ms/step - mse: 41.5644 - loss: 0.0357 - vq_loss (unscaled term): 5.2187e-05 - diffusion_loss: 0.0357 - gram_loss: 0.0156
+29696/29696 [==============================] - 377s 13ms/step - mse: 39.4376 - loss: 0.0317 - vq_loss (unscaled term): 3.3868e-05 - diffusion_loss: 0.0316 - gram_loss: 0.0156
