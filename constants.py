@@ -1,4 +1,4 @@
-BASE_FILEPATH = "/content/gdrive/MyDrive/personal_stuff/personal_projects_college/CSCI2470_FINAL_PROJECT/Model_Playground/Action_Train_Results_7"
+BASE_FILEPATH = "/content/gdrive/MyDrive/personal_stuff/personal_projects_college/CSCI2470_FINAL_PROJECT/Model_Playground/Action_Train_Results_8"
 # BASE_FILEPATH = "."
 LOG_FILEPATH = "log/fullLog.txt"
 RESULT_DIRPATH = "results"
@@ -55,7 +55,7 @@ GRAM_MATRIX_LAMBDA=0.3
 # Optimizer
 CLIPNORM = None
 INITIAL_LEARNING_RATE = 0.0
-LEARNING_RATE = 3e-5
+LEARNING_RATE = 1e-4
 LR_WARMUP = 1000
 # Warmup to stabliize learning rate, otherwise loss may explode
 # Inspiration:
