@@ -68,38 +68,19 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		input_shape = tf.shape(x)
 		flattened = tf.reshape(x, [-1, self.embedding_dim])
 
-		mean_step = tf.reduce_mean(step)
 
-		if mean_step >= self.num_warmup_steps:
-			# if mean_step == self.num_warmup_steps:
-			# 	self.initialize_embeddings(flattened)
+		# Quantization.
+		original_encoding_indices = self.get_code_indices(flattened)
 
+		if self.is_training:
+			# Percentage of unconditional training
+			uncondition_mask = tf.random.uniform((input_shape[0], ))
 
-			# Action exploration decays linearly per steps
-			# explore_pct = self.get_explore_pct(step)
-			# explore_mask = tf.random.uniform((input_shape[0], ))
+			# Create bitmask for whether to use conditional or unconditional signal
+			bitmask = tf.where(uncondition_mask > (UNCONDITION_PROB), 1., 0.)
+			encoding_indices = bitmask * original_encoding_indices
 
-			# Quantization.
-			original_encoding_indices = self.get_code_indices(flattened)
-			# random_indices = tf.random.uniform(tf.shape(original_encoding_indices), minval = 1, maxval = self.num_embeddings, dtype = tf.int64)
-
-			# Action exploration decays linearly per steps
-			# original_encoding_indices = tf.where(
-			# 	explore_mask > explore_pct,
-			# 	random_indices,
-			# 	original_encoding_indices
-			# )
-			if self.is_training:
-				# Percentage of unconditional training
-				uncondition_mask = tf.random.uniform((input_shape[0], ))
-				# random_indices = tf.random.uniform(tf.shape(encoding_indices), minval = 0, maxval = self.num_embeddings, dtype = tf.int64)
-				encoding_indices = tf.where(
-					uncondition_mask > (UNCONDITION_PROB),
-					original_encoding_indices,
-					0)
-			else:
-				encoding_indices = original_encoding_indices
-				# encoding_indices = tf.where(uncondition_mask > UNCONDITION_PROB, encoding_indices, 0)
+			# Gather quantized embeddings from encoding indices
 			encodings = tf.one_hot(encoding_indices, self.num_embeddings)
 			quantized = tf.matmul(encodings, self.embeddings, transpose_b=True)
 
@@ -114,8 +95,11 @@ class VectorQuantizer(tf.keras.layers.Layer):
 			codebook_loss = tf.reduce_mean((quantized - tf.stop_gradient(x)) ** 2)
 			self.add_loss(self.commitment_cost * commitment_loss + codebook_loss)
 
+			# IMPORTANT: zero-out gradient for samples that were chosen to be unconditional
+			masked_x = bitmask * x
+
 			# Straight-through estimator.
-			quantized = x + tf.stop_gradient(quantized - x)
+			quantized = masked_x + tf.stop_gradient(quantized - masked_x)
 		else:
 			quantized = x
 			original_encoding_indices = tf.zeros((input_shape[0], ), dtype = tf.int32)
