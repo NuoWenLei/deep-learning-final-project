@@ -1,6 +1,13 @@
 from imports import tf
 
 class UNetBlocks:
+  """
+  U-Net Building Blocks.
+
+  Contains building blocks for the encoder and decoder modules of U-Net. Encoder blocks return
+  both the next layer and the skip connection layer. Decoder blocks take both the previous
+  layer and the skip connection layer.
+  """
 
   def EncoderMiniBlock(inputs, filter_size = 3, n_filters=32, dropout_prob=0.3, max_pooling=True, leaky = 0.03, **kwargs):
     conv = tf.keras.layers.Conv2D(n_filters,
@@ -40,6 +47,12 @@ class UNetBlocks:
     return conv
   
 class PosEmbedding(tf.keras.layers.Layer):
+  """
+  Positional Embedding.
+
+  Uses Sine and Cosine functions to encode positional information on input.
+  """
+
   def __init__(self, dim):
     super(PosEmbedding, self).__init__()
     self.dim = dim
@@ -58,6 +71,13 @@ class PosEmbedding(tf.keras.layers.Layer):
 
 
 class TimeEmbedding2D(tf.keras.models.Model):
+  """
+  Time Embedding.
+
+  Encodes input with positional embedding and then projects encoded output
+  into a certain dimensional space.
+  """
+
   def __init__(self, hidden_dim, out_dim, **kwargs):
     super(TimeEmbedding2D, self).__init__(**kwargs)
     self.pos_embed = PosEmbedding(hidden_dim)

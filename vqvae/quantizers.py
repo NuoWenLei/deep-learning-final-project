@@ -1,4 +1,4 @@
-# Sources:
+# Sources of inspiration:
 # - DeepMind Sonnet: https://github.com/deepmind/sonnet/blob/v1/sonnet/python/modules/nets/vqvae.py
 # - Keras Examples: https://keras.io/examples/generative/vq_vae/#additional-notes
 # - PyTorch Implementation by nadavbh12: https://github.com/nadavbh12/VQ-VAE/blob/a360e77d43ec43dd5a989f057cbf8e0843bb9b1f/vq_vae/auto_encoder.py
@@ -8,27 +8,16 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from imports import tf, kmeans_plusplus
+from imports import tf
 from constants import UNCONDITION_PROB, VQVAE_EXPLORE_STEPS, VQVAE_WARMUP_STEPS
 
 class VectorQuantizer(tf.keras.layers.Layer):
-	"""Sonnet module representing the VQ-VAE layer.
-	Implements the algorithm presented in
+	"""VQ-VAE layer implements the algorithm presented in
 	'Neural Discrete Representation Learning' by van den Oord et al.
 	https://arxiv.org/abs/1711.00937
-	Input any tensor to be quantized. Last dimension will be used as space in
-	which to quantize. All other dimensions will be flattened and will be seen
-	as different examples to quantize.
-	The output tensor will have the same shape as the input.
-	For example a tensor with shape [16, 32, 32, 64] will be reshaped into
-	[16384, 64] and all 16384 vectors (each of 64 dimensions)  will be quantized
-	independently.
-	Args:
-		embedding_dim: integer representing the dimensionality of the tensors in the
-		quantized space. Inputs to the modules must be in this format as well.
-		num_embeddings: integer, the number of vectors in the quantized space.
-		commitment_cost: scalar which controls the weighting of the loss terms
-		(see equation 4 in the paper - this variable is Beta).
+	
+	Adapted from the following tutorial.
+	https://keras.io/examples/generative/vq_vae/
 	"""
 
 	def __init__(self, embedding_dim, num_embeddings, commitment_cost,
@@ -39,7 +28,6 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		self.commitment_cost = commitment_cost
 		self.trainable = True
 		self.is_training = True
-		# self.use_kmeans_late_initialization = True
 
 		# Initialize embedding weights
 		initializer = tf.keras.initializers.RandomUniform(0., 1.)
@@ -56,11 +44,6 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		if mean_step > (self.num_warmup_steps + self.num_explore_steps):
 			return 100.0 * tf.ones_like(step)
 		return tf.reduce_mean((step - self.num_warmup_steps) / self.num_explore_steps)
-	
-	def initialize_embeddings(self, x):
-		# DEPRICATED
-		centers_, _ = kmeans_plusplus(x.numpy(), self.num_embeddings)
-		self.embeddings.assign(tf.transpose(tf.constant(centers_, dtype = tf.float32)))
 				
 	def call(self, x, step):
 		# Calculate the input shape of the inputs and
@@ -107,6 +90,18 @@ class VectorQuantizer(tf.keras.layers.Layer):
 		return quantized, original_encoding_indices
 
 	def get_code_indices(self, flattened_inputs):
+		"""
+		Gets the quantized action indices of the inputs. We tried different leaky or non-leaky
+		strategies to avoid index collapse while also making the model commit more. And we
+		found that sampling from the nearest neighbor probability distribution stabilized the
+		results well.
+
+		Inputs:
+		- flattened_inputs | tf.tensor : inputs to be quantized into action indices.
+
+		Outputs:
+		- tf.tensor : quantized action indices.
+		"""
 		# Calculate L2-normalized distance between the inputs and the codes.
 		similarity = tf.matmul(flattened_inputs, self.embeddings)
 		distances = (
@@ -115,37 +110,43 @@ class VectorQuantizer(tf.keras.layers.Layer):
 			- 2 * similarity
 		)
 
-		# Disable 0-th index to be chosen
+		#######################################################
+		##### DEPRICATED: Always choose minimum distance. #####
 		# max_dist = tf.stop_gradient(tf.reduce_max(distances))
 		# distances = tf.where(tf.range(self.num_embeddings) > 0, distances, max_dist)
 		# encoding_indices = tf.argmin(distances, axis = 1)
+		#######################################################
 
-		# # Leaky index choice to avoid index collapse
+		#######################################################
+		##### Leaky index choice to avoid index collapse. #####
+
+		# Nearest neighbor probability distribution.
 		rev_distance = tf.reduce_min(distances, axis = 1, keepdims = True) / (distances + 1e-9)
 
-		# # Disable 0-th index to be chosen
+		# Disable 0-th index to be chosen
 		rev_distance = tf.where(tf.range(self.num_embeddings) > 0, rev_distance, 0.)
 		
-		# # Derive the indices for minimum distances, however we allow chance to take other indices of embedding
+		# Derive the indices for minimum distances, however we allow chance to take other indices of embedding
 		encoding_indices = tf.reshape(tf.random.categorical(tf.math.log(rev_distance), 1), (-1, ))
+		#######################################################
+
+		#######################################################
+		##### Leaky Index based on fixed gaussian distribution. #####
 		# normal_mask = tf.abs(tf.random.normal((tf.shape(flattened_inputs)[0], )))
 		# distributed_indices = tf.cast(normal_mask, tf.int32) % self.num_embeddings
 		# min_dist_indices = tf.argsort(distances, axis = 1)
 		# encoding_indices = tf.gather(min_dist_indices, distributed_indices, axis = 1, batch_dims = 1)
-		
+		#######################################################
+
 		return encoding_indices
 	
 	def quantize(self, encoding_indices):
 		return tf.nn.embedding_lookup(self.embeddings, encoding_indices, validate_indices=False)
-	
-	def reset_embeddings(self, embed_indices):
-		col_indices = tf.stop_gradient(tf.stack(tf.meshgrid(tf.range(self.embedding_dim), embed_indices, indexing='ij'), axis=-1))
-		tf.stop_gradient(self.embeddings.scatter_nd_update(
-			col_indices,
-			tf.transpose(self.initializer((tf.shape(embed_indices)[0], self.embedding_dim)))
-		))
 
 
+####################################################################################################################################
+
+##### NOT USED ON THIS CODEBASE #####
 class VectorQuantizerEMA(tf.keras.layers.Layer):
 	"""Sonnet module representing the VQ-VAE layer.
 	Implements a slightly modified version of the algorithm presented in

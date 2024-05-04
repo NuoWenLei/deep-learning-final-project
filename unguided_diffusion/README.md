@@ -1,14 +1,14 @@
 # Unguided Diffusion
 
-See [this Google Colab noteboook](https://colab.research.google.com/drive/1gWPoUnxKtZOkXORMHY5T0bJ3QIcpZk68?usp=sharing) for a demo.
-
 ## `diffusion.py`
 
-**`class UnguidedDiffusion(tf.keras.models.Model)`**
+**`class UnguidedVideoDiffusion(tf.keras.models.Model)`**
 
-Diffusion model class that does not take any guidance or context and is optimized with the Score Matching loss function.
+Diffusion model that does unguided video diffusion using frame-stacking techniques.
 
-The class also contains method for unguided sampling with Annealed Langevin Dynamics.
+**`class LatentActionVideoDiffusion(UnguidedVideoDiffusion)`**
+
+Diffusion model that learns conditioned actions from unguided video diffusion using a Latent Action model.
 
 ## `model_blocks.py`
 
