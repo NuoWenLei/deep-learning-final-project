@@ -1,16 +1,14 @@
-from imports import tf, np, tqdm
+from imports import tf, np
 
 from unguided_diffusion.helpers import create_flow_with_future, gather_samples_from_dataset_with_future, load_latent_data, calc_frame_indices_with_future_frames
 from unguided_diffusion.diffusion import LatentActionVideoDiffusion
 
-import gc
 import os
-import json
 import datetime
 from functools import partial
 from collections import defaultdict
 
-from emailSender import send_attached_email, send_email
+from emailSender import send_email
 from constants import (
 	# Training Settings
 	EXPLODING_LOSS_DETECTION,
@@ -46,6 +44,19 @@ from constants import (
 
 
 def log(msg, filepath):
+	"""
+	Log message based on hyper-parameter setting.
+
+	If USE_EMAIL_NOTIFICATION is false, this log function will
+	also print the message.
+
+	Inputs:
+	- msg | str : message to log.
+	- filepath | str : filepath to log message.
+
+	Outputs:
+	- str : message to log.
+	"""
 	if not os.path.isfile(filepath):
 		with open(filepath, "w") as f:
 			f.write("")
@@ -120,20 +131,17 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 
 	STEPS_PER_EPOCH = NUM_SAMPLES // BATCH_SIZE
 
-	# halfway_steps = STEPS_PER_EPOCH // 2
-
 	summed_metrics = defaultdict(lambda: 0)
 	prev_epoch_averages = None
 	latest_save_path = None
 
 	for epoch in range(NUM_EPOCHS):
 		curr_epoch = starting_epoch + epoch
+		logger(f"Epoch {curr_epoch - 1} Action Counter: {diffusion_model.action_index_counter.numpy()}")
 		logger(f"Epoch {curr_epoch}, Num Steps {STEPS_PER_EPOCH}: ")
 		pb = tf.keras.utils.Progbar(BATCH_SIZE * STEPS_PER_EPOCH)
 		for step in range(STEPS_PER_EPOCH):
 
-			# if step % step_checkmarks == 0:
-			# 	logger(f"Step {step}:\n\nCurrent epoch averages: {str(dict((k, v[0] / v[1]) for k, v in pb._values.items()))}")
 			# Sample next batch of data
 			prev_frames_batch, new_frame_batch, future_frames_batch = next(dataloader)
 
@@ -153,7 +161,6 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 			metrics = diffusion_model.train_step(new_frame_batch, prev_frames_reshaped, future_frames_reshaped)
 			metric_list.append(metrics)
 			pb.add(BATCH_SIZE, values=[(k, v) for k,v in metrics.items()])
-
 		# Calculate Metric Averages of Epoch
 		epoch_averages = dict((k, v[0] / v[1]) for k, v in pb._values.items())
 		for k in epoch_averages.keys():
@@ -263,8 +270,6 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 			save_path = os.path.join(os.path.join(BASE_FILEPATH, RESULT_DIRPATH), f"e{curr_epoch}_sample.npy")
 			with open(save_path, "wb") as npy_file:
 				np.save(npy_file, new_frames_uint)
-
-			# TODO: turn sample into video and send email
 				
 	if (CHECKPOINT_SAVE_RATE is None) or (curr_epoch % CHECKPOINT_SAVE_RATE != 0):
 		save_path = os.path.join(os.path.join(BASE_FILEPATH, CHECKPOINT_PATH), f"e{curr_epoch}.ckpt")
@@ -278,10 +283,3 @@ def main(path_to_checkpoint = None, starting_epoch = 0, use_lr_schedule = False,
 
 if __name__ == "__main__":
 	main()
-	# try:
-	# 	main()
-	# except Exception as e:
-	# 	if USE_EMAIL_NOTIFICATION:
-	# 		send_email(f"Process exited with an error: {str(e)}")
-	# 	else:
-	# 		print(f"Process exited with an error: {str(e)}")

@@ -4,6 +4,15 @@ preprocess_standard = lambda im : (im / 127.) - 1.0
 
 # Data-gen
 def create_flow_unguided(x, batch_size = 128, preprocess_func = None, repeat = True):
+  """
+  Create a dataloader based on one iterable.
+
+  Inputs:
+  - x | tf.tensor : data to iterate over.
+  - batch_size | int : size of each batch to yield.
+  - preprocess_func | callable : function to preprocess every batch with.
+  - repeat | bool : whether to repeat and shuffle samples.
+  """
   i = 0
   total_samples = x.shape[0]
   while True:
@@ -25,6 +34,16 @@ def create_flow_unguided(x, batch_size = 128, preprocess_func = None, repeat = T
       yield preprocess_func(x[i: i + batch_size])
 
 def create_flow_with_future(x, futures, batch_size = 128, preprocess_func = None, repeat = True):
+  """
+  Create a dataloader with corresponding future frames.
+
+  Inputs:
+  - x | tf.tensor : data to iterate over.
+  - futures | tf.tensor : future frames to iterate over.
+  - batch_size | int : size of each batch to yield.
+  - preprocess_func | callable : function to preprocess every batch with.
+  - repeat | bool : whether to repeat and shuffle samples.
+  """
   i = 0
   total_samples = x.shape[0]
   while True:
@@ -48,6 +67,16 @@ def create_flow_with_future(x, futures, batch_size = 128, preprocess_func = None
 
 # Load Latent Data
 def load_latent_data(fp_to_npy, preprocess_func = None):
+  """
+  Load preprocessed frames from filepaths.
+
+  Inputs:
+  - fp_to_npy | Union[list, str] : list of filepaths or a filepath.
+  - preprocess_func | callable : function to preprocess loaded data.
+
+  Outputs:
+  - tf.tensor : loaded / preprocessed data.
+  """
   if type(fp_to_npy) == str:
     fp_to_npy = [fp_to_npy]
   
@@ -68,6 +97,22 @@ def load_latent_data(fp_to_npy, preprocess_func = None):
   return np.concatenate(results_list, axis = 0), episode_changes
 
 def calc_frame_indices(total_samples, num_frames_per_sample, episode_changes = []):
+  """
+  Calculates the indices of frames for every training sample.
+  
+  Since there are a lot of overlapping frames when training, we do not want to load in many overlapping frames.
+  Therefore, we will load the frame indices in the dataloaders and then gathering the corresponding frames
+  at every batch.
+
+  Inputs:
+  - total_samples | int : number of total frames.
+  - num_frames_per_sample | int : number of frames per training sample.
+  - episode_changes | list : list of points in the dataset where the episode ends such that changes in episodes
+                              will not be included as sets of previous frames.
+
+  Outputs:
+  - np.array : array of samples where each sample contains the frames for that sample.
+  """
   total_sample_indices = [i for i in range(total_samples)]
   available_sample_indices = total_samples - num_frames_per_sample
   stacked_indices = []
@@ -84,6 +129,24 @@ def calc_frame_indices(total_samples, num_frames_per_sample, episode_changes = [
   return np.array(stacked_indices)
 
 def calc_frame_indices_with_future_frames(total_samples, num_frames_per_sample, future_offset, episode_changes = []):
+  """
+  Calculates the indices of frames for every training sample including future frame indices.
+  
+  Since there are a lot of overlapping frames when training, we do not want to load in many overlapping frames.
+  Therefore, we will load the frame indices in the dataloaders and then gathering the corresponding frames
+  at every batch.
+
+  Inputs:
+  - total_samples | int : number of total frames.
+  - num_frames_per_sample | int : number of frames per training sample.
+  - future_offset | int : number of frames that the future frames are ahead of current frames.
+  - episode_changes | list : list of points in the dataset where the episode ends such that changes in episodes
+                              will not be included as sets of previous frames.
+
+  Outputs:
+  - np.array : array of samples where each sample contains the current frames for that sample.
+  - np.array : array of samples where each sample contains the future frames for that sample.
+  """
   total_sample_indices = [i for i in range(total_samples)]
   available_sample_indices = total_samples - num_frames_per_sample - future_offset
   stacked_indices = []
@@ -104,24 +167,36 @@ def calc_frame_indices_with_future_frames(total_samples, num_frames_per_sample, 
   return np.array(stacked_indices), np.array(stacked_future_indices)
 
 def gather_samples_from_dataset(X_y_indices, dataset):
-  # X_indices = []
-  # y_indices = []
+  """
+  Gathers frames based on indices.
 
-  # for X_ind, y_ind in X_y_indices:
-  #   X_indices.append(X_ind)
-  #   y_indices.append(y_ind)
+  Inputs:
+  - X_y_indices | np.array : indices of the current frames to gather.
+  - dataset | tf.tensor : all frames to gather from.
+
+  Outputs:
+  - tf.tensor : previous frames.
+  - tf.tensor : frames to predict.
+  """
 
   X = tf.gather(dataset, X_y_indices[:, :-1], axis = 0)
   y = tf.gather(dataset, X_y_indices[:, -1], axis = 0)
   return X, y
 
 def gather_samples_from_dataset_with_future(X_y_indices, future_indices, dataset):
-  # X_indices = []
-  # y_indices = []
+  """
+  Gathers frames based on indices with future indices.
 
-  # for X_ind, y_ind in X_y_indices:
-  #   X_indices.append(X_ind)
-  #   y_indices.append(y_ind)
+  Inputs:
+  - X_y_indices | np.array : indices of the current frames to gather.
+  - future_indices | np.array : indices of the future frames to gather.
+  - dataset | tf.tensor : all frames to gather from.
+
+  Outputs:
+  - tf.tensor : previous frames.
+  - tf.tensor : frames to predict.
+  - tf.tensor : future frames.
+  """
 
   X = tf.gather(dataset, X_y_indices[:, :-1], axis = 0)
   y = tf.gather(dataset, X_y_indices[:, -1], axis = 0)

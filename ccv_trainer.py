@@ -45,6 +45,19 @@ from constants import (
 
 
 def log(msg, filepath):
+	"""
+	Log message based on hyper-parameter setting.
+
+	If USE_EMAIL_NOTIFICATION is false, this log function will
+	also print the message.
+
+	Inputs:
+	- msg | str : message to log.
+	- filepath | str : filepath to log message.
+
+	Outputs:
+	- str : message to log.
+	"""
 	if not os.path.isfile(filepath):
 		with open(filepath, "w") as f:
 			f.write("")

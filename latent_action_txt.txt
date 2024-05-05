@@ -1,668 +1,285 @@
-7424/7424 [==============================] - 97s 13ms/step - mse: 106.6220 - loss: 1.0059 - vq_loss (unscaled term): 0.3641 - diffusion_loss: 0.9877
-Epoch 2, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 105.8426 - loss: 0.8240 - vq_loss (unscaled term): 0.1889 - diffusion_loss: 0.8145
-Epoch 3, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 103.0598 - loss: 0.4264 - vq_loss (unscaled term): 0.0943 - diffusion_loss: 0.4217
-Epoch 4, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 103.0997 - loss: 0.2762 - vq_loss (unscaled term): 0.0838 - diffusion_loss: 0.2720
-Epoch 5, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 102.2023 - loss: 0.2401 - vq_loss (unscaled term): 0.0816 - diffusion_loss: 0.2360
-Epoch 6, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 101.6817 - loss: 0.2091 - vq_loss (unscaled term): 0.0817 - diffusion_loss: 0.2050
-Epoch 7, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 101.8650 - loss: 0.2022 - vq_loss (unscaled term): 0.0838 - diffusion_loss: 0.1980
-Epoch 8, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 101.8476 - loss: 0.1932 - vq_loss (unscaled term): 0.0756 - diffusion_loss: 0.1894
-Epoch 9, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 102.2112 - loss: 0.1828 - vq_loss (unscaled term): 0.0781 - diffusion_loss: 0.1789
-Epoch 10, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 101.5535 - loss: 0.1701 - vq_loss (unscaled term): 0.0726 - diffusion_loss: 0.1665
-Epoch 11, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 100.6879 - loss: 0.1636 - vq_loss (unscaled term): 0.0772 - diffusion_loss: 0.1598
-Epoch 12, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 100.1823 - loss: 0.1700 - vq_loss (unscaled term): 0.0765 - diffusion_loss: 0.1662
-Epoch 13, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 99.7544 - loss: 0.1632 - vq_loss (unscaled term): 0.0738 - diffusion_loss: 0.1595
-Epoch 14, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 99.8221 - loss: 0.1662 - vq_loss (unscaled term): 0.0788 - diffusion_loss: 0.1623
-Epoch 15, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 99.6723 - loss: 0.1572 - vq_loss (unscaled term): 0.0760 - diffusion_loss: 0.1534
-Epoch 16, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 99.4167 - loss: 0.1579 - vq_loss (unscaled term): 0.0763 - diffusion_loss: 0.1541
-Epoch 17, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 99.2500 - loss: 0.1581 - vq_loss (unscaled term): 0.0703 - diffusion_loss: 0.1545
-Epoch 18, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 99.2367 - loss: 0.1567 - vq_loss (unscaled term): 0.0740 - diffusion_loss: 0.1530
-Epoch 19, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 99.3690 - loss: 0.1551 - vq_loss (unscaled term): 0.0658 - diffusion_loss: 0.1518
-Epoch 20, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 99.3713 - loss: 0.1533 - vq_loss (unscaled term): 0.0662 - diffusion_loss: 0.1499
-Epoch 21, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 99.2863 - loss: 0.1501 - vq_loss (unscaled term): 0.0644 - diffusion_loss: 0.1469
-Epoch 22, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 99.0670 - loss: 0.1465 - vq_loss (unscaled term): 0.0623 - diffusion_loss: 0.1434
-Epoch 23, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 98.8177 - loss: 0.1429 - vq_loss (unscaled term): 0.0595 - diffusion_loss: 0.1399
-Epoch 24, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 98.3888 - loss: 0.1386 - vq_loss (unscaled term): 0.0603 - diffusion_loss: 0.1356
-Epoch 25, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 98.0161 - loss: 0.1428 - vq_loss (unscaled term): 0.0568 - diffusion_loss: 0.1400
-Epoch 26, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 97.8426 - loss: 0.1439 - vq_loss (unscaled term): 0.0519 - diffusion_loss: 0.1413
-Epoch 27, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 97.6175 - loss: 0.1366 - vq_loss (unscaled term): 0.0527 - diffusion_loss: 0.1339
-Epoch 28, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 97.2239 - loss: 0.1348 - vq_loss (unscaled term): 0.0522 - diffusion_loss: 0.1322
-Epoch 29, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 96.9633 - loss: 0.1336 - vq_loss (unscaled term): 0.0523 - diffusion_loss: 0.1310
-Epoch 30, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 96.5413 - loss: 0.1280 - vq_loss (unscaled term): 0.0515 - diffusion_loss: 0.1255
-Epoch 31, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 95.9807 - loss: 0.1289 - vq_loss (unscaled term): 0.0511 - diffusion_loss: 0.1263
-Epoch 32, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 95.3925 - loss: 0.1167 - vq_loss (unscaled term): 0.0487 - diffusion_loss: 0.1143
-Epoch 33, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 94.6574 - loss: 0.1185 - vq_loss (unscaled term): 0.0497 - diffusion_loss: 0.1160
-Epoch 34, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 94.0436 - loss: 0.1174 - vq_loss (unscaled term): 0.0552 - diffusion_loss: 0.1147
-Epoch 35, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 93.4137 - loss: 0.1164 - vq_loss (unscaled term): 0.0450 - diffusion_loss: 0.1141
-Epoch 36, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 92.7042 - loss: 0.1097 - vq_loss (unscaled term): 0.0441 - diffusion_loss: 0.1075
-Epoch 37, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 91.8652 - loss: 0.1026 - vq_loss (unscaled term): 0.0452 - diffusion_loss: 0.1003
-Epoch 38, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 91.0518 - loss: 0.1060 - vq_loss (unscaled term): 0.0422 - diffusion_loss: 0.1039
-Epoch 39, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 90.2171 - loss: 0.0993 - vq_loss (unscaled term): 0.0407 - diffusion_loss: 0.0972
-Epoch 40, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 89.3624 - loss: 0.0999 - vq_loss (unscaled term): 0.0396 - diffusion_loss: 0.0979
-Epoch 41, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 88.4591 - loss: 0.0917 - vq_loss (unscaled term): 0.0396 - diffusion_loss: 0.0897
-Epoch 42, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 87.6220 - loss: 0.0954 - vq_loss (unscaled term): 0.0364 - diffusion_loss: 0.0935
-Epoch 43, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 86.8188 - loss: 0.0912 - vq_loss (unscaled term): 0.0373 - diffusion_loss: 0.0894
-Epoch 44, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 86.0901 - loss: 0.0939 - vq_loss (unscaled term): 0.0378 - diffusion_loss: 0.0920
-Epoch 45, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 85.3875 - loss: 0.0931 - vq_loss (unscaled term): 0.0363 - diffusion_loss: 0.0913
-Epoch 46, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 84.6941 - loss: 0.0891 - vq_loss (unscaled term): 0.0343 - diffusion_loss: 0.0874
-Epoch 47, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 83.9624 - loss: 0.0910 - vq_loss (unscaled term): 0.0366 - diffusion_loss: 0.0892
-Epoch 48, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 83.2957 - loss: 0.0868 - vq_loss (unscaled term): 0.0373 - diffusion_loss: 0.0850
-Epoch 49, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 82.6056 - loss: 0.0840 - vq_loss (unscaled term): 0.0330 - diffusion_loss: 0.0824
-Epoch 50, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 81.9648 - loss: 0.0864 - vq_loss (unscaled term): 0.0330 - diffusion_loss: 0.0847
+Epoch 1, Num Steps 232: 
+29696/29696 [==============================] - 423s 14ms/step - mse: 101.3647 - loss: 0.9439 - vq_loss (unscaled term): 0.1228 - diffusion_loss: 0.8211 - gram_loss: 0.0123
+Epoch 1 Action Counter: [   0. 3995. 3827. 4232. 4396. 4740. 4256. 4250.]
+Epoch 2, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 101.1210 - loss: 0.3436 - vq_loss (unscaled term): 0.0790 - diffusion_loss: 0.2646 - gram_loss: 0.0126
+Epoch 2 Action Counter: [   0. 7914. 7703. 8432. 8844. 9266. 8570. 8663.]
+Epoch 3, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 99.6168 - loss: 0.2569 - vq_loss (unscaled term): 0.0689 - diffusion_loss: 0.1880 - gram_loss: 0.0129
+Epoch 3 Action Counter: [    0. 11796. 11660. 12501. 13212. 14063. 12700. 13156.]
+Epoch 4, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 99.0102 - loss: 0.2353 - vq_loss (unscaled term): 0.0597 - diffusion_loss: 0.1756 - gram_loss: 0.0132
+Epoch 4 Action Counter: [    0. 15552. 15642. 16879. 17720. 18449. 16992. 17550.]
+Epoch 5, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 98.8448 - loss: 0.2141 - vq_loss (unscaled term): 0.0522 - diffusion_loss: 0.1619 - gram_loss: 0.0135
+Epoch 5 Action Counter: [    0. 19482. 19382. 21130. 22304. 23129. 21075. 21978.]
+Epoch 6, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 98.4832 - loss: 0.2019 - vq_loss (unscaled term): 0.0453 - diffusion_loss: 0.1566 - gram_loss: 0.0138
+Epoch 6 Action Counter: [    0. 23399. 23292. 25335. 26855. 27793. 25349. 26153.]
+Epoch 7, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 98.3952 - loss: 0.1912 - vq_loss (unscaled term): 0.0385 - diffusion_loss: 0.1527 - gram_loss: 0.0140
+Epoch 7 Action Counter: [    0. 27272. 27064. 29682. 31400. 32415. 29612. 30427.]
+Epoch 8, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 97.9864 - loss: 0.1794 - vq_loss (unscaled term): 0.0327 - diffusion_loss: 0.1467 - gram_loss: 0.0142
+Epoch 8 Action Counter: [    0. 31088. 30864. 34018. 35970. 37196. 33900. 34532.]
+Epoch 9, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 97.4301 - loss: 0.1664 - vq_loss (unscaled term): 0.0274 - diffusion_loss: 0.1390 - gram_loss: 0.0144
+Epoch 9 Action Counter: [    0. 34786. 34611. 38440. 40771. 41898. 38124. 38634.]
+Epoch 10, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 96.4748 - loss: 0.1587 - vq_loss (unscaled term): 0.0230 - diffusion_loss: 0.1357 - gram_loss: 0.0146
+Epoch 10 Action Counter: [    0. 38511. 38147. 43022. 45641. 46791. 42267. 42581.]
+Epoch 11, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 95.2798 - loss: 0.1427 - vq_loss (unscaled term): 0.0195 - diffusion_loss: 0.1232 - gram_loss: 0.0148
+Epoch 11 Action Counter: [    0. 42285. 41913. 47753. 50130. 51629. 46434. 46512.]
+Epoch 12, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 93.1895 - loss: 0.1277 - vq_loss (unscaled term): 0.0165 - diffusion_loss: 0.1113 - gram_loss: 0.0149
+Epoch 12 Action Counter: [    0. 45797. 45530. 52429. 54824. 56641. 50695. 50436.]
+Epoch 13, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 90.6967 - loss: 0.1147 - vq_loss (unscaled term): 0.0134 - diffusion_loss: 0.1013 - gram_loss: 0.0150
+Epoch 13 Action Counter: [    0. 49355. 49176. 57155. 59626. 61582. 54850. 54304.]
+Epoch 14, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 88.1806 - loss: 0.1078 - vq_loss (unscaled term): 0.0110 - diffusion_loss: 0.0968 - gram_loss: 0.0151
+Epoch 14 Action Counter: [    0. 52729. 52724. 62155. 64493. 66662. 59022. 57959.]
+Epoch 15, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 85.7523 - loss: 0.0986 - vq_loss (unscaled term): 0.0089 - diffusion_loss: 0.0897 - gram_loss: 0.0152
+Epoch 15 Action Counter: [    0. 55945. 56086. 67440. 69281. 72019. 63085. 61584.]
+Epoch 16, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 83.4550 - loss: 0.0944 - vq_loss (unscaled term): 0.0072 - diffusion_loss: 0.0873 - gram_loss: 0.0153
+Epoch 16 Action Counter: [    0. 59145. 59529. 72837. 74250. 77303. 67064. 65008.]
+Epoch 17, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 81.3464 - loss: 0.0900 - vq_loss (unscaled term): 0.0058 - diffusion_loss: 0.0843 - gram_loss: 0.0154
+Epoch 17 Action Counter: [    0. 62165. 62885. 78367. 79307. 82759. 71003. 68346.]
+Epoch 18, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 79.4570 - loss: 0.0878 - vq_loss (unscaled term): 0.0045 - diffusion_loss: 0.0833 - gram_loss: 0.0154
+Epoch 18 Action Counter: [    0. 64928. 66263. 84310. 84631. 88206. 74774. 71416.]
+Epoch 19, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 77.6762 - loss: 0.0812 - vq_loss (unscaled term): 0.0035 - diffusion_loss: 0.0777 - gram_loss: 0.0155
+Epoch 19 Action Counter: [    0. 67495. 69355. 90522. 89915. 94090. 78538. 74309.]
+Epoch 20, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 76.0433 - loss: 0.0823 - vq_loss (unscaled term): 0.0027 - diffusion_loss: 0.0796 - gram_loss: 0.0155
+Epoch 20 Action Counter: [    0. 69738. 72380. 97464. 95491. 99866. 82083. 76898.]
+Epoch 21, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 74.5574 - loss: 0.0762 - vq_loss (unscaled term): 0.0021 - diffusion_loss: 0.0742 - gram_loss: 0.0155
+Epoch 21 Action Counter: [     0.  71735.  75198. 104897. 100973. 105977.  85611.  79225.]
+Epoch 22, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 73.0735 - loss: 0.0728 - vq_loss (unscaled term): 0.0016 - diffusion_loss: 0.0712 - gram_loss: 0.0155
+Epoch 22 Action Counter: [     0.  73436.  77848. 112893. 106763. 112345.  88739.  81288.]
+Epoch 23, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 71.7026 - loss: 0.0704 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0692 - gram_loss: 0.0156
+Epoch 23 Action Counter: [     0.  75024.  80298. 121348. 112729. 118721.  91741.  83147.]
+Epoch 24, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 70.4064 - loss: 0.0723 - vq_loss (unscaled term): 0.0013 - diffusion_loss: 0.0711 - gram_loss: 0.0156
+Epoch 24 Action Counter: [     0.  76696.  82812. 129417. 118739. 125134.  94882.  85024.]
+Epoch 25, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 69.2820 - loss: 0.0691 - vq_loss (unscaled term): 9.8844e-04 - diffusion_loss: 0.0682 - gram_loss: 0.0156
+Epoch 25 Action Counter: [     0.  78340.  85762. 136701. 124806. 131426.  98333.  87032.]
+Epoch 26, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 68.1268 - loss: 0.0658 - vq_loss (unscaled term): 6.7532e-04 - diffusion_loss: 0.0652 - gram_loss: 0.0156
+Epoch 26 Action Counter: [     0.  79780.  88799. 144065. 131012. 137807. 101900.  88733.]
+Epoch 27, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 67.0644 - loss: 0.0650 - vq_loss (unscaled term): 5.0228e-04 - diffusion_loss: 0.0645 - gram_loss: 0.0156
+Epoch 27 Action Counter: [     0.  81035.  91730. 151321. 137443. 144146. 105663.  90454.]
+Epoch 28, Num Steps 232: 
+29696/29696 [==============================] - 375s 13ms/step - mse: 66.0663 - loss: 0.0631 - vq_loss (unscaled term): 4.4418e-04 - diffusion_loss: 0.0627 - gram_loss: 0.0156
+Epoch 28 Action Counter: [     0.  82426.  95125. 158118. 143419. 150245. 109896.  92259.]
+Epoch 29, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 65.1018 - loss: 0.0614 - vq_loss (unscaled term): 4.3987e-04 - diffusion_loss: 0.0609 - gram_loss: 0.0156
+Epoch 29 Action Counter: [     0.  84090.  99208. 164041. 149114. 155989. 114420.  94322.]
+Epoch 30, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 64.1655 - loss: 0.0592 - vq_loss (unscaled term): 3.9289e-04 - diffusion_loss: 0.0588 - gram_loss: 0.0156
 
-								Reached checkpoint at Epoch 50!
+								Reached checkpoint at Epoch 30!
 								
 
 
 
-								Epoch Averages: {'mse': <tf.Tensor: shape=(), dtype=float32, numpy=81.96477>, 'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.086396284>, 'vq_loss (unscaled term)': <tf.Tensor: shape=(), dtype=float32, numpy=0.033047464>, 'diffusion_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.0847439>}
+								Epoch Averages: {'mse': <tf.Tensor: shape=(), dtype=float32, numpy=64.16545>, 'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.05917552>, 'vq_loss (unscaled term)': <tf.Tensor: shape=(), dtype=float32, numpy=0.00039288859>, 'diffusion_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.058782633>, 'gram_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.015618906>}
 								
-Epoch 51, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 81.3206 - loss: 0.0836 - vq_loss (unscaled term): 0.0319 - diffusion_loss: 0.0820
-Epoch 52, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 80.6843 - loss: 0.0809 - vq_loss (unscaled term): 0.0296 - diffusion_loss: 0.0794
-Epoch 53, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 80.0177 - loss: 0.0853 - vq_loss (unscaled term): 0.0383 - diffusion_loss: 0.0834
-Epoch 54, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 79.4250 - loss: 0.0872 - vq_loss (unscaled term): 0.0504 - diffusion_loss: 0.0847
-Epoch 55, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 78.8217 - loss: 0.0769 - vq_loss (unscaled term): 0.0302 - diffusion_loss: 0.0754
-Epoch 56, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 78.2089 - loss: 0.0795 - vq_loss (unscaled term): 0.0271 - diffusion_loss: 0.0782
-Epoch 57, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 77.6727 - loss: 0.0801 - vq_loss (unscaled term): 0.0286 - diffusion_loss: 0.0787
-Epoch 58, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 77.1124 - loss: 0.0780 - vq_loss (unscaled term): 0.0296 - diffusion_loss: 0.0765
-Epoch 59, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 76.6277 - loss: 0.0811 - vq_loss (unscaled term): 0.0278 - diffusion_loss: 0.0797
-Epoch 60, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 76.1036 - loss: 0.0739 - vq_loss (unscaled term): 0.0253 - diffusion_loss: 0.0726
-Epoch 61, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 75.5467 - loss: 0.0747 - vq_loss (unscaled term): 0.0252 - diffusion_loss: 0.0735
-Epoch 62, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 75.0595 - loss: 0.0743 - vq_loss (unscaled term): 0.0241 - diffusion_loss: 0.0731
-Epoch 63, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 74.5657 - loss: 0.0742 - vq_loss (unscaled term): 0.0247 - diffusion_loss: 0.0730
-Epoch 64, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 74.0601 - loss: 0.0715 - vq_loss (unscaled term): 0.0230 - diffusion_loss: 0.0704
-Epoch 65, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 73.5644 - loss: 0.0714 - vq_loss (unscaled term): 0.0223 - diffusion_loss: 0.0703
-Epoch 66, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 73.0923 - loss: 0.0721 - vq_loss (unscaled term): 0.0262 - diffusion_loss: 0.0708
-Epoch 67, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 72.6578 - loss: 0.0719 - vq_loss (unscaled term): 0.0229 - diffusion_loss: 0.0708
-Epoch 68, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 72.2270 - loss: 0.0727 - vq_loss (unscaled term): 0.0204 - diffusion_loss: 0.0717
-Epoch 69, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 71.8328 - loss: 0.0713 - vq_loss (unscaled term): 0.0209 - diffusion_loss: 0.0702
-Epoch 70, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 71.4038 - loss: 0.0673 - vq_loss (unscaled term): 0.0206 - diffusion_loss: 0.0662
-Epoch 71, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 70.9778 - loss: 0.0702 - vq_loss (unscaled term): 0.0212 - diffusion_loss: 0.0691
-Epoch 72, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 70.5522 - loss: 0.0714 - vq_loss (unscaled term): 0.0213 - diffusion_loss: 0.0703
-Epoch 73, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 70.1723 - loss: 0.0646 - vq_loss (unscaled term): 0.0207 - diffusion_loss: 0.0635
-Epoch 74, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 69.7372 - loss: 0.0645 - vq_loss (unscaled term): 0.0214 - diffusion_loss: 0.0635
-Epoch 75, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 69.3167 - loss: 0.0643 - vq_loss (unscaled term): 0.0206 - diffusion_loss: 0.0633
-Epoch 76, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 68.9087 - loss: 0.0643 - vq_loss (unscaled term): 0.0188 - diffusion_loss: 0.0633
-Epoch 77, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 68.5125 - loss: 0.0647 - vq_loss (unscaled term): 0.0170 - diffusion_loss: 0.0638
-Epoch 78, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 68.1653 - loss: 0.0672 - vq_loss (unscaled term): 0.0185 - diffusion_loss: 0.0663
-Epoch 79, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 67.8323 - loss: 0.0646 - vq_loss (unscaled term): 0.0176 - diffusion_loss: 0.0637
-Epoch 80, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 67.4529 - loss: 0.0604 - vq_loss (unscaled term): 0.0157 - diffusion_loss: 0.0596
-Epoch 81, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 67.0595 - loss: 0.0605 - vq_loss (unscaled term): 0.0157 - diffusion_loss: 0.0597
-Epoch 82, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 66.7078 - loss: 0.0626 - vq_loss (unscaled term): 0.0157 - diffusion_loss: 0.0618
-Epoch 83, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 66.3634 - loss: 0.0590 - vq_loss (unscaled term): 0.0144 - diffusion_loss: 0.0583
-Epoch 84, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 66.0021 - loss: 0.0599 - vq_loss (unscaled term): 0.0152 - diffusion_loss: 0.0592
-Epoch 85, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 65.6915 - loss: 0.0632 - vq_loss (unscaled term): 0.0146 - diffusion_loss: 0.0625
-Epoch 86, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 65.3646 - loss: 0.0586 - vq_loss (unscaled term): 0.0136 - diffusion_loss: 0.0579
-Epoch 87, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 65.0357 - loss: 0.0580 - vq_loss (unscaled term): 0.0133 - diffusion_loss: 0.0574
-Epoch 88, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 64.7013 - loss: 0.0609 - vq_loss (unscaled term): 0.0188 - diffusion_loss: 0.0599
-Epoch 89, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 64.3745 - loss: 0.0567 - vq_loss (unscaled term): 0.0147 - diffusion_loss: 0.0560
-Epoch 90, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 64.0724 - loss: 0.0601 - vq_loss (unscaled term): 0.0135 - diffusion_loss: 0.0594
-Epoch 91, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 63.7963 - loss: 0.0589 - vq_loss (unscaled term): 0.0132 - diffusion_loss: 0.0583
-Epoch 92, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 63.5183 - loss: 0.0590 - vq_loss (unscaled term): 0.0122 - diffusion_loss: 0.0584
-Epoch 93, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 63.2154 - loss: 0.0577 - vq_loss (unscaled term): 0.0122 - diffusion_loss: 0.0571
-Epoch 94, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 62.9280 - loss: 0.0564 - vq_loss (unscaled term): 0.0114 - diffusion_loss: 0.0558
-Epoch 95, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 62.6270 - loss: 0.0539 - vq_loss (unscaled term): 0.0106 - diffusion_loss: 0.0534
-Epoch 96, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 62.3271 - loss: 0.0548 - vq_loss (unscaled term): 0.0113 - diffusion_loss: 0.0542
-Epoch 97, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 62.0425 - loss: 0.0539 - vq_loss (unscaled term): 0.0129 - diffusion_loss: 0.0533
-Epoch 98, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 61.7617 - loss: 0.0546 - vq_loss (unscaled term): 0.0110 - diffusion_loss: 0.0540
-Epoch 99, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 61.4813 - loss: 0.0527 - vq_loss (unscaled term): 0.0096 - diffusion_loss: 0.0522
-Epoch 100, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 61.1918 - loss: 0.0501 - vq_loss (unscaled term): 0.0095 - diffusion_loss: 0.0496
+Epoch 30 Action Counter: [     0.  85820. 103720. 169583. 154451. 161386. 119246.  96674.]
+Epoch 31, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 63.2411 - loss: 0.0577 - vq_loss (unscaled term): 2.8231e-04 - diffusion_loss: 0.0574 - gram_loss: 0.0156
+Epoch 31 Action Counter: [     0.  87724. 108394. 174903. 159690. 166529. 123977.  99359.]
+Epoch 32, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 62.3856 - loss: 0.0571 - vq_loss (unscaled term): 2.7651e-04 - diffusion_loss: 0.0568 - gram_loss: 0.0156
+Epoch 32 Action Counter: [     0.  90084. 113128. 179786. 164603. 171307. 128715. 102649.]
+Epoch 33, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 61.5282 - loss: 0.0545 - vq_loss (unscaled term): 2.8717e-04 - diffusion_loss: 0.0542 - gram_loss: 0.0156
+Epoch 33 Action Counter: [     0.  93012. 117535. 184388. 169208. 175963. 133234. 106628.]
+Epoch 34, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 60.7156 - loss: 0.0540 - vq_loss (unscaled term): 2.0972e-04 - diffusion_loss: 0.0538 - gram_loss: 0.0156
+Epoch 34 Action Counter: [     0.  96319. 121985. 188870. 173675. 180453. 137639. 110723.]
+Epoch 35, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 59.9312 - loss: 0.0519 - vq_loss (unscaled term): 2.0693e-04 - diffusion_loss: 0.0517 - gram_loss: 0.0156
+Epoch 35 Action Counter: [     0. 100122. 126324. 193198. 178042. 184690. 142093. 114891.]
+Epoch 36, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 59.1643 - loss: 0.0525 - vq_loss (unscaled term): 2.4832e-04 - diffusion_loss: 0.0522 - gram_loss: 0.0156
+Epoch 36 Action Counter: [     0. 104140. 130640. 197480. 182387. 188941. 146378. 119090.]
+Epoch 37, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 58.4611 - loss: 0.0520 - vq_loss (unscaled term): 2.8688e-04 - diffusion_loss: 0.0517 - gram_loss: 0.0156
+Epoch 37 Action Counter: [     0. 108324. 134918. 201627. 186726. 193204. 150672. 123281.]
+Epoch 38, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 57.7626 - loss: 0.0499 - vq_loss (unscaled term): 2.2016e-04 - diffusion_loss: 0.0496 - gram_loss: 0.0156
+Epoch 38 Action Counter: [     0. 112515. 139181. 205897. 190921. 197356. 154944. 127634.]
+Epoch 39, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 57.1085 - loss: 0.0493 - vq_loss (unscaled term): 2.0321e-04 - diffusion_loss: 0.0491 - gram_loss: 0.0156
+Epoch 39 Action Counter: [     0. 116731. 143349. 210167. 195219. 201645. 159081. 131952.]
+Epoch 40, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 56.4582 - loss: 0.0487 - vq_loss (unscaled term): 2.0420e-04 - diffusion_loss: 0.0485 - gram_loss: 0.0156
+Epoch 40 Action Counter: [     0. 120969. 147562. 214377. 199560. 205937. 163248. 136187.]
+Epoch 41, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 55.8301 - loss: 0.0484 - vq_loss (unscaled term): 2.6187e-04 - diffusion_loss: 0.0481 - gram_loss: 0.0156
+Epoch 41 Action Counter: [     0. 125203. 151790. 218610. 203829. 210184. 167493. 140427.]
+Epoch 42, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 55.2065 - loss: 0.0468 - vq_loss (unscaled term): 1.8857e-04 - diffusion_loss: 0.0467 - gram_loss: 0.0156
+Epoch 42 Action Counter: [     0. 129356. 156031. 222916. 208000. 214430. 171754. 144745.]
+Epoch 43, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 54.6193 - loss: 0.0463 - vq_loss (unscaled term): 1.8112e-04 - diffusion_loss: 0.0461 - gram_loss: 0.0156
+Epoch 43 Action Counter: [     0. 133606. 160303. 227085. 212248. 218601. 176075. 149010.]
+Epoch 44, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 54.0504 - loss: 0.0457 - vq_loss (unscaled term): 1.6441e-04 - diffusion_loss: 0.0456 - gram_loss: 0.0156
+Epoch 44 Action Counter: [     0. 137905. 164538. 231390. 216536. 222896. 180265. 153094.]
+Epoch 45, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 53.4986 - loss: 0.0447 - vq_loss (unscaled term): 1.8759e-04 - diffusion_loss: 0.0445 - gram_loss: 0.0156
+Epoch 45 Action Counter: [     0. 142169. 168790. 235612. 220796. 227096. 184587. 157270.]
+Epoch 46, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 52.9760 - loss: 0.0472 - vq_loss (unscaled term): 2.2237e-04 - diffusion_loss: 0.0469 - gram_loss: 0.0156
+Epoch 46 Action Counter: [     0. 146359. 173103. 239860. 225032. 231282. 188830. 161550.]
+Epoch 47, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 52.4803 - loss: 0.0449 - vq_loss (unscaled term): 1.7907e-04 - diffusion_loss: 0.0447 - gram_loss: 0.0156
+Epoch 47 Action Counter: [     0. 150521. 177375. 244117. 229292. 235460. 193135. 165812.]
+Epoch 48, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 51.9830 - loss: 0.0442 - vq_loss (unscaled term): 1.6285e-04 - diffusion_loss: 0.0440 - gram_loss: 0.0156
+Epoch 48 Action Counter: [     0. 154677. 181634. 248370. 233609. 239709. 197352. 170057.]
+Epoch 49, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 51.5388 - loss: 0.0438 - vq_loss (unscaled term): 1.3373e-04 - diffusion_loss: 0.0436 - gram_loss: 0.0156
+Epoch 49 Action Counter: [     0. 158942. 185842. 252598. 237778. 244008. 201690. 174246.]
+Epoch 50, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 51.0739 - loss: 0.0434 - vq_loss (unscaled term): 1.6284e-04 - diffusion_loss: 0.0432 - gram_loss: 0.0156
+Epoch 50 Action Counter: [     0. 163271. 190019. 256813. 242118. 248341. 205917. 178321.]
+Epoch 51, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 50.6279 - loss: 0.0422 - vq_loss (unscaled term): 1.5791e-04 - diffusion_loss: 0.0421 - gram_loss: 0.0156
+Epoch 51 Action Counter: [     0. 167375. 194324. 261033. 246556. 252560. 210193. 182455.]
+Epoch 52, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 50.1877 - loss: 0.0422 - vq_loss (unscaled term): 1.5511e-04 - diffusion_loss: 0.0420 - gram_loss: 0.0156
+Epoch 52 Action Counter: [     0. 171611. 198495. 265306. 250644. 256914. 214388. 186834.]
+Epoch 53, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 49.7730 - loss: 0.0423 - vq_loss (unscaled term): 1.4830e-04 - diffusion_loss: 0.0421 - gram_loss: 0.0156
+Epoch 53 Action Counter: [     0. 175875. 202768. 269547. 254803. 261188. 218668. 191039.]
+Epoch 54, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 49.3634 - loss: 0.0414 - vq_loss (unscaled term): 2.0466e-04 - diffusion_loss: 0.0412 - gram_loss: 0.0156
+Epoch 54 Action Counter: [     0. 180053. 207133. 273782. 259081. 265407. 222895. 195233.]
+Epoch 55, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 48.9797 - loss: 0.0415 - vq_loss (unscaled term): 1.4686e-04 - diffusion_loss: 0.0414 - gram_loss: 0.0156
+Epoch 55 Action Counter: [     0. 184309. 211428. 278144. 263198. 269597. 227053. 199551.]
+Epoch 56, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 48.5809 - loss: 0.0398 - vq_loss (unscaled term): 1.5039e-04 - diffusion_loss: 0.0397 - gram_loss: 0.0156
+Epoch 56 Action Counter: [     0. 188552. 215747. 282247. 267461. 273874. 231286. 203809.]
+Epoch 57, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 48.2082 - loss: 0.0410 - vq_loss (unscaled term): 1.1853e-04 - diffusion_loss: 0.0409 - gram_loss: 0.0156
+Epoch 57 Action Counter: [     0. 192905. 220013. 286489. 271675. 278098. 235495. 207997.]
+Epoch 58, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 47.8427 - loss: 0.0389 - vq_loss (unscaled term): 1.1974e-04 - diffusion_loss: 0.0388 - gram_loss: 0.0156
+Epoch 58 Action Counter: [     0. 197135. 224329. 290782. 275846. 282321. 239684. 212271.]
+Epoch 59, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 47.4731 - loss: 0.0387 - vq_loss (unscaled term): 1.2360e-04 - diffusion_loss: 0.0386 - gram_loss: 0.0156
+Epoch 59 Action Counter: [     0. 201332. 228686. 294998. 280185. 286516. 243878. 216469.]
+Epoch 60, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 47.1286 - loss: 0.0400 - vq_loss (unscaled term): 1.7758e-04 - diffusion_loss: 0.0398 - gram_loss: 0.0156
 
-								Reached checkpoint at Epoch 100!
+								Reached checkpoint at Epoch 60!
 								
 
 
 
-								Epoch Averages: {'mse': <tf.Tensor: shape=(), dtype=float32, numpy=61.19185>, 'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.05012179>, 'vq_loss (unscaled term)': <tf.Tensor: shape=(), dtype=float32, numpy=0.009480344>, 'diffusion_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.04964778>}
+								Epoch Averages: {'mse': <tf.Tensor: shape=(), dtype=float32, numpy=47.12857>, 'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.039993554>, 'vq_loss (unscaled term)': <tf.Tensor: shape=(), dtype=float32, numpy=0.0001775757>, 'diffusion_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.03981596>, 'gram_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.015625>}
 								
-Epoch 101, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 60.9062 - loss: 0.0548 - vq_loss (unscaled term): 0.0101 - diffusion_loss: 0.0543
-Epoch 102, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 60.6655 - loss: 0.0533 - vq_loss (unscaled term): 0.0096 - diffusion_loss: 0.0529
-Epoch 103, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 60.3939 - loss: 0.0510 - vq_loss (unscaled term): 0.0091 - diffusion_loss: 0.0505
-Epoch 104, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 60.1326 - loss: 0.0524 - vq_loss (unscaled term): 0.0084 - diffusion_loss: 0.0520
-Epoch 105, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 59.8669 - loss: 0.0500 - vq_loss (unscaled term): 0.0088 - diffusion_loss: 0.0496
-Epoch 106, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 59.6111 - loss: 0.0520 - vq_loss (unscaled term): 0.0089 - diffusion_loss: 0.0516
-Epoch 107, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 59.3610 - loss: 0.0508 - vq_loss (unscaled term): 0.0086 - diffusion_loss: 0.0504
-Epoch 108, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 59.1173 - loss: 0.0508 - vq_loss (unscaled term): 0.0087 - diffusion_loss: 0.0504
-Epoch 109, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 58.8762 - loss: 0.0521 - vq_loss (unscaled term): 0.0086 - diffusion_loss: 0.0516
-Epoch 110, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 58.6403 - loss: 0.0498 - vq_loss (unscaled term): 0.0076 - diffusion_loss: 0.0494
-Epoch 111, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 58.4020 - loss: 0.0494 - vq_loss (unscaled term): 0.0076 - diffusion_loss: 0.0490
-Epoch 112, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 58.1910 - loss: 0.0546 - vq_loss (unscaled term): 0.0222 - diffusion_loss: 0.0535
-Epoch 113, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 57.9642 - loss: 0.0476 - vq_loss (unscaled term): 0.0092 - diffusion_loss: 0.0471
-Epoch 114, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 57.7291 - loss: 0.0476 - vq_loss (unscaled term): 0.0076 - diffusion_loss: 0.0472
-Epoch 115, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 57.4925 - loss: 0.0484 - vq_loss (unscaled term): 0.0069 - diffusion_loss: 0.0480
-Epoch 116, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 57.2691 - loss: 0.0475 - vq_loss (unscaled term): 0.0068 - diffusion_loss: 0.0471
-Epoch 117, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 57.0397 - loss: 0.0456 - vq_loss (unscaled term): 0.0061 - diffusion_loss: 0.0453
-Epoch 118, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 56.8162 - loss: 0.0474 - vq_loss (unscaled term): 0.0061 - diffusion_loss: 0.0471
-Epoch 119, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 56.5962 - loss: 0.0481 - vq_loss (unscaled term): 0.0062 - diffusion_loss: 0.0478
-Epoch 120, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 56.3976 - loss: 0.0482 - vq_loss (unscaled term): 0.0069 - diffusion_loss: 0.0478
-Epoch 121, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 56.1822 - loss: 0.0442 - vq_loss (unscaled term): 0.0061 - diffusion_loss: 0.0439
-Epoch 122, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 55.9795 - loss: 0.0477 - vq_loss (unscaled term): 0.0061 - diffusion_loss: 0.0474
-Epoch 123, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 55.7846 - loss: 0.0469 - vq_loss (unscaled term): 0.0054 - diffusion_loss: 0.0467
-Epoch 124, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 55.5819 - loss: 0.0449 - vq_loss (unscaled term): 0.0050 - diffusion_loss: 0.0447
-Epoch 125, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 55.3818 - loss: 0.0444 - vq_loss (unscaled term): 0.0049 - diffusion_loss: 0.0441
-Epoch 126, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 55.1626 - loss: 0.0423 - vq_loss (unscaled term): 0.0049 - diffusion_loss: 0.0420
-Epoch 127, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 54.9605 - loss: 0.0452 - vq_loss (unscaled term): 0.0051 - diffusion_loss: 0.0450
-Epoch 128, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 54.7740 - loss: 0.0470 - vq_loss (unscaled term): 0.0053 - diffusion_loss: 0.0467
-Epoch 129, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 54.5931 - loss: 0.0451 - vq_loss (unscaled term): 0.0047 - diffusion_loss: 0.0449
-Epoch 130, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 54.3997 - loss: 0.0452 - vq_loss (unscaled term): 0.0044 - diffusion_loss: 0.0450
-Epoch 131, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 54.2255 - loss: 0.0445 - vq_loss (unscaled term): 0.0046 - diffusion_loss: 0.0442
-Epoch 132, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 54.0530 - loss: 0.0456 - vq_loss (unscaled term): 0.0045 - diffusion_loss: 0.0454
-Epoch 133, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 53.8608 - loss: 0.0404 - vq_loss (unscaled term): 0.0043 - diffusion_loss: 0.0401
-Epoch 134, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 53.6629 - loss: 0.0444 - vq_loss (unscaled term): 0.0049 - diffusion_loss: 0.0442
-Epoch 135, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 53.4841 - loss: 0.0430 - vq_loss (unscaled term): 0.0038 - diffusion_loss: 0.0428
-Epoch 136, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 53.3033 - loss: 0.0430 - vq_loss (unscaled term): 0.0037 - diffusion_loss: 0.0428
-Epoch 137, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 53.1364 - loss: 0.0440 - vq_loss (unscaled term): 0.0040 - diffusion_loss: 0.0438
-Epoch 138, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 52.9657 - loss: 0.0433 - vq_loss (unscaled term): 0.0035 - diffusion_loss: 0.0431
-Epoch 139, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 52.8017 - loss: 0.0435 - vq_loss (unscaled term): 0.0039 - diffusion_loss: 0.0433
-Epoch 140, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 52.6324 - loss: 0.0405 - vq_loss (unscaled term): 0.0036 - diffusion_loss: 0.0403
-Epoch 141, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 52.4538 - loss: 0.0404 - vq_loss (unscaled term): 0.0036 - diffusion_loss: 0.0402
-Epoch 142, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 52.2802 - loss: 0.0415 - vq_loss (unscaled term): 0.0035 - diffusion_loss: 0.0414
-Epoch 143, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 52.1253 - loss: 0.0451 - vq_loss (unscaled term): 0.0042 - diffusion_loss: 0.0449
-Epoch 144, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 51.9838 - loss: 0.0434 - vq_loss (unscaled term): 0.0033 - diffusion_loss: 0.0433
-Epoch 145, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 51.8219 - loss: 0.0398 - vq_loss (unscaled term): 0.0030 - diffusion_loss: 0.0396
-Epoch 146, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 51.6534 - loss: 0.0399 - vq_loss (unscaled term): 0.0031 - diffusion_loss: 0.0397
-Epoch 147, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 51.4853 - loss: 0.0394 - vq_loss (unscaled term): 0.0031 - diffusion_loss: 0.0393
-Epoch 148, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 51.3234 - loss: 0.0403 - vq_loss (unscaled term): 0.0031 - diffusion_loss: 0.0402
-Epoch 149, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 51.1750 - loss: 0.0421 - vq_loss (unscaled term): 0.0033 - diffusion_loss: 0.0420
-Epoch 150, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 51.0167 - loss: 0.0399 - vq_loss (unscaled term): 0.0028 - diffusion_loss: 0.0397
-
-								Reached checkpoint at Epoch 150!
-								
-
-
-
-								Epoch Averages: {'mse': <tf.Tensor: shape=(), dtype=float32, numpy=51.016747>, 'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.039881088>, 'vq_loss (unscaled term)': <tf.Tensor: shape=(), dtype=float32, numpy=0.0027753655>, 'diffusion_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.03974232>}
-								
-Epoch 151, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 50.8651 - loss: 0.0414 - vq_loss (unscaled term): 0.0028 - diffusion_loss: 0.0412
-Epoch 152, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 50.7274 - loss: 0.0417 - vq_loss (unscaled term): 0.0031 - diffusion_loss: 0.0416
-Epoch 153, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 50.5707 - loss: 0.0385 - vq_loss (unscaled term): 0.0035 - diffusion_loss: 0.0384
-Epoch 154, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 50.4256 - loss: 0.0420 - vq_loss (unscaled term): 0.0035 - diffusion_loss: 0.0419
-Epoch 155, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 50.2785 - loss: 0.0368 - vq_loss (unscaled term): 0.0023 - diffusion_loss: 0.0367
-Epoch 156, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 50.1284 - loss: 0.0445 - vq_loss (unscaled term): 0.0058 - diffusion_loss: 0.0442
-Epoch 157, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 49.9878 - loss: 0.0379 - vq_loss (unscaled term): 0.0027 - diffusion_loss: 0.0378
-Epoch 158, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 49.8369 - loss: 0.0390 - vq_loss (unscaled term): 0.0021 - diffusion_loss: 0.0389
-Epoch 159, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 49.6941 - loss: 0.0372 - vq_loss (unscaled term): 0.0027 - diffusion_loss: 0.0371
-Epoch 160, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 49.5450 - loss: 0.0375 - vq_loss (unscaled term): 0.0039 - diffusion_loss: 0.0373
-Epoch 161, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 49.3955 - loss: 0.0387 - vq_loss (unscaled term): 0.0030 - diffusion_loss: 0.0385
-Epoch 162, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 49.2602 - loss: 0.0393 - vq_loss (unscaled term): 0.0027 - diffusion_loss: 0.0392
-Epoch 163, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 49.1262 - loss: 0.0374 - vq_loss (unscaled term): 0.0022 - diffusion_loss: 0.0373
-Epoch 164, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 48.9844 - loss: 0.0372 - vq_loss (unscaled term): 0.0020 - diffusion_loss: 0.0371
-Epoch 165, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 48.8465 - loss: 0.0369 - vq_loss (unscaled term): 0.0024 - diffusion_loss: 0.0368
-Epoch 166, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 48.7137 - loss: 0.0405 - vq_loss (unscaled term): 0.0020 - diffusion_loss: 0.0404
-Epoch 167, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 48.5927 - loss: 0.0371 - vq_loss (unscaled term): 0.0018 - diffusion_loss: 0.0370
-Epoch 168, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 48.4572 - loss: 0.0367 - vq_loss (unscaled term): 0.0019 - diffusion_loss: 0.0366
-Epoch 169, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 48.3247 - loss: 0.0387 - vq_loss (unscaled term): 0.0021 - diffusion_loss: 0.0386
-Epoch 170, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 48.1991 - loss: 0.0391 - vq_loss (unscaled term): 0.0023 - diffusion_loss: 0.0389
-Epoch 171, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 48.0816 - loss: 0.0373 - vq_loss (unscaled term): 0.0021 - diffusion_loss: 0.0372
-Epoch 172, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 47.9584 - loss: 0.0387 - vq_loss (unscaled term): 0.0018 - diffusion_loss: 0.0386
-Epoch 173, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 47.8306 - loss: 0.0349 - vq_loss (unscaled term): 0.0018 - diffusion_loss: 0.0348
-Epoch 174, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 47.7020 - loss: 0.0373 - vq_loss (unscaled term): 0.0018 - diffusion_loss: 0.0372
-Epoch 175, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 47.5812 - loss: 0.0366 - vq_loss (unscaled term): 0.0016 - diffusion_loss: 0.0365
-Epoch 176, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 47.4561 - loss: 0.0368 - vq_loss (unscaled term): 0.0018 - diffusion_loss: 0.0367
-Epoch 177, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 47.3341 - loss: 0.0369 - vq_loss (unscaled term): 0.0022 - diffusion_loss: 0.0368
-Epoch 178, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 47.2226 - loss: 0.0397 - vq_loss (unscaled term): 0.0025 - diffusion_loss: 0.0396
-Epoch 179, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 47.1124 - loss: 0.0370 - vq_loss (unscaled term): 0.0022 - diffusion_loss: 0.0369
-Epoch 180, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 46.9919 - loss: 0.0346 - vq_loss (unscaled term): 0.0018 - diffusion_loss: 0.0345
-Epoch 181, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 46.8723 - loss: 0.0367 - vq_loss (unscaled term): 0.0017 - diffusion_loss: 0.0366
-Epoch 182, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 46.7639 - loss: 0.0375 - vq_loss (unscaled term): 0.0016 - diffusion_loss: 0.0374
-Epoch 183, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 46.6493 - loss: 0.0352 - vq_loss (unscaled term): 0.0015 - diffusion_loss: 0.0352
-Epoch 184, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 46.5269 - loss: 0.0333 - vq_loss (unscaled term): 0.0016 - diffusion_loss: 0.0332
-Epoch 185, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 46.4071 - loss: 0.0328 - vq_loss (unscaled term): 0.0014 - diffusion_loss: 0.0327
-Epoch 186, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 46.2832 - loss: 0.0343 - vq_loss (unscaled term): 0.0014 - diffusion_loss: 0.0342
-Epoch 187, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 46.1716 - loss: 0.0367 - vq_loss (unscaled term): 0.0022 - diffusion_loss: 0.0365
-Epoch 188, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 46.0612 - loss: 0.0337 - vq_loss (unscaled term): 0.0016 - diffusion_loss: 0.0336
-Epoch 189, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 45.9477 - loss: 0.0394 - vq_loss (unscaled term): 0.0023 - diffusion_loss: 0.0393
-Epoch 190, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 45.8371 - loss: 0.0335 - vq_loss (unscaled term): 0.0014 - diffusion_loss: 0.0335
-Epoch 191, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 45.7232 - loss: 0.0366 - vq_loss (unscaled term): 0.0015 - diffusion_loss: 0.0365
-Epoch 192, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 45.6245 - loss: 0.0343 - vq_loss (unscaled term): 0.0017 - diffusion_loss: 0.0342
-Epoch 193, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 45.5197 - loss: 0.0345 - vq_loss (unscaled term): 0.0014 - diffusion_loss: 0.0344
-Epoch 194, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 45.4150 - loss: 0.0345 - vq_loss (unscaled term): 0.0013 - diffusion_loss: 0.0344
-Epoch 195, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 45.3059 - loss: 0.0341 - vq_loss (unscaled term): 0.0015 - diffusion_loss: 0.0340
-Epoch 196, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 45.1987 - loss: 0.0335 - vq_loss (unscaled term): 0.0015 - diffusion_loss: 0.0334
-Epoch 197, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 45.0884 - loss: 0.0327 - vq_loss (unscaled term): 0.0013 - diffusion_loss: 0.0327
-Epoch 198, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 44.9841 - loss: 0.0343 - vq_loss (unscaled term): 0.0013 - diffusion_loss: 0.0342
-Epoch 199, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 44.8860 - loss: 0.0355 - vq_loss (unscaled term): 0.0015 - diffusion_loss: 0.0354
-Epoch 200, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 44.7874 - loss: 0.0348 - vq_loss (unscaled term): 0.0013 - diffusion_loss: 0.0347
-
-								Reached checkpoint at Epoch 200!
-								
-
-
-
-								Epoch Averages: {'mse': <tf.Tensor: shape=(), dtype=float32, numpy=44.787388>, 'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.03478186>, 'vq_loss (unscaled term)': <tf.Tensor: shape=(), dtype=float32, numpy=0.0012966673>, 'diffusion_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.034717027>}
-								
-Epoch 201, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 44.6964 - loss: 0.0398 - vq_loss (unscaled term): 0.0023 - diffusion_loss: 0.0397
-Epoch 202, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 44.5942 - loss: 0.0320 - vq_loss (unscaled term): 0.0011 - diffusion_loss: 0.0320
-Epoch 203, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 44.4854 - loss: 0.0320 - vq_loss (unscaled term): 0.0011 - diffusion_loss: 0.0319
-Epoch 204, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 44.3869 - loss: 0.0335 - vq_loss (unscaled term): 0.0015 - diffusion_loss: 0.0334
-Epoch 205, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 44.2899 - loss: 0.0352 - vq_loss (unscaled term): 0.0013 - diffusion_loss: 0.0351
-Epoch 206, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 44.1942 - loss: 0.0319 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0318
-Epoch 207, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 44.1111 - loss: 0.0403 - vq_loss (unscaled term): 0.0018 - diffusion_loss: 0.0402
-Epoch 208, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 44.0366 - loss: 0.0355 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0354
-Epoch 209, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 43.9458 - loss: 0.0325 - vq_loss (unscaled term): 0.0011 - diffusion_loss: 0.0324
-Epoch 210, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 43.8477 - loss: 0.0324 - vq_loss (unscaled term): 0.0010 - diffusion_loss: 0.0323
-Epoch 211, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 43.7525 - loss: 0.0323 - vq_loss (unscaled term): 0.0014 - diffusion_loss: 0.0322
-Epoch 212, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 43.6621 - loss: 0.0340 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0339
-Epoch 213, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 43.5695 - loss: 0.0343 - vq_loss (unscaled term): 0.0010 - diffusion_loss: 0.0342
-Epoch 214, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 43.4800 - loss: 0.0412 - vq_loss (unscaled term): 0.0083 - diffusion_loss: 0.0408
-Epoch 215, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 43.3876 - loss: 0.0313 - vq_loss (unscaled term): 0.0017 - diffusion_loss: 0.0312
-Epoch 216, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 43.2900 - loss: 0.0309 - vq_loss (unscaled term): 0.0011 - diffusion_loss: 0.0309
-Epoch 217, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 43.1966 - loss: 0.0314 - vq_loss (unscaled term): 9.6319e-04 - diffusion_loss: 0.0314
-Epoch 218, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 43.1076 - loss: 0.0321 - vq_loss (unscaled term): 0.0010 - diffusion_loss: 0.0320
-Epoch 219, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 43.0123 - loss: 0.0307 - vq_loss (unscaled term): 9.8133e-04 - diffusion_loss: 0.0307
-Epoch 220, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 42.9204 - loss: 0.0308 - vq_loss (unscaled term): 9.8750e-04 - diffusion_loss: 0.0307
-Epoch 221, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 42.8261 - loss: 0.0307 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0307
-Epoch 222, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 42.7367 - loss: 0.0330 - vq_loss (unscaled term): 9.5987e-04 - diffusion_loss: 0.0330
-Epoch 223, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 42.6496 - loss: 0.0303 - vq_loss (unscaled term): 8.8252e-04 - diffusion_loss: 0.0303
-Epoch 224, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 42.5566 - loss: 0.0310 - vq_loss (unscaled term): 0.0010 - diffusion_loss: 0.0310
-Epoch 225, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 42.4720 - loss: 0.0424 - vq_loss (unscaled term): 0.0030 - diffusion_loss: 0.0423
-Epoch 226, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 3351248.5000 - loss: 735911168.0000 - vq_loss (unscaled term): 123.9119 - diffusion_loss: 735911168.0000
-
-						Exploding Gradient detected with following metrics:
-						
-						Previous Epoch Averages
-						{'mse': <tf.Tensor: shape=(), dtype=float32, numpy=42.47199>, 'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.04240957>, 'vq_loss (unscaled term)': <tf.Tensor: shape=(), dtype=float32, numpy=0.002964084>, 'diffusion_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.042261362>}
-
-						Current Epoch Averages
-						{'mse': <tf.Tensor: shape=(), dtype=float32, numpy=3351248.5>, 'loss': <tf.Tensor: shape=(), dtype=float32, numpy=735911200.0>, 'vq_loss (unscaled term)': <tf.Tensor: shape=(), dtype=float32, numpy=123.91195>, 'diffusion_loss': <tf.Tensor: shape=(), dtype=float32, numpy=735911200.0>}
-						
-						Attempting to restore latest save
-						
-Model: "vq_vae"
-_________________________________________________________________
- Layer (type)                Output Shape              Param #   
-=================================================================
- input_8 (InputLayer)        [(None, 4, 4, 512)]       0         
-                                                                 
- encoder (Functional)        (None, 1, 1, 512)         13645824  
-                                                                 
- vector_quantizer (VectorQu  (None, 1, 1, 512)         8192      
- antizer)                                                        
-                                                                 
-=================================================================
-Total params: 13654016 (52.09 MB)
-Trainable params: 13647872 (52.06 MB)
-Non-trainable params: 6144 (24.00 KB)
-_________________________________________________________________
-None
-Latest save restore from: /content/gdrive/MyDrive/personal_stuff/personal_projects_college/CSCI2470_FINAL_PROJECT/Model_Playground/Action_Train_Results_3/checkpoints/e200.ckpt
-Epoch 227, Num Steps 58: 
-7424/7424 [==============================] - 71s 10ms/step - mse: 30.8721 - loss: 0.0450 - vq_loss (unscaled term): 0.0072 - diffusion_loss: 0.0446
-Epoch 228, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 27.7125 - loss: 0.0343 - vq_loss (unscaled term): 0.0019 - diffusion_loss: 0.0342
-Epoch 229, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 26.9209 - loss: 0.0340 - vq_loss (unscaled term): 0.0014 - diffusion_loss: 0.0339
-Epoch 230, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 25.7947 - loss: 0.0324 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0323
-Epoch 231, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 25.2627 - loss: 0.0319 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0318
-Epoch 232, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 24.9879 - loss: 0.0318 - vq_loss (unscaled term): 0.0010 - diffusion_loss: 0.0317
-Epoch 233, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.6866 - loss: 0.0341 - vq_loss (unscaled term): 0.0010 - diffusion_loss: 0.0340
-Epoch 234, Num Steps 58: 
-7424/7424 [==============================] - 60s 8ms/step - mse: 24.7100 - loss: 0.0331 - vq_loss (unscaled term): 0.0010 - diffusion_loss: 0.0331
-Epoch 235, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.8208 - loss: 0.0336 - vq_loss (unscaled term): 0.0011 - diffusion_loss: 0.0336
-Epoch 236, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.7780 - loss: 0.0318 - vq_loss (unscaled term): 0.0011 - diffusion_loss: 0.0318
-Epoch 237, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.6257 - loss: 0.0324 - vq_loss (unscaled term): 9.8770e-04 - diffusion_loss: 0.0324
-Epoch 238, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.6173 - loss: 0.0332 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0331
-Epoch 239, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.6211 - loss: 0.0330 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0329
-Epoch 240, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.5487 - loss: 0.0320 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0319
-Epoch 241, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.4284 - loss: 0.0305 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0304
-Epoch 242, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.3025 - loss: 0.0312 - vq_loss (unscaled term): 0.0014 - diffusion_loss: 0.0311
-Epoch 243, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.1943 - loss: 0.0314 - vq_loss (unscaled term): 9.3778e-04 - diffusion_loss: 0.0313
-Epoch 244, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.1506 - loss: 0.0323 - vq_loss (unscaled term): 9.5753e-04 - diffusion_loss: 0.0322
-Epoch 245, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.1402 - loss: 0.0320 - vq_loss (unscaled term): 0.0010 - diffusion_loss: 0.0320
-Epoch 246, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.1278 - loss: 0.0327 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0326
-Epoch 247, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.1074 - loss: 0.0321 - vq_loss (unscaled term): 0.0011 - diffusion_loss: 0.0320
-Epoch 248, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.1011 - loss: 0.0341 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0340
-Epoch 249, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.0946 - loss: 0.0325 - vq_loss (unscaled term): 0.0015 - diffusion_loss: 0.0325
-Epoch 250, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 24.0223 - loss: 0.0300 - vq_loss (unscaled term): 0.0011 - diffusion_loss: 0.0300
-
-								Reached checkpoint at Epoch 250!
-								
-
-
-
-								Epoch Averages: {'mse': <tf.Tensor: shape=(), dtype=float32, numpy=24.022318>, 'loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.030040065>, 'vq_loss (unscaled term)': <tf.Tensor: shape=(), dtype=float32, numpy=0.0010740766>, 'diffusion_loss': <tf.Tensor: shape=(), dtype=float32, numpy=0.029986367>}
-								
-Epoch 251, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.9387 - loss: 0.0297 - vq_loss (unscaled term): 9.4910e-04 - diffusion_loss: 0.0297
-Epoch 252, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.8636 - loss: 0.0309 - vq_loss (unscaled term): 0.0011 - diffusion_loss: 0.0309
-Epoch 253, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.8167 - loss: 0.0311 - vq_loss (unscaled term): 9.4569e-04 - diffusion_loss: 0.0310
-Epoch 254, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.7960 - loss: 0.0307 - vq_loss (unscaled term): 8.5757e-04 - diffusion_loss: 0.0307
-Epoch 255, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.7190 - loss: 0.0300 - vq_loss (unscaled term): 9.2555e-04 - diffusion_loss: 0.0300
-Epoch 256, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.6741 - loss: 0.0301 - vq_loss (unscaled term): 8.4773e-04 - diffusion_loss: 0.0300
-Epoch 257, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.6442 - loss: 0.0307 - vq_loss (unscaled term): 8.7490e-04 - diffusion_loss: 0.0307
-Epoch 258, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.6377 - loss: 0.0302 - vq_loss (unscaled term): 8.4916e-04 - diffusion_loss: 0.0302
-Epoch 259, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.6402 - loss: 0.0328 - vq_loss (unscaled term): 8.2017e-04 - diffusion_loss: 0.0328
-Epoch 260, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.6289 - loss: 0.0308 - vq_loss (unscaled term): 8.1987e-04 - diffusion_loss: 0.0308
-Epoch 261, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.5983 - loss: 0.0289 - vq_loss (unscaled term): 8.4260e-04 - diffusion_loss: 0.0288
-Epoch 262, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.5276 - loss: 0.0300 - vq_loss (unscaled term): 7.6547e-04 - diffusion_loss: 0.0299
-Epoch 263, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.5081 - loss: 0.0308 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0308
-Epoch 264, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.4793 - loss: 0.0292 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0291
-Epoch 265, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.4501 - loss: 0.0319 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0318
-Epoch 266, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.4490 - loss: 0.0312 - vq_loss (unscaled term): 0.0013 - diffusion_loss: 0.0311
-Epoch 267, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.4498 - loss: 0.0312 - vq_loss (unscaled term): 9.6553e-04 - diffusion_loss: 0.0312
-Epoch 268, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.4171 - loss: 0.0277 - vq_loss (unscaled term): 8.1095e-04 - diffusion_loss: 0.0277
-Epoch 269, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.3652 - loss: 0.0300 - vq_loss (unscaled term): 8.8090e-04 - diffusion_loss: 0.0300
-Epoch 270, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.3232 - loss: 0.0285 - vq_loss (unscaled term): 9.1036e-04 - diffusion_loss: 0.0284
-Epoch 271, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.2623 - loss: 0.0280 - vq_loss (unscaled term): 8.3955e-04 - diffusion_loss: 0.0280
-Epoch 272, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.2255 - loss: 0.0300 - vq_loss (unscaled term): 9.0527e-04 - diffusion_loss: 0.0300
-Epoch 273, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.2196 - loss: 0.0295 - vq_loss (unscaled term): 9.6278e-04 - diffusion_loss: 0.0294
-Epoch 274, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.2085 - loss: 0.0315 - vq_loss (unscaled term): 0.0011 - diffusion_loss: 0.0315
-Epoch 275, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.2196 - loss: 0.0298 - vq_loss (unscaled term): 0.0011 - diffusion_loss: 0.0298
-Epoch 276, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.1742 - loss: 0.0283 - vq_loss (unscaled term): 9.0118e-04 - diffusion_loss: 0.0283
-Epoch 277, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.1519 - loss: 0.0297 - vq_loss (unscaled term): 8.5358e-04 - diffusion_loss: 0.0297
-Epoch 278, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.1401 - loss: 0.0312 - vq_loss (unscaled term): 7.7042e-04 - diffusion_loss: 0.0312
-Epoch 279, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.1504 - loss: 0.0326 - vq_loss (unscaled term): 7.7260e-04 - diffusion_loss: 0.0325
-Epoch 280, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.1281 - loss: 0.0280 - vq_loss (unscaled term): 8.5500e-04 - diffusion_loss: 0.0280
-Epoch 281, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.0829 - loss: 0.0300 - vq_loss (unscaled term): 9.4287e-04 - diffusion_loss: 0.0300
-Epoch 282, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.0870 - loss: 0.0292 - vq_loss (unscaled term): 7.9298e-04 - diffusion_loss: 0.0292
-Epoch 283, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.0763 - loss: 0.0316 - vq_loss (unscaled term): 8.5249e-04 - diffusion_loss: 0.0316
-Epoch 284, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.0766 - loss: 0.0295 - vq_loss (unscaled term): 9.8368e-04 - diffusion_loss: 0.0294
-Epoch 285, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.0580 - loss: 0.0295 - vq_loss (unscaled term): 0.0012 - diffusion_loss: 0.0295
-Epoch 286, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 23.0153 - loss: 0.0280 - vq_loss (unscaled term): 9.4917e-04 - diffusion_loss: 0.0280
-Epoch 287, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 22.9813 - loss: 0.0280 - vq_loss (unscaled term): 7.5651e-04 - diffusion_loss: 0.0280
-Epoch 288, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 22.9501 - loss: 0.0263 - vq_loss (unscaled term): 7.7208e-04 - diffusion_loss: 0.0263
-Epoch 289, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 22.9014 - loss: 0.0297 - vq_loss (unscaled term): 8.1034e-04 - diffusion_loss: 0.0296
-Epoch 290, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 22.8651 - loss: 0.0270 - vq_loss (unscaled term): 7.8980e-04 - diffusion_loss: 0.0269
-Epoch 291, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 22.8299 - loss: 0.0276 - vq_loss (unscaled term): 8.3831e-04 - diffusion_loss: 0.0275
-Epoch 292, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 22.8190 - loss: 0.0296 - vq_loss (unscaled term): 7.3372e-04 - diffusion_loss: 0.0296
-Epoch 293, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 22.7949 - loss: 0.0273 - vq_loss (unscaled term): 6.6328e-04 - diffusion_loss: 0.0273
-Epoch 294, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 22.7632 - loss: 0.0269 - vq_loss (unscaled term): 6.6650e-04 - diffusion_loss: 0.0269
-Epoch 295, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 22.7326 - loss: 0.0289 - vq_loss (unscaled term): 0.0011 - diffusion_loss: 0.0288
-Epoch 296, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 22.7101 - loss: 0.0269 - vq_loss (unscaled term): 8.1757e-04 - diffusion_loss: 0.0269
-Epoch 297, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 22.6810 - loss: 0.0290 - vq_loss (unscaled term): 7.1606e-04 - diffusion_loss: 0.0289
-Epoch 298, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 22.6695 - loss: 0.0277 - vq_loss (unscaled term): 7.6103e-04 - diffusion_loss: 0.0277
-Epoch 299, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 22.6511 - loss: 0.0293 - vq_loss (unscaled term): 8.3023e-04 - diffusion_loss: 0.0293
-Epoch 300, Num Steps 58: 
-7424/7424 [==============================] - 61s 8ms/step - mse: 22.6421 - loss: 0.0271 - vq_loss (unscaled term): 0.0011 - diffusion_loss: 0.0271
+Epoch 60 Action Counter: [     0. 205593. 233024. 299228. 284350. 290769. 248084. 220712.]
+Epoch 61, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 46.7787 - loss: 0.0375 - vq_loss (unscaled term): 1.7901e-04 - diffusion_loss: 0.0373 - gram_loss: 0.0156
+Epoch 61 Action Counter: [     0. 209863. 237298. 303563. 288583. 294991. 252323. 224835.]
+Epoch 62, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 46.4382 - loss: 0.0385 - vq_loss (unscaled term): 1.2093e-04 - diffusion_loss: 0.0384 - gram_loss: 0.0156
+Epoch 62 Action Counter: [     0. 214203. 241574. 307713. 292748. 299261. 256529. 229124.]
+Epoch 63, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 46.1156 - loss: 0.0382 - vq_loss (unscaled term): 1.5522e-04 - diffusion_loss: 0.0380 - gram_loss: 0.0156
+Epoch 63 Action Counter: [     0. 218368. 245786. 311949. 297026. 303580. 260809. 233330.]
+Epoch 64, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 45.8007 - loss: 0.0371 - vq_loss (unscaled term): 1.0461e-04 - diffusion_loss: 0.0370 - gram_loss: 0.0156
+Epoch 64 Action Counter: [     0. 222633. 249962. 316245. 301200. 307872. 264982. 237650.]
+Epoch 65, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 45.4834 - loss: 0.0374 - vq_loss (unscaled term): 1.2510e-04 - diffusion_loss: 0.0373 - gram_loss: 0.0156
+Epoch 65 Action Counter: [     0. 226833. 254208. 320562. 305411. 312256. 269153. 241817.]
+Epoch 66, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 45.1749 - loss: 0.0376 - vq_loss (unscaled term): 1.3430e-04 - diffusion_loss: 0.0374 - gram_loss: 0.0156
+Epoch 66 Action Counter: [     0. 231003. 258426. 324827. 309632. 316650. 273309. 246089.]
+Epoch 67, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 44.8675 - loss: 0.0357 - vq_loss (unscaled term): 8.1284e-05 - diffusion_loss: 0.0357 - gram_loss: 0.0156
+Epoch 67 Action Counter: [     0. 235186. 262688. 329005. 313860. 321100. 277436. 250357.]
+Epoch 68, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 44.5769 - loss: 0.0367 - vq_loss (unscaled term): 1.0387e-04 - diffusion_loss: 0.0366 - gram_loss: 0.0156
+Epoch 68 Action Counter: [     0. 239428. 266983. 333331. 317974. 325453. 281609. 254550.]
+Epoch 69, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 44.2853 - loss: 0.0356 - vq_loss (unscaled term): 9.1118e-05 - diffusion_loss: 0.0355 - gram_loss: 0.0156
+Epoch 69 Action Counter: [     0. 243767. 271124. 337650. 322059. 329811. 285792. 258821.]
+Epoch 70, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 43.9945 - loss: 0.0342 - vq_loss (unscaled term): 9.1541e-05 - diffusion_loss: 0.0341 - gram_loss: 0.0156
+Epoch 70 Action Counter: [     0. 247924. 275267. 341914. 326220. 334233. 290012. 263150.]
+Epoch 71, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 43.7042 - loss: 0.0355 - vq_loss (unscaled term): 7.0529e-05 - diffusion_loss: 0.0354 - gram_loss: 0.0156
+Epoch 71 Action Counter: [     0. 252242. 279485. 346087. 330489. 338546. 294187. 267380.]
+Epoch 72, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 43.4250 - loss: 0.0337 - vq_loss (unscaled term): 6.3766e-05 - diffusion_loss: 0.0337 - gram_loss: 0.0156
+Epoch 72 Action Counter: [     0. 256427. 283774. 350290. 334802. 342754. 298409. 271656.]
+Epoch 73, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 43.1552 - loss: 0.0350 - vq_loss (unscaled term): 8.5457e-05 - diffusion_loss: 0.0349 - gram_loss: 0.0156
+Epoch 73 Action Counter: [     0. 260662. 287946. 354490. 339018. 346994. 302794. 275904.]
+Epoch 74, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 42.9062 - loss: 0.0365 - vq_loss (unscaled term): 9.7115e-05 - diffusion_loss: 0.0364 - gram_loss: 0.0156
+Epoch 74 Action Counter: [     0. 264791. 292278. 358716. 343290. 351206. 307076. 280147.]
+Epoch 75, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 42.6644 - loss: 0.0346 - vq_loss (unscaled term): 8.5039e-05 - diffusion_loss: 0.0345 - gram_loss: 0.0156
+Epoch 75 Action Counter: [     0. 269071. 296657. 362891. 347511. 355408. 311282. 284380.]
+Epoch 76, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 42.4193 - loss: 0.0345 - vq_loss (unscaled term): 9.8972e-05 - diffusion_loss: 0.0344 - gram_loss: 0.0156
+Epoch 76 Action Counter: [     0. 273368. 301044. 367180. 351731. 359629. 315424. 288520.]
+Epoch 77, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 42.1795 - loss: 0.0342 - vq_loss (unscaled term): 8.0818e-05 - diffusion_loss: 0.0341 - gram_loss: 0.0156
+Epoch 77 Action Counter: [     0. 277505. 305524. 371350. 355999. 363769. 319645. 292800.]
+Epoch 78, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 41.9390 - loss: 0.0338 - vq_loss (unscaled term): 9.5128e-05 - diffusion_loss: 0.0337 - gram_loss: 0.0156
+Epoch 78 Action Counter: [     0. 281614. 310051. 375505. 360212. 368034. 323880. 296992.]
+Epoch 79, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 41.7180 - loss: 0.0349 - vq_loss (unscaled term): 5.0837e-05 - diffusion_loss: 0.0348 - gram_loss: 0.0156
+Epoch 79 Action Counter: [     0. 285793. 314368. 379729. 364473. 372234. 328146. 301241.]
+Epoch 80, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 41.4999 - loss: 0.0342 - vq_loss (unscaled term): 8.6494e-05 - diffusion_loss: 0.0341 - gram_loss: 0.0156
+Epoch 80 Action Counter: [     0. 290066. 318741. 383925. 368798. 376408. 332298. 305444.]
+Epoch 81, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 41.2694 - loss: 0.0326 - vq_loss (unscaled term): 6.9089e-05 - diffusion_loss: 0.0325 - gram_loss: 0.0156
+Epoch 81 Action Counter: [     0. 294367. 323210. 387997. 373152. 380577. 336468. 309605.]
+Epoch 82, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 41.0437 - loss: 0.0327 - vq_loss (unscaled term): 6.8162e-05 - diffusion_loss: 0.0327 - gram_loss: 0.0156
+Epoch 82 Action Counter: [     0. 298600. 327593. 392213. 377421. 384759. 340711. 313775.]
+Epoch 83, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 40.8302 - loss: 0.0329 - vq_loss (unscaled term): 4.8826e-05 - diffusion_loss: 0.0329 - gram_loss: 0.0156
+Epoch 83 Action Counter: [     0. 302912. 331949. 396459. 381628. 388910. 344912. 317998.]
+Epoch 84, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 40.6117 - loss: 0.0318 - vq_loss (unscaled term): 7.4724e-05 - diffusion_loss: 0.0317 - gram_loss: 0.0156
+Epoch 84 Action Counter: [     0. 307255. 336260. 400700. 385811. 393223. 349020. 322195.]
+Epoch 85, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 40.4036 - loss: 0.0333 - vq_loss (unscaled term): 4.8820e-05 - diffusion_loss: 0.0332 - gram_loss: 0.0156
+Epoch 85 Action Counter: [     0. 311667. 340684. 404838. 390091. 397384. 353181. 326315.]
+Epoch 86, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 40.1979 - loss: 0.0322 - vq_loss (unscaled term): 7.1961e-05 - diffusion_loss: 0.0321 - gram_loss: 0.0156
+Epoch 86 Action Counter: [     0. 315937. 345148. 408983. 394245. 401516. 357429. 330598.]
+Epoch 87, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 40.0021 - loss: 0.0328 - vq_loss (unscaled term): 4.7804e-05 - diffusion_loss: 0.0327 - gram_loss: 0.0156
+Epoch 87 Action Counter: [     0. 320246. 349656. 413194. 398405. 405660. 361646. 334745.]
+Epoch 88, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 39.8140 - loss: 0.0325 - vq_loss (unscaled term): 6.3493e-05 - diffusion_loss: 0.0325 - gram_loss: 0.0156
+Epoch 88 Action Counter: [     0. 324482. 353917. 417446. 402582. 409932. 365891. 338998.]
+Epoch 89, Num Steps 232: 
+29696/29696 [==============================] - 376s 13ms/step - mse: 39.6242 - loss: 0.0325 - vq_loss (unscaled term): 6.3153e-05 - diffusion_loss: 0.0324 - gram_loss: 0.0156
+Epoch 89 Action Counter: [     0. 328856. 358213. 421757. 406682. 414034. 370184. 343218.]
+Epoch 90, Num Steps 232: 
+29696/29696 [==============================] - 377s 13ms/step - mse: 39.4376 - loss: 0.0317 - vq_loss (unscaled term): 3.3868e-05 - diffusion_loss: 0.0316 - gram_loss: 0.0156

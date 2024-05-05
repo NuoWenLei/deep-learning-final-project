@@ -1,5 +1,5 @@
 from imports import tf
-from constants import VQVAE_COMMITMENT_COST, VQVAE_DECAY, VQVAE_NUM_EMBEDDINGS, VQVAE_EMBEDDING_DIM, VQVAE_INPUT_SHAPE
+from constants import VQVAE_COMMITMENT_COST, VQVAE_DECAY, VQVAE_NUM_EMBEDDINGS, VQVAE_EMBEDDING_DIM, VQVAE_INPUT_SHAPE, LATENT_SHAPE, NUM_PREV_FRAMES
 from vqvae.quantizers import VectorQuantizer, VectorQuantizerEMA
 
 class ResBlock(tf.keras.layers.Layer):
@@ -43,131 +43,64 @@ def get_encoder(latent_dim=VQVAE_EMBEDDING_DIM, input_shape=VQVAE_INPUT_SHAPE, n
 	"""
 	encoder_inputs = tf.keras.Input(shape=input_shape)
 
-	conv1 = tf.keras.layers.Conv2D(latent_dim, 4, strides = 2, padding = "same", use_bias = False)(encoder_inputs)
+	conv1 = tf.keras.layers.Conv2D(latent_dim, 3, padding = "same")(encoder_inputs)
 	conv1 = tf.keras.layers.LeakyReLU()(conv1)
 	conv1 = tf.keras.layers.BatchNormalization()(conv1)
+	# conv1 = tf.keras.layers.MaxPool2D()(conv1)
 	
-	conv2 = tf.keras.layers.Conv2D(latent_dim, 4, strides = 2, padding = "same", use_bias = False)(conv1)
+	conv2 = tf.keras.layers.Conv2D(latent_dim, 3, padding = "same")(conv1)
 	conv2 = tf.keras.layers.LeakyReLU()(conv2)
 	conv2 = tf.keras.layers.BatchNormalization()(conv2)
+	# conv2 = tf.keras.layers.MaxPool2D()(conv2)
+
 	x = conv2
 
 	for i in range(num_resblocks):
+		
 		x = ResBlock(latent_dim, bn = batchnorm, name = f"{name}_resblock{i}")(x)
 		if batchnorm:
 			x = tf.keras.layers.BatchNormalization()(x)
+		x = tf.keras.layers.MaxPool2D()(x)
+	
+	x = tf.keras.layers.Conv2D(latent_dim, 3, padding = "same")(x)
 
 	return tf.keras.Model(encoder_inputs, x, name=name)
 
-
-def get_decoder(input_shape, latent_dim=VQVAE_EMBEDDING_DIM, num_resblocks = 2, num_channels = 3, name="decoder"):
+class ImageVQEncoder(tf.keras.Model):
 	"""
-	Constructs Convolutional Decoder
-	Args:
-		- input_shape: input shape of decoder
-		- latent_dim = EMBEDDING_DIM: embedding size for auto-encoder
-		- num_resblocks = 2: number of residual convolution blocks
-		- num_channels = 3: number of output channels (RGB)
-		- name = "decoder": name of model
-	Returns:
-		- tensorflow.keras.Model
+	Image Vector Quantizer Encoder.
 	"""
-	decoder_inputs = tf.keras.Input(shape=input_shape)
 
-	x = tf.keras.layers.Conv2D(latent_dim, kernel_size = 4, strides = 1, padding = "same", use_bias = False)(decoder_inputs)
-
-	for i in range(num_resblocks):
-		x = ResBlock(latent_dim, name = f"{name}_resblock{i}")(x)
-
-	conv1 = tf.keras.layers.Conv2DTranspose(latent_dim, kernel_size = 4, strides = 2, padding = "same", use_bias = False)(x)
-	conv1 = tf.keras.layers.LeakyReLU()(conv1)
-	conv1 = tf.keras.layers.BatchNormalization()(conv1)
-
-	conv2 = tf.keras.layers.Conv2DTranspose(latent_dim, kernel_size=4, strides = 2, padding = "same", use_bias = False)(conv1)
-	conv2 = tf.keras.layers.LeakyReLU()(conv2)
-	conv2 = tf.keras.layers.BatchNormalization()(conv2)
-
-	decoder_outputs = tf.keras.layers.Conv2DTranspose(num_channels, kernel_size=4, padding = "same", use_bias = False)(conv2)
-
-	decoder_outputs = tf.keras.activations.tanh(decoder_outputs)
-
-	return tf.keras.Model(decoder_inputs, decoder_outputs, name=name)
-
-def get_image_vq_encoder(
-		latent_dim=VQVAE_EMBEDDING_DIM,
+	def __init__(self, latent_dim=VQVAE_EMBEDDING_DIM,
 		num_embeddings=VQVAE_NUM_EMBEDDINGS,
 		image_shape=VQVAE_INPUT_SHAPE[:2],
 		num_channels = VQVAE_INPUT_SHAPE[-1],
 		ema = True,
 		batchnorm = True,
 		name = "vq_vae"):
-	"""
-	Create an Image Vector-Quantized Encoder
-	"""
-	if ema:
-		vq_layer = VectorQuantizerEMA(
-			embedding_dim = latent_dim, 
-			num_embeddings = num_embeddings,
-			commitment_cost=VQVAE_COMMITMENT_COST,
-			decay=VQVAE_DECAY,
-			name="vector_quantizer")
-	else:
-		vq_layer = VectorQuantizer(
-			embedding_dim = latent_dim, 
-			num_embeddings = num_embeddings,
-			commitment_cost=VQVAE_COMMITMENT_COST,
-			name="vector_quantizer")
-	encoder = get_encoder(latent_dim = latent_dim, input_shape=image_shape + (num_channels,), batchnorm=batchnorm)
-	inputs = tf.keras.Input(shape=image_shape + (num_channels,))
-	encoder.build(image_shape + (num_channels,))
-	encoder_outputs = encoder(inputs)
-	quantized_latents = vq_layer(encoder_outputs)
-	vq_encoder = tf.keras.Model(inputs, quantized_latents, name=name)
-	vq_encoder.build(image_shape + (num_channels,))
-	print(vq_encoder.summary())
-	return vq_encoder, vq_layer
 
-def get_image_vqvae(
-		latent_dim=VQVAE_EMBEDDING_DIM,
-		num_embeddings=VQVAE_NUM_EMBEDDINGS,
-		image_shape=VQVAE_INPUT_SHAPE[:2],
-		num_channels = VQVAE_INPUT_SHAPE[-1],
-		ema = True,
-		batchnorm = True,
-		name = "vq_vae"):
-	"""
-	Constructs VQ-VAE for Images
-	Args:
-		- latent_dim = EMBEDDING_DIM: embedding size for auto-encoder
-		- num_embeddings = NUM_EMBEDDINGS: number of codes in the codebook
-		- image_shape = (IMAGE_HEIGHT, IMAGE_WIDTH): height + width of an image
-		- num_channels = 3: number of output channels (RGB)
-		- ema = True: use Vector Quantizer Exponential Moving Average or normal
-		- batchnorm = True: use Batch Normalization or not
-		- name = "vq_vae": name of model
-	Returns:
-		- tensorflow.keras.Model
-	"""
-	if ema:
-		vq_layer = VectorQuantizerEMA(
-			embedding_dim = latent_dim, 
-			num_embeddings = num_embeddings,
-			commitment_cost=VQVAE_COMMITMENT_COST,
-			decay=VQVAE_DECAY,
-			name="vector_quantizer")
-	else:
-		vq_layer = VectorQuantizer(
-			embedding_dim = latent_dim, 
-			num_embeddings = num_embeddings,
-			commitment_cost=VQVAE_COMMITMENT_COST,
-			name="vector_quantizer")
-	encoder = get_encoder(latent_dim = latent_dim, input_shape=image_shape + (num_channels,), batchnorm=batchnorm)
-	inputs = tf.keras.Input(shape=image_shape + (num_channels,))
-	encoder.build(image_shape + (num_channels,))
-	encoder_outputs = encoder(inputs)
-	decoder = get_decoder(encoder.output_shape[1:], latent_dim = latent_dim)
-	quantized_latents = vq_layer(encoder_outputs)
-	reconstructions = decoder(quantized_latents)
-	vq_vae = tf.keras.Model(inputs, reconstructions, name=name)
-	vq_vae.build(image_shape + (num_channels,))
-	return vq_vae
+		super().__init__(name = name)
+
+		if ema:
+			self.vq_layer = VectorQuantizerEMA(
+				embedding_dim = latent_dim, 
+				num_embeddings = num_embeddings,
+				commitment_cost=VQVAE_COMMITMENT_COST,
+				decay=VQVAE_DECAY,
+				name="vector_quantizer")
+		else:
+			self.vq_layer = VectorQuantizer(
+				embedding_dim = latent_dim, 
+				num_embeddings = num_embeddings,
+				commitment_cost=VQVAE_COMMITMENT_COST,
+				name="vector_quantizer")
+			
+		self.encoder = get_encoder(latent_dim = latent_dim, input_shape=image_shape + (num_channels,), batchnorm=batchnorm)
+
+	def get_vq_layer(self):
+		return self.vq_layer
+	
+	def call(self, inputs, step):
+		encoder_output = self.encoder(inputs)
+		quantized_latents, original_encoding_indices = self.vq_layer(encoder_output, step)
+		return quantized_latents, original_encoding_indices
