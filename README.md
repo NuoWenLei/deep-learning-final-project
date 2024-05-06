@@ -1,5 +1,9 @@
 # Dynamic Environment Generation in Classic Video Games Using Video Diffusion and Latent Action Models
 
+#### Model Architecture
+
+![Model Architecture](./architecture.jpg)
+
 #### Important Links:
 
 - [Project Drive](https://drive.google.com/drive/u/1/folders/10sVDeDwl1yXm8iJd95UBQhUD-DNItSTW)
