@@ -1,5 +1,11 @@
 # Dynamic Environment Generation in Classic Video Games Using Video Diffusion and Latent Action Models
 
+#### Contributors
+
+- Nuo Wen Lei (nlei)
+- Haiyang Wang (hwang330)
+- Jingbo Yang (jyang113)
+
 #### Model Architecture
 
 ![Model Architecture](./architecture.jpg)
