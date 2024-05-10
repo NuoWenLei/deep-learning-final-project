@@ -37,6 +37,6 @@ Additionally, we implement the core innovation of our project inspired by [VQ-VA
 
 #### Technology Used
 
-- TensorFlow package
+- TensorFlow package (same environment as class conda environment csci1470)
 - Keras / Keras-CV pretrained Image Encoder and Decoder
 - Vector Quantizer initially adapted from [Deepmind Sonnet](https://github.com/google-deepmind/sonnet/blob/v1/sonnet/python/modules/nets/vqvae.py) implementation
