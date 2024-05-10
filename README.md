@@ -12,6 +12,7 @@
 
 #### Important Links:
 
+- [Final Writeup](https://docs.google.com/document/d/1MPezfkYC5O9nI__ioGDvbBSsvoMgIEnb3Dj4yEf_GVE/edit?usp=sharing)
 - [Project Drive](https://drive.google.com/drive/u/1/folders/10sVDeDwl1yXm8iJd95UBQhUD-DNItSTW)
 - [Devpost Submission](https://devpost.com/software/dynamic-environment-generation-in-classic-video-games)
 - [Presentation Slides](https://docs.google.com/presentation/d/1hOJnl-PbjXrF3eY9vKQ5zDR99oZB2fGN-K3jKSVAEoA/edit#slide=id.p)
