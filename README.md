@@ -26,7 +26,7 @@
 
 #### Summary
 
-We use the pretrained VAE Image Auto-encoders from Keras-CV to preprocess the game frames to a decodable latent space.
+We use the pretrained VAE Image Auto-encoders from Keras-CV to preprocess the game frames to a decodable latent space in order to save computational resources.
 
 - [Image Encoder](https://github.com/keras-team/keras-cv/blob/master/keras_cv/src/models/stable_diffusion/image_encoder.py)
 - [Image Decoder](https://github.com/keras-team/keras-cv/blob/master/keras_cv/src/models/stable_diffusion/decoder.py)
@@ -37,6 +37,6 @@ Additionally, we implement the core innovation of our project inspired by [VQ-VA
 
 #### Technology Used
 
-- TensorFlow package (same environment as class conda environment csci1470)
+- TensorFlow package (same environment as conda environment `csci1470` for the Deep Learning class)
 - Keras / Keras-CV pretrained Image Encoder and Decoder
 - Vector Quantizer initially adapted from [Deepmind Sonnet](https://github.com/google-deepmind/sonnet/blob/v1/sonnet/python/modules/nets/vqvae.py) implementation
